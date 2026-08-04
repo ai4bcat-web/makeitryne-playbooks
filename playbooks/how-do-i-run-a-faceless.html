@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Run a Faceless Shorts Channel With AI | Make It Ryne</title>
+<meta name="description" content="The three-tool stack for a faceless Shorts channel: ChatGPT writes it, ElevenLabs voices it, n8n publishes it daily. No camera, no editing timeline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  h1, h2, h3 {
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  /* Hero */
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(32px, 7vw, 52px); margin-bottom: 20px; }
+  .hero p.promise { font-size: 19px; font-weight: 600; max-width: 560px; }
+  .hero p.promise em { font-style: normal; color: var(--emerald); }
+  /* Sections */
+  section { padding: 48px 0 8px; }
+  section h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 20px; }
+  section p { margin-bottom: 18px; }
+  section ul, section ol { margin: 0 0 18px 22px; }
+  section li { margin-bottom: 10px; }
+  /* What you get */
+  .get-card {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-bottom: 8px;
+  }
+  .get-card ul { list-style: none; margin-left: 0; }
+  .get-card li { padding-left: 30px; position: relative; }
+  .get-card li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 7px;
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    background: var(--emerald);
+  }
+  /* Steps */
+  .step { margin-top: 44px; }
+  .step-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    background: var(--emerald);
+    color: var(--cream);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step h3 { font-size: clamp(20px, 4.5vw, 26px); }
+  /* Code blocks */
+  .prompt {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 20px 0 24px;
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 14.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .prompt-tag {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+  /* Callout */
+  .callout {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18, 133, 92, 0.07);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 20px 0 24px;
+    font-size: 16px;
+  }
+  .callout strong { color: var(--emerald); }
+  /* Checklist */
+  .checklist {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-top: 8px;
+  }
+  .checklist ul { list-style: none; margin-left: 0; }
+  .checklist li { padding-left: 34px; position: relative; margin-bottom: 12px; font-weight: 600; }
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  /* CTA */
+  .cta {
+    margin-top: 64px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 14px; color: var(--cream); }
+  .cta p { margin-bottom: 26px; opacity: 0.85; }
+  .cta a.btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 999px;
+  }
+  .cta a.btn:hover { filter: brightness(1.1); }
+  footer {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 40px;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>Run a Faceless Shorts Channel With AI</h1>
+    <p class="promise">Three tools. ChatGPT writes it, ElevenLabs voices it, n8n publishes it. You post your first faceless Short today and have the <em>daily autopilot</em> running within a week.</p>
+  </header>
+
+  <section>
+    <h2>What you'll build</h2>
+    <div class="get-card">
+      <ul>
+        <li>A locked niche and a reusable script prompt that writes hook-first Shorts</li>
+        <li>A consistent AI narrator voice that is not you and never has a bad take</li>
+        <li>A no-timeline way to turn voiceover into finished vertical video</li>
+        <li>An n8n workflow that chains script, voice, render, and upload every morning</li>
+        <li>A clear picture of what monetization actually requires, no hype</li>
+      </ul>
+    </div>
+    <p>This is the system from the video, expanded so you can run it without me. The order matters: do steps 1 through 3 by hand first. You automate a process that works, you do not automate a guess.</p>
+  </section>
+
+  <section>
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">1</div>
+        <h3>Lock the niche and the script prompt</h3>
+      </div>
+      <p>Faceless channels die from randomness, not from lack of effort. Pick one narrow lane where every video answers the same kind of question: money facts people get wrong, psychology tricks, history in 45 seconds, AI tool breakdowns. One lane, one format, every single day.</p>
+      <p>Then build your master prompt once and reuse it forever. Open ChatGPT and save this as the start of every script session:</p>
+      <div class="prompt"><span class="prompt-tag">The Master Script Prompt</span>You write scripts for a faceless YouTube Shorts channel about [your niche, e.g. "money facts most people get wrong"].
+
+Write one 45-second script (about 110 to 130 words) on: [today's topic].
+
+Rules:
+- First sentence is the hook. It must create an open loop or challenge a common belief in under 12 words.
+- Short punchy sentences. Written for the ear, not the page.
+- One idea per video. Cut anything that does not serve it.
+- End with a one-line payoff, then a 5-word question that invites comments.
+- No intro, no "welcome back", no filler.
+
+Also give me: a title under 60 characters, and 3 hashtag options.</div>
+      <p>Read the output loud once. If you stumble anywhere, tell ChatGPT to simplify that line. If it states a fact or statistic, verify it before you publish. You own everything the channel says, not the model.</p>
+      <div class="callout"><strong>Batch move:</strong> ask ChatGPT for 30 topic ideas in your niche, ranked by how strongly people disagree about them. That list is a month of content decided in five minutes.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">2</div>
+        <h3>Give the channel a voice with ElevenLabs</h3>
+      </div>
+      <p>Sign up at elevenlabs.io, open Text to Speech, and audition voices from the library with one paragraph of your actual script, not their sample text. You want a voice that sounds like a narrator, not a robot reading a terms-of-service page.</p>
+      <ol>
+        <li>Test 4 or 5 voices with the same script paragraph and pick one. Then never change it. Voice consistency is what makes a faceless channel feel like a channel.</li>
+        <li>In voice settings, nudge stability down slightly if the read sounds flat. Lower stability adds expressiveness, higher stability sounds steadier. Small moves, then re-generate.</li>
+        <li>Paste the full script, generate, listen once at full attention, and download the MP3.</li>
+      </ol>
+      <p>One thing most guides skip: the free tier requires attribution for commercial use. If you are building a monetized channel, get on a paid plan, which includes a commercial license. It costs less than lunch and removes the licensing question entirely.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">3</div>
+        <h3>Turn audio into video without an editing timeline</h3>
+      </div>
+      <p>"No editing" does not mean no visuals. It means the visuals come from a template, so you assemble instead of edit. Two ways to do it:</p>
+      <ul>
+        <li><strong>Manual, day one:</strong> open CapCut, drop your MP3 in, add background footage from the built-in stock library or free clips from Pexels, and turn on auto captions. Vertical 9:16, captions large and center. That is a finished Short in about ten minutes, zero timeline surgery.</li>
+        <li><strong>Automated, week two:</strong> use a template-based render API like Creatomate, JSON2Video, or Shotstack. You design one branded template once: caption style, background slot, progress bar. After that, every video is an API call that takes your audio and text and returns a rendered MP4. This is the piece that makes full automation possible.</li>
+      </ul>
+      <p>Make the first 5 to 10 videos manually in CapCut. You will learn what caption timing and pacing your niche needs, and that knowledge goes straight into your template.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">4</div>
+        <h3>Chain it all with n8n</h3>
+      </div>
+      <p>n8n is the glue. It is a workflow automation tool you can run free on your own machine (self-hosted) or on their cloud plan. Once your manual process works, you rebuild it as one workflow:</p>
+      <div class="prompt"><span class="prompt-tag">The Daily Workflow, Node by Node</span>1. Schedule Trigger  →  fires every morning at 6:00
+2. Google Sheets     →  pulls today's topic from your topic list
+3. OpenAI node       →  runs your Master Script Prompt on that topic
+4. HTTP Request      →  POST script to the ElevenLabs API, get audio back
+5. HTTP Request      →  send audio + captions to your render template
+                        (Creatomate / JSON2Video), get the MP4
+6. YouTube node      →  uploads the Short with the title and hashtags
+                        ChatGPT wrote in step 3</div>
+      <p>Build it one node at a time and test each node before adding the next. You will need API keys from OpenAI, ElevenLabs, and your render tool, plus a connected Google account for Sheets and YouTube. n8n has native nodes for OpenAI, Google Sheets, and YouTube; ElevenLabs and the renderer run through the standard HTTP Request node with your key in the header.</p>
+      <div class="callout"><strong>Do not skip this:</strong> for the first two weeks, end the workflow at the render step and review every video before you hit upload yourself. Automate publishing only after ten straight videos needed zero fixes. An autopilot that posts a wrong fact at 6am is worse than no autopilot.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">5</div>
+        <h3>Publish daily and know the money math</h3>
+      </div>
+      <p>The system means nothing without reps. Post one Short per day, same lane, same voice, same format. Consistency is the entire growth strategy for faceless channels.</p>
+      <p>On monetization, here is the honest version. To earn ad revenue through the YouTube Partner Program you need 1,000 subscribers plus either 10 million public Shorts views in 90 days or 4,000 public watch hours in 12 months. Shorts ad revenue pays out at a low RPM, so views alone rarely make it a business. The channels that win treat Shorts revenue as the bonus and make real money from affiliate links in descriptions, their own digital products, or driving traffic to long-form videos with higher RPMs.</p>
+      <p>While you grow toward the threshold, reply to every comment in the first hour after posting. The algorithm reads early engagement, and it costs you ten minutes a day.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The launch checklist</h2>
+    <div class="checklist">
+      <ul>
+        <li>Picked one narrow niche and wrote it down</li>
+        <li>Saved my Master Script Prompt and generated 30 ranked topics</li>
+        <li>Auditioned voices in ElevenLabs and locked one forever</li>
+        <li>Assembled my first Short in CapCut with auto captions</li>
+        <li>Published it and made the next four the same way</li>
+        <li>Built one branded render template for automation</li>
+        <li>Wired the n8n chain: trigger, sheet, script, voice, render</li>
+        <li>Reviewed videos by hand for two weeks before automating upload</li>
+        <li>Set up an affiliate or product link before chasing ad revenue</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Want the full free 6-pack of guides?</h2>
+    <p>This playbook is one of six. Grab the rest and build the whole AI-powered content and product machine.</p>
+    <a class="btn" href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=how-do-i-run-a-faceless">Get the full free 6-pack of guides</a>
+  </div>
+
+  <footer>Make It Ryne · Build it once, let it run.</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Headshot Playbook | Make It Ryne</title>
+<meta name="description" content="Turn one selfie into a professional headshot with 5 AI tools. Exact prompts, exact prices, done in under an hour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; line-height: 1.15; }
+
+  /* Hero */
+  .hero { padding: 64px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--emerald);
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  .hero h1 { font-size: clamp(32px, 7vw, 52px); margin-bottom: 16px; }
+  .hero h1 span { color: var(--emerald); }
+  .promise { font-size: 19px; font-weight: 500; max-width: 560px; }
+
+  /* Sections */
+  section { padding: 44px 0; }
+  section + section { border-top: 1px solid rgba(26,22,19,0.14); }
+  h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 18px; }
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; }
+
+  /* What you'll get */
+  .get-list { list-style: none; margin-top: 8px; }
+  .get-list li {
+    padding: 12px 0 12px 34px;
+    position: relative;
+    border-bottom: 1px dashed rgba(26,22,19,0.18);
+    font-weight: 500;
+  }
+  .get-list li:last-child { border-bottom: none; }
+  .get-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 19px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--emerald);
+    -webkit-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg>') center/contain no-repeat;
+    mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg>') center/contain no-repeat;
+  }
+
+  /* Steps */
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+  }
+  .step-meta {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+  pre {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--emerald);
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 18px 0;
+  }
+  .tip {
+    background: rgba(18,133,92,0.08);
+    border-left: 4px solid var(--emerald);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    margin: 18px 0;
+  }
+  .tip strong { color: var(--emerald); }
+
+  /* Checklist */
+  .checklist { list-style: none; counter-reset: check; }
+  .checklist li {
+    padding: 14px 0 14px 40px;
+    position: relative;
+    border-bottom: 1px solid rgba(26,22,19,0.14);
+    font-weight: 500;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 17px;
+    width: 22px;
+    height: 22px;
+    border: 2.5px solid var(--emerald);
+    border-radius: 6px;
+  }
+
+  /* CTA */
+  .cta-card {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 16px;
+    padding: 40px 28px;
+    text-align: center;
+    margin: 12px 0 24px;
+  }
+  .cta-card h2 { color: var(--cream); }
+  .cta-card p { color: rgba(245,240,231,0.85); max-width: 480px; margin-left: auto; margin-right: auto; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: transform 0.15s ease;
+  }
+  .cta-btn:hover { transform: translateY(-2px); }
+
+  footer {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(26,22,19,0.55);
+    padding: 24px 0 48px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>The AI Headshot Playbook: <span>One Selfie In, Studio Shot Out</span></h1>
+    <p class="promise">Five tools that turn a phone selfie into a professional headshot, with the exact prompt, exact prices, and a workflow you can run before lunch.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>What you'll get</h2>
+    <p>A photographer charges around $300 and books you two weeks out. This playbook gets you a LinkedIn-ready headshot today, for somewhere between $0 and $35. By the end you'll have:</p>
+    <ul class="get-list">
+      <li>A free headshot from Gemini using a copy-paste prompt</li>
+      <li>Selfie rules that make every tool's output dramatically better</li>
+      <li>The right paid tool for your situation, with real prices</li>
+      <li>A 5-point quality check so nobody clocks that it's AI</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="step-num">1</div>
+    <div class="step-meta">Step 1 · 5 minutes · Free</div>
+    <h2>Shoot selfies the tools can actually work with</h2>
+    <p>Every AI headshot tool is garbage-in, garbage-out. Before you touch any of them, take 8 to 15 fresh selfies. Here are the rules:</p>
+    <p><strong>Face a window.</strong> Soft, even daylight on your face. No overhead lights, no harsh sun.</p>
+    <p><strong>Vary the angle slightly.</strong> Straight on, slight left, slight right. Chest up in frame.</p>
+    <p><strong>No sunglasses, no hats, no filters.</strong> The model needs your real face to keep your real face.</p>
+    <p><strong>Plain backgrounds win.</strong> A blank wall beats a cluttered room. The tool has less to fight.</p>
+    <div class="tip"><strong>Reality check:</strong> the shot behind my LinkedIn photo was taken in my truck at a red light. You don't need perfect. You need decent light and a clear face.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="step-num">2</div>
+    <div class="step-meta">Step 2 · 2 minutes · Free</div>
+    <h2>Run the free play: Gemini</h2>
+    <p>Start here because it costs nothing and takes two minutes. Go to <strong>gemini.google.com</strong>, upload your best single selfie, and paste this prompt:</p>
+    <pre>Turn this photo into a professional studio headshot. 85mm lens look, soft diffused lighting, neutral gray backdrop, navy blazer over a white shirt. Keep my exact face, skin tone, and hair. Do not change my facial features.</pre>
+    <p>The free tier handles image-to-image generation. If the first result looks off, regenerate or tweak one variable at a time: swap "navy blazer" for your actual wardrobe, or "gray backdrop" for "warm off-white backdrop."</p>
+    <div class="tip"><strong>The line that matters:</strong> "Keep my exact face." Without it, models drift toward a generic attractive stranger. With it, you get you, cleaned up.</div>
+    <p>If the Gemini result is good enough, you're done and you paid nothing. If you want a full set of options, keep going.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="step-num">3</div>
+    <div class="step-meta">Step 3 · Under 1 hour · $35</div>
+    <h2>The paid workhorse: BetterPic</h2>
+    <p>This is the one I actually paid for. Upload a handful of selfies, pick your styles, and BetterPic sends back around 20 studio-quality headshots in under an hour for $35.</p>
+    <p>The workflow: create an account at <strong>betterpic.io</strong>, upload the selfies from Step 1, choose 2 or 3 outfit and backdrop combos, and go do something else. When the set lands, shortlist your top three and check them against the quality test in Step 6.</p>
+    <p>Use BetterPic when you want volume and consistency: one headshot for LinkedIn, one for your website, one for speaker decks, all matching.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="step-num">4</div>
+    <div class="step-meta">Step 4 · ~45 minutes · Paid</div>
+    <h2>The control freak option: Aragon</h2>
+    <p>Aragon (<strong>aragon.ai</strong>) is for people who know exactly what they want. You pick the outfit, the backdrop, and even the lighting setup before it generates. The full set comes back in about 45 minutes.</p>
+    <p>Pick Aragon over BetterPic if you're matching an existing brand look, like your team's headshots all on the same backdrop, or your personal brand runs on a specific color palette. Dial in the settings once, and every shot in the set obeys them.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="step-num">5</div>
+    <div class="step-meta">Step 5 · Try before you buy · $0 to start</div>
+    <h2>The skeptic's pick: HeadshotPro</h2>
+    <p>Don't believe AI headshots can pass for real? HeadshotPro (<strong>headshotpro.com</strong>) hands you one full-quality finished shot before you spend a dime. Not a watermarked blur. A real deliverable.</p>
+    <p>Upload your selfies, wait for the sample, and judge it with your own eyes. If it holds up, pay for the full set. If it doesn't, you walk away having spent nothing. This is the lowest-risk entry point of the five.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="step-num">6</div>
+    <div class="step-meta">Step 6 · Budget play + quality check</div>
+    <h2>The $8 option, then pass the eye test</h2>
+    <p>Rounding out the five: <strong>Generation Headshots</strong>. Eight bucks, 30 photos. That's the whole invoice. If budget is the constraint, start here instead of Step 3. And if you just want fast and fine, the <strong>Remini</strong> phone app enhances a selfie in about ten seconds as a bonus sixth option.</p>
+    <p>Whichever tool you use, run your favorite shot through this 5-point check before it goes anywhere public:</p>
+    <ul class="get-list">
+      <li>Hands and ears look normal (AI's two favorite places to glitch)</li>
+      <li>Teeth match your real teeth</li>
+      <li>Clothing seams and collar lines are clean, not melted</li>
+      <li>Background blur looks optical, not smeared</li>
+      <li>Someone who knows you says "great photo," not "what is that"</li>
+    </ul>
+    <p>Pass all five and ship it. Update LinkedIn, your email avatar, your site bio, and your speaker one-sheet in the same sitting so everything matches.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The checklist</h2>
+    <ul class="checklist">
+      <li>Take 8 to 15 window-lit selfies, no hats, no filters</li>
+      <li>Run one through Gemini with the copy-paste prompt (free)</li>
+      <li>Want a full set? BetterPic, $35, back in under an hour</li>
+      <li>Need brand control? Aragon, pick lighting and backdrop</li>
+      <li>Skeptical? Get HeadshotPro's free full-quality sample first</li>
+      <li>On a budget? Generation Headshots, $8 for 30 photos</li>
+      <li>Run the 5-point eye test before publishing</li>
+      <li>Update LinkedIn, email, and website in one sitting</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-card">
+      <h2>Want the other five guides?</h2>
+      <p>This playbook is one of six in the AI Automation Starter Stack. Grab the full free 6-pack and put AI to work on the rest of your business.</p>
+      <a class="cta-btn" href="https://makeitryne.ai/resources?utm_source=playbook&amp;utm_medium=organic&amp;utm_campaign=replica-top-5-ai-tools-that-turn">Get the Full Free 6-Pack of Guides</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Make It Ryne · Prices and features verified July 2026 and may change.</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Weekend Side Hustle: Launch a Real Side Hustle With AI in 48 Hours | Make It Ryne</title>
+<meta name="description" content="Pick an offer Friday, build it Saturday, land your first customer Sunday. The exact three-prompt system for launching a real side hustle with ChatGPT in one weekend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; font-weight: 400; line-height: 1.15; }
+  h1 { font-size: clamp(2rem, 7vw, 3.1rem); letter-spacing: -0.01em; }
+  h2 { font-size: clamp(1.4rem, 4.5vw, 1.9rem); margin-bottom: 16px; }
+  h3 { font-size: 1.05rem; margin-bottom: 10px; }
+  p { margin-bottom: 16px; }
+  strong { font-weight: 700; }
+
+  /* Hero */
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: 20px;
+  }
+  .hero h1 { margin-bottom: 20px; }
+  .hero .promise { font-size: 1.15rem; font-weight: 500; max-width: 560px; }
+
+  section { padding: 48px 0; }
+  section + section { border-top: 1px solid rgba(26, 22, 19, 0.14); }
+
+  /* What you'll get */
+  .get-list { list-style: none; margin-top: 8px; }
+  .get-list li { padding: 12px 0 12px 34px; position: relative; border-bottom: 1px solid rgba(26, 22, 19, 0.1); }
+  .get-list li:last-child { border-bottom: none; }
+  .get-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 21px;
+    width: 12px;
+    height: 12px;
+    background: var(--emerald);
+  }
+
+  /* Steps */
+  .step-label {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+  }
+
+  /* Code blocks */
+  .prompt-block {
+    background: var(--ink);
+    color: var(--cream);
+    margin: 20px 0 24px;
+    border-left: 5px solid var(--emerald);
+  }
+  .prompt-block .prompt-head {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    padding: 12px 18px 0;
+  }
+  .prompt-block pre {
+    padding: 12px 18px 18px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .tip {
+    border: 2px solid var(--ink);
+    padding: 16px 18px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+  }
+  .tip .tip-tag {
+    font-weight: 700;
+    color: var(--emerald);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* Checklist */
+  .checklist { list-style: none; margin-top: 8px; }
+  .checklist li { padding: 10px 0 10px 36px; position: relative; }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid var(--emerald);
+  }
+  .checklist .day-head {
+    font-family: 'Archivo Black', sans-serif;
+    padding-left: 0;
+    margin-top: 18px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .checklist .day-head::before { display: none; }
+
+  /* CTA */
+  .cta-card {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 44px 28px;
+    text-align: center;
+    margin: 16px 0 72px;
+  }
+  .cta-card h2 { color: var(--cream); margin-bottom: 12px; }
+  .cta-card p { max-width: 480px; margin: 0 auto 24px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 16px 32px;
+    transition: transform 0.15s ease;
+  }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .cta-sub { font-size: 0.85rem; opacity: 0.75; margin-top: 16px; }
+
+  footer { text-align: center; font-size: 0.8rem; padding: 0 0 40px; opacity: 0.6; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>The Weekend Side Hustle</h1>
+    <p class="promise">Pick a sellable offer Friday night. Build it Saturday. Land your first paying customer Sunday. Three prompts, one weekend, zero excuses.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>What you'll build</h2>
+    <p>By Sunday night you will have a real service business: one clear offer at a flat price, a simple page that explains it, and ten personalized pitches in front of real business owners. Here is everything in this playbook:</p>
+    <ul class="get-list">
+      <li>The <strong>Pick Prompt</strong> that turns your skills and free hours into one offer you can sell in 48 hours</li>
+      <li>The <strong>Build Prompt</strong> that writes your offer page and a 30-minute setup checklist</li>
+      <li>The <strong>Sell Prompt</strong> that drafts ten outreach messages that don't read like spam</li>
+      <li>A way to get paid without building anything technical</li>
+      <li>The full weekend checklist so you never wonder what to do next</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="step-label">Step 1 · Friday Night</span>
+    <h2>Pick one offer you can actually sell</h2>
+    <p>The reason most side hustles die is not effort. It's choosing something that takes three months to build. Friday night your only job is to pick an offer that a stranger could pay for by Sunday. That means: a service, a flat price, and a deliverable you can finish in a couple of hours.</p>
+    <p>Open ChatGPT and paste this. Fill in the brackets honestly. Boring skills are fine. Boring skills sell.</p>
+    <div class="prompt-block">
+      <div class="prompt-head">Prompt 1: The Pick</div>
+      <pre>I want to launch a paid side hustle this weekend. Today is Friday.
+
+My skills: [list 3 to 5 things you can do, even basic ones like writing, spreadsheets, organizing, talking to people]
+My free hours this weekend: [number]
+Budget for tools: $0
+
+Give me 5 service offers I could sell to a local business by Sunday. For each one:
+- Who exactly buys it (be specific: restaurants, dentists, gyms)
+- The painful problem it fixes
+- A flat price between $100 and $300
+- Why I could deliver it in under 2 hours
+
+Then pick the single best one for me and explain why. Optimize for speed to first customer, not maximum income.</pre>
+    </div>
+    <p>In the video, mine came back as Google Business Profile cleanups for restaurants at $150 flat: fixing hours, adding photos, responding to reviews, filling in missing info. That works because messy listings are visible from the outside, the fix is fast, and the owner feels the pain every day.</p>
+    <p>Pick one offer from the five. Not two. One. Then close the laptop. Friday is done in twenty minutes.</p>
+    <div class="tip">
+      <span class="tip-tag">Sanity check</span>
+      If you cannot explain your offer in one sentence to a friend, it's too complicated. "I fix your Google listing so more people find you, $150 flat" passes. "I do AI-powered digital transformation consulting" does not.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="step-label">Step 2 · Saturday Morning</span>
+    <h2>Build the offer, not a business</h2>
+    <p>You do not need an LLC, a logo, or a website with seven pages. You need two things: a page that explains the offer, and a repeatable checklist for delivering it. One prompt handles both.</p>
+    <div class="prompt-block">
+      <div class="prompt-head">Prompt 2: The Build</div>
+      <pre>My weekend side hustle offer: [paste the one-sentence offer from Prompt 1, including price]
+
+Do two things:
+
+1. Write a short offer page I can put on a free Carrd page or a Google Doc. Structure: headline naming the problem, 3 bullet points on what I do, the flat price, what they get and when, and how to book me (reply to my message or email me). Plain language, no hype, under 150 words.
+
+2. Write my delivery checklist: every step to complete this service for one customer, in order, with a time estimate per step. Assume I'm doing this for the first time. Flag any step where I need the customer's access or approval.</pre>
+    </div>
+    <p>Put the offer page wherever is fastest. A free Carrd site takes ten minutes. A clean Google Doc set to "anyone with the link can view" takes two. Nobody has ever refused to pay $150 because the proposal was a Google Doc.</p>
+    <h3>Set up payment now, not Sunday</h3>
+    <p>Create a Stripe account and make a Payment Link: log in, go to Payment Links, click New, name it after your service, set your flat price, copy the URL. No code, no website needed. PayPal and Square do the same thing. When someone says yes, you send one link and you're done. Do this Saturday so nothing slows you down when a customer says "start today."</p>
+    <p>Total build time: about two hours. If you're still tweaking fonts at hour three, stop. The page is not the product. The result is the product.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="step-label">Step 3 · Sunday</span>
+    <h2>Sell it to people who already have the problem</h2>
+    <p>Sunday is outreach day, and the targeting does the heavy lifting. You are not cold-pitching strangers at random. You are contacting businesses whose problem is publicly visible. For the Google listing example: open Google Maps, search restaurants in your area, and note the ones with no photos, wrong or missing hours, and reviews sitting unanswered for months. Ten minutes of scrolling gives you a list of ten. Whatever your offer is, find the version of "visibly broken" that matches it.</p>
+    <p>Then have ChatGPT draft the messages. Feed it real details so every message is specific.</p>
+    <div class="prompt-block">
+      <div class="prompt-head">Prompt 3: The Sell</div>
+      <pre>My offer: [one-sentence offer + price]
+
+Here are 10 local businesses with this exact problem. For each, I've noted the owner or business name and what's visibly wrong:
+
+1. [Business name] - [specific problem you observed, e.g. "no photos on Google listing, hours say closed Mondays but they're open"]
+2. [Business name] - [specific problem]
+... [continue for all 10]
+
+Write a short outreach message for each one (under 80 words). Rules:
+- Open with the specific problem I observed, not a greeting or a pitch
+- One sentence on the fix and the flat price
+- End with a low-pressure question, like "Want me to send over exactly what I'd fix?"
+- No buzzwords, no "I hope this finds you well," nothing that smells like a mass email</pre>
+    </div>
+    <p>Send them however the business actually communicates: Instagram DM, Facebook page message, or the contact email on their site. Then follow the two rules that separate people who get paid from people who get ignored:</p>
+    <p><strong>Rule 1: Reply fast.</strong> If an owner writes back, answer within the hour. Speed reads as competence. In the video, one owner replied within an hour and said start today. The payment hit the same night.</p>
+    <p><strong>Rule 2: Deliver same day if you can.</strong> Your delivery checklist from Saturday exists so that "yes" turns into "done" while the enthusiasm is still warm. Send a before-and-after when you finish. That message becomes your proof for customer number two.</p>
+    <div class="tip">
+      <span class="tip-tag">If nobody replies Sunday</span>
+      Ten messages is a start, not a verdict. Monday, send ten more to a fresh list. Most local owners check messages at the start of the work week anyway. The system still works, the clock just runs a day longer.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The weekend checklist</h2>
+    <ul class="checklist">
+      <li class="day-head">Friday (20 minutes)</li>
+      <li>Run Prompt 1 with your real skills and hours</li>
+      <li>Pick one offer with a flat price</li>
+      <li>Say it out loud in one sentence</li>
+      <li class="day-head">Saturday (2 hours)</li>
+      <li>Run Prompt 2 to get your offer page and delivery checklist</li>
+      <li>Publish the page on Carrd or a shareable Google Doc</li>
+      <li>Create a Stripe, PayPal, or Square payment link at your flat price</li>
+      <li class="day-head">Sunday (2 hours)</li>
+      <li>Build a list of 10 businesses with the problem visibly showing</li>
+      <li>Run Prompt 3 with real names and real observed problems</li>
+      <li>Send all 10 messages before dinner</li>
+      <li>Reply to any response within the hour</li>
+      <li>Deliver, get paid, screenshot the before-and-after</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-card">
+      <h2>Want the other five playbooks?</h2>
+      <p>This is one guide from the free Make It Ryne 6-pack: step-by-step systems for building real income with AI, written to be executed, not admired.</p>
+      <a class="cta-btn" href="https://makeitryne.ai/resources?utm_source=playbook&amp;utm_medium=organic&amp;utm_campaign=how-do-i-launch-a-real">Get the full free 6-pack of guides</a>
+      <p class="cta-sub">No spam. Just playbooks that ship.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Make It Ryne · The Weekend Side Hustle playbook</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Night Shift Lead Machine | A Make It Ryne Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; font-weight: 400; line-height: 1.15; }
+
+  /* Hero */
+  .hero { padding: 64px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(34px, 7vw, 52px); margin-bottom: 18px; }
+  .hero .promise { font-size: 19px; font-weight: 600; max-width: 560px; }
+  .hero .promise em { font-style: normal; color: var(--emerald); }
+
+  /* Sections */
+  section { padding: 44px 0 8px; }
+  section h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 18px; }
+  p { margin-bottom: 16px; }
+  ul { margin: 0 0 16px 22px; }
+  li { margin-bottom: 8px; }
+
+  /* Step headers */
+  .step { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(26,22,19,0.15); }
+  .step:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    background: var(--emerald);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .step h3 { font-size: 21px; margin-bottom: 12px; }
+
+  /* Code blocks */
+  .code {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 18px 0 20px;
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 14.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code .label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: 10px;
+  }
+
+  /* Callout */
+  .callout {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18,133,92,0.07);
+    padding: 16px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+    font-size: 15.5px;
+  }
+  .callout strong { color: var(--emerald); }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    margin: 20px 0 12px;
+    padding: 0;
+  }
+  .checklist li {
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 2px;
+    width: 22px; height: 22px;
+    border: 2px solid var(--emerald);
+    border-radius: 6px;
+  }
+  .checklist li::after {
+    content: "✓";
+    position: absolute;
+    left: 5px; top: 1px;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+    margin: 56px 0 72px;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 12px; color: var(--cream); }
+  .cta p { color: rgba(245,240,231,0.8); max-width: 460px; margin: 0 auto 24px; }
+  .cta a {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px 32px;
+    border-radius: 999px;
+    transition: transform 0.15s ease;
+  }
+  .cta a:hover { transform: translateY(-2px); }
+
+  footer { text-align: center; padding-bottom: 48px; font-size: 13px; color: rgba(26,22,19,0.55); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>The Night Shift Lead Machine</h1>
+    <p class="promise">Give Claude Code one prompt at midnight and wake up to a <em>verified lead list</em> your competitors would pay a vendor thousands for. Setup time: about 20 minutes. Then you go to bed.</p>
+  </header>
+
+  <section>
+    <h2>What you'll build</h2>
+    <p>By the end of this playbook you'll have Claude Code running as an autonomous overnight scraper. It works city by city through Google Maps, pulls every business in your niche, visits their websites, grabs owner names and emails, runs a first-pass verification, and saves everything to a clean CSV. It plans its own searches, retries when a site blocks it, and keeps grinding until the list is done.</p>
+    <p>This is the exact setup from the video. My run cost about forty bucks in API credits. The last list I bought from a vendor cost four grand and half the contacts were stale. Your cost will depend on how big a list you ask for, but the math is not close.</p>
+    <div class="callout"><strong>What you need:</strong> a computer that can stay on overnight, Node.js 18 or newer, and either a Claude Pro/Max subscription or Anthropic API credits. For a long unattended run, API credits are the safer bet because subscription usage limits can pause the session mid-run.</div>
+  </section>
+
+  <section>
+    <div class="step">
+      <span class="step-num">1</span>
+      <h3>Install Claude Code</h3>
+      <p>Claude Code is Anthropic's terminal agent. It lives in your command line and can run commands, write files, and fix its own errors. Open Terminal (Mac) or PowerShell (Windows) and run:</p>
+      <div class="code"><span class="label">Terminal</span>npm install -g @anthropic-ai/claude-code</div>
+      <p>Then start it once to sign in:</p>
+      <div class="code"><span class="label">Terminal</span>claude</div>
+      <p>It will walk you through logging in with your Claude account or an Anthropic Console API key. Sign in, then type <strong>/exit</strong>. You're installed.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span>
+      <h3>Build the night shift workspace</h3>
+      <p>Never run an unattended agent loose in your home folder. Give it a dedicated sandbox so everything it touches lives in one place:</p>
+      <div class="code"><span class="label">Terminal</span>mkdir night-shift
+cd night-shift</div>
+      <p>Now drop in a rules file. Claude Code automatically reads a file called CLAUDE.md in the working folder and treats it as standing orders. This is what keeps a 6-hour run from going sideways:</p>
+      <div class="code"><span class="label">Save as CLAUDE.md inside night-shift</span>Rules for this project:
+- Only scrape publicly available business info. Skip any site that blocks bots in robots.txt.
+- Throttle requests. A few per second max. Never hammer one site.
+- Save progress to leads.csv after EVERY city, not at the end.
+- If a site fails, log it and move on. Never stall the whole run on one error.
+- Columns: business, city, website, owner_name, email, email_status, why_they_need_us.</div>
+      <p>That last column matters. You're not just collecting emails, you're making the agent rank who actually needs you. That's what turns a scrape into a sales list.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span>
+      <h3>Paste the midnight prompt</h3>
+      <p>Start Claude Code from inside the night-shift folder, then paste this. It's the prompt from the video with one blank for you to fill:</p>
+      <div class="code"><span class="label">The prompt</span>Scrape Google Maps for every [YOUR NICHE] company in the 50 biggest US cities. For each one, visit their website, find the owner's name and email address, check that the email's domain accepts mail, and score how badly they need [YOUR OFFER] based on what you see on their site. Save everything to leads.csv as you go, one city at a time. You can install any free open source tools you need, like gosom/google-maps-scraper. Don't stop until all 50 cities are done.</div>
+      <p>Swap in your niche: roofing, freight shippers, med spas, HVAC, whatever you sell to. Swap in your offer so the scoring column means something. In the video it was shippers who need a freight broker. Same prompt, different blank.</p>
+      <p>Claude will plan the searches itself, pick or install a scraper, and start working. Watch the first city complete before you walk away. If the CSV looks right after city one, it'll look right after city fifty.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">4</span>
+      <h3>Set it free and go to bed</h3>
+      <p>By default Claude Code asks permission before running commands, which kills an overnight run because it'll sit there waiting for you to hit yes. Two fixes. The quick one: press <strong>Shift+Tab</strong> inside the session to cycle into auto-accept mode. The full one: start the session with permissions off entirely:</p>
+      <div class="code"><span class="label">Terminal (from inside night-shift)</span>claude --dangerously-skip-permissions</div>
+      <div class="callout"><strong>Straight talk:</strong> that flag means Claude runs commands without asking. That's exactly why we built the sandbox folder and the rules file in Step 2. Use it there, not in folders with anything you care about.</div>
+      <p>Last thing before lights out: stop your computer from sleeping. On Mac, open a second terminal and run <strong>caffeinate -dis</strong> and leave it running. On Windows, set Power &amp; Sleep to Never for the night. Laptop plugged in, lid open. Now actually go to bed. Checking on it defeats the entire point.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">5</span>
+      <h3>The morning quality pass</h3>
+      <p>You'll wake up to a fat CSV. Do not import it into anything yet. Open the same Claude Code session (or a fresh one in the folder) and run the cleanup:</p>
+      <div class="code"><span class="label">The morning prompt</span>Open leads.csv. Remove duplicate businesses and duplicate emails. Drop rows with no email. Sort by the need score, best prospects first. Save as leads-clean.csv and give me the final counts: total leads, leads with emails, and the top 20 hottest prospects.</div>
+      <p>Then spot-check 20 random rows by hand. Click the websites, sanity-check the names. The overnight verification only confirms the domain accepts mail, which catches dead domains but not dead inboxes. Before you send a single cold email, run the clean list through a dedicated verifier like NeverBounce, ZeroBounce, or MillionVerifier. It's cheap, and a high bounce rate will burn your sending domain faster than anything else you can do wrong.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">6</span>
+      <h3>Don't torch the list</h3>
+      <p>Everybody's using AI to write the emails. The real money's in who finds the list, and now that's you. So don't blow it in one day:</p>
+      <ul>
+        <li>Send from a separate domain, not your main one, and warm it up before real volume.</li>
+        <li>Start small. Low daily sends per inbox, scale as replies come in.</li>
+        <li>Use the scraped data. You have their city, their website, and a reason they need you sitting in that last column. That's your first line, written for you.</li>
+        <li>Play it straight: real from-name, working unsubscribe, honest subject lines. It's the law and it also just converts better.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>The checklist</h2>
+    <ul class="checklist">
+      <li>Claude Code installed and signed in</li>
+      <li>night-shift folder created with CLAUDE.md rules</li>
+      <li>Midnight prompt customized with your niche and offer</li>
+      <li>First city verified before walking away</li>
+      <li>Auto-accept on, computer set to stay awake</li>
+      <li>Morning pass: dedupe, sort, spot-check 20 rows</li>
+      <li>Full list through a real email verifier before sending</li>
+      <li>Separate warmed domain, low volume, honest emails</li>
+    </ul>
+  </section>
+
+  <div class="cta">
+    <h2>This is one of six.</h2>
+    <p>The Night Shift Lead Machine is part of the free AI Automation Starter Stack. Grab the other five playbooks and build the whole system.</p>
+    <a href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=replica-pov-you-let-claude-scrape-overnight">Get the full free 6-pack of guides</a>
+  </div>
+
+  <footer>© Make It Ryne. Build the machine, then go to bed.</footer>
+
+</div>
+
+</body>
+</html>

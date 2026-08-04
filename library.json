@@ -1,5 +1,104 @@
 [
   {
+    "slug": "what-are-the-exact-ai-prompts",
+    "title": "The Exact AI Prompts That Take You From Idea to First Paying Customer",
+    "blurb": "What are the exact AI prompts that take you from side hustle idea to first paying customer, in the right order?",
+    "keyword": "PROMPTS",
+    "magnet": "50 AI Prompts to Launch Your Side Hustle",
+    "url": "/playbooks/what-are-the-exact-ai-prompts.html",
+    "createdAt": "2026-08-04T14:48:17.546Z"
+  },
+  {
+    "slug": "story-this-9-ai-ad-outlived-a",
+    "title": "The Ad That Refused to Die",
+    "blurb": "How did a $9 AI ad outlast $4,200 of agency creative by 11 days?",
+    "keyword": "STACK",
+    "magnet": "AI Automation Starter Stack",
+    "url": "/playbooks/story-this-9-ai-ad-outlived-a.html",
+    "createdAt": "2026-08-04T14:46:12.134Z"
+  },
+  {
+    "slug": "replica-top-5-ai-tools-that-turn",
+    "title": "The AI Headshot Playbook",
+    "blurb": "What are the top 5 AI tools that turn a single selfie into a professional headshot?",
+    "keyword": "STACK",
+    "magnet": "AI Automation Starter Stack",
+    "url": "/playbooks/replica-top-5-ai-tools-that-turn.html",
+    "createdAt": "2026-08-04T14:44:29.484Z"
+  },
+  {
+    "slug": "replica-still-using-chatgpt-without-custom-instructions",
+    "title": "The ChatGPT Custom Instructions Playbook",
+    "blurb": "Still using ChatGPT without Custom Instructions?",
+    "keyword": "STACK",
+    "magnet": "AI Automation Starter Stack",
+    "url": "/playbooks/replica-still-using-chatgpt-without-custom-instructions.html",
+    "createdAt": "2026-08-04T14:43:14.985Z"
+  },
+  {
+    "slug": "replica-pov-you-let-claude-scrape-overnight",
+    "title": "The Night Shift Lead Machine",
+    "blurb": "What happens when you let Claude Code scrape leads all night while you sleep?",
+    "keyword": "STACK",
+    "magnet": "AI Automation Starter Stack",
+    "url": "/playbooks/replica-pov-you-let-claude-scrape-overnight.html",
+    "createdAt": "2026-08-04T14:41:57.301Z"
+  },
+  {
+    "slug": "replica-my-ai-agents-run-businesses-while",
+    "title": "The Overnight Ops Manager",
+    "blurb": "Can you build a ChatGPT agent that works your business while you sleep?",
+    "keyword": "STACK",
+    "magnet": "AI Automation Starter Stack",
+    "url": "/playbooks/replica-my-ai-agents-run-businesses-while.html",
+    "createdAt": "2026-08-04T14:39:39.826Z"
+  },
+  {
+    "slug": "replica-how-to-train-chatgpt-to-write",
+    "title": "Train ChatGPT to Write Exactly Like You",
+    "blurb": "How do you train ChatGPT to write exactly like you?",
+    "keyword": "STACK",
+    "magnet": "AI Automation Starter Stack",
+    "url": "/playbooks/replica-how-to-train-chatgpt-to-write.html",
+    "createdAt": "2026-08-04T14:38:26.536Z"
+  },
+  {
+    "slug": "replica-claude-can-now-erase-your-entire-7p8g",
+    "title": "Delete Yourself Off the Internet With Claude",
+    "blurb": "Can Claude really erase your personal info off the internet for free?",
+    "keyword": "STACK",
+    "magnet": "AI Automation Starter Stack",
+    "url": "/playbooks/replica-claude-can-now-erase-your-entire-7p8g.html",
+    "createdAt": "2026-08-04T14:36:41.654Z"
+  },
+  {
+    "slug": "make-me-a-video-on-how",
+    "title": "Put Every Terminal Window on One Dashboard",
+    "blurb": "How to keep track of all your terminal windows and projects using multic",
+    "keyword": "STACK",
+    "magnet": "AI Automation Starter Stack",
+    "url": "/playbooks/make-me-a-video-on-how.html",
+    "createdAt": "2026-08-04T14:35:28.250Z"
+  },
+  {
+    "slug": "how-do-i-run-a-faceless",
+    "title": "Run a Faceless Shorts Channel With AI",
+    "blurb": "How do I run a faceless short video channel with AI that earns without showing my face or editing?",
+    "keyword": "FACELESS",
+    "magnet": "Faceless Content System",
+    "url": "/playbooks/how-do-i-run-a-faceless.html",
+    "createdAt": "2026-08-04T14:31:56.906Z"
+  },
+  {
+    "slug": "how-do-i-launch-a-real",
+    "title": "The Weekend Side Hustle: Launch a Real Side Hustle With AI in 48 Hours",
+    "blurb": "How do I launch a real side hustle with AI in a single weekend — pick it Friday, build it Saturday, land a first customer Sunday?",
+    "keyword": "WEEKEND",
+    "magnet": "The Weekend Side Hustle",
+    "url": "/playbooks/how-do-i-launch-a-real.html",
+    "createdAt": "2026-08-04T14:30:17.662Z"
+  },
+  {
     "slug": "how-do-i-build-a-digital",
     "title": "Build a Sellable Digital Product With AI in One Afternoon",
     "blurb": "How do I build a digital product I can actually sell using AI, in one afternoon?",

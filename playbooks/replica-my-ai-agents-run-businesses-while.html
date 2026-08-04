@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Overnight Ops Manager | A Make It Ryne Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; font-weight: 400; line-height: 1.15; }
+
+  /* Hero */
+  .hero { padding: 64px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(34px, 7vw, 52px); margin-bottom: 18px; }
+  .hero .promise { font-size: 19px; font-weight: 600; max-width: 560px; }
+  .hero .promise em { font-style: normal; color: var(--emerald); }
+
+  /* Sections */
+  section { padding: 44px 0 8px; }
+  section h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 18px; }
+  p { margin-bottom: 16px; }
+  ul { margin: 0 0 16px 22px; }
+  li { margin-bottom: 8px; }
+
+  /* Step headers */
+  .step { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(26,22,19,0.15); }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    background: var(--emerald);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .step h3 { font-size: 21px; margin-bottom: 12px; }
+
+  /* Code blocks */
+  .code {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 18px 0 20px;
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 14.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code .label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: 10px;
+  }
+  .kbd {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    background: rgba(18,133,92,0.12);
+    border: 1px solid rgba(18,133,92,0.35);
+    border-radius: 5px;
+    padding: 1px 7px;
+    font-size: 15px;
+  }
+
+  /* Callout */
+  .callout {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18,133,92,0.07);
+    padding: 16px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+    font-size: 15.5px;
+  }
+  .callout strong { color: var(--emerald); }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    margin: 20px 0 12px;
+    padding: 0;
+  }
+  .checklist li {
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 2px;
+    width: 22px; height: 22px;
+    border: 2px solid var(--emerald);
+    border-radius: 6px;
+  }
+  .checklist li::after {
+    content: "✓";
+    position: absolute;
+    left: 5px; top: 1px;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+    margin: 56px 0 72px;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 12px; color: var(--cream); }
+  .cta p { color: rgba(245,240,231,0.8); max-width: 460px; margin: 0 auto 24px; }
+  .cta a {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px 32px;
+    border-radius: 999px;
+    transition: transform 0.15s ease;
+  }
+  .cta a:hover { transform: translateY(-2px); }
+
+  footer { text-align: center; padding-bottom: 48px; font-size: 13px; color: rgba(26,22,19,0.55); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>The Overnight Ops Manager</h1>
+    <p class="promise">Build a ChatGPT agent that researches your market every night and hands you a <em>three-point morning brief</em> before your alarm goes off. Setup time: about 15 minutes.</p>
+  </header>
+
+  <section>
+    <h2>What you'll build</h2>
+    <p>By the end of this playbook you'll have a scheduled ChatGPT agent that runs while you sleep. Every night it opens its own browser, hunts down new reviews of your business, checks competitor pricing, and scans for customer complaints. Then it writes you a brief with the three things to fix first.</p>
+    <p>No code. No Zapier. No new tools to learn. Just ChatGPT's built-in agent mode plus one prompt you'll customize once and never touch again.</p>
+    <div class="callout"><strong>Heads up:</strong> agent mode requires a paid ChatGPT plan. Plus gets you roughly 40 agent runs per month, which covers a nightly run with room to spare. Pro gets you around 400. The free tier won't cut it for this one.</div>
+  </section>
+
+  <section>
+    <div class="step">
+      <span class="step-num">1</span>
+      <h3>Open agent mode</h3>
+      <p>Log into ChatGPT on desktop (browser or app, either works). In a new chat, type:</p>
+      <div class="code"><span class="label">In the message box</span>/agent</div>
+      <p>Select agent mode from the menu that pops up. You can also find it in the tools dropdown next to the message box. Either way, you'll see the chat switch into agent mode, which means ChatGPT can now browse the web on its own, click around, and work through multi-step tasks without you babysitting it.</p>
+      <p>If you don't see the option, check that you're on a paid plan and that your app is updated. Agent mode rolled out to Plus, Pro, and Team plans, so it should be there.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span>
+      <h3>Paste the overnight ops prompt</h3>
+      <p>This is the exact prompt from the video. Copy it as-is first, then customize it in Step 3.</p>
+      <div class="code"><span class="label">The prompt</span>Act as my overnight ops manager. Search for new reviews of my business, competitor price changes, and anything customers are complaining about, then write me a morning brief with the three things to fix first.</div>
+      <p>Hit send and watch it work. The agent will open a browser, run searches, visit pages, and pull everything together. First run usually takes a few minutes. Let it finish before you judge the output.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span>
+      <h3>Make it yours (this is where the magic happens)</h3>
+      <p>The generic prompt works, but a specific prompt works ten times better. The agent can't guess your business name or who your competitors are. Feed it the details:</p>
+      <div class="code"><span class="label">Customized version (fill in the brackets)</span>Act as my overnight ops manager for [BUSINESS NAME] in [CITY].
+
+Every run, do these three things:
+1. Search Google, Yelp, and Facebook for new reviews of [BUSINESS NAME] posted in the last 24 hours. Quote anything negative word for word.
+2. Check the websites of [COMPETITOR 1] and [COMPETITOR 2] for price changes, new offers, or promotions.
+3. Search for recent complaints or questions about [MY SERVICE TYPE] in [CITY] on Reddit and local Facebook groups.
+
+Then write me a morning brief with:
+- The three things to fix or act on first, ranked by urgency
+- One opportunity I should jump on this week
+- Links to everything you found so I can verify it</div>
+      <p>Swap in your real business, your real competitors, your real service category. The more specific you are about where to look, the less time the agent wastes wandering and the better your brief gets.</p>
+      <div class="callout"><strong>Pro move:</strong> the agent's output is a starting point, not gospel. It cites its sources, so click the links on anything you're about to act on. Trust, then verify.</div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">4</span>
+      <h3>Put it on a schedule</h3>
+      <p>When the agent finishes its run, look for the clock icon near the response (you can also ask it directly: "run this every night at 2am"). Set it to repeat nightly.</p>
+      <p>That's the whole trick. ChatGPT's scheduled tasks feature will now fire this agent every night on its own, and the finished brief will be sitting in your chats when you wake up. You can also turn on notifications so it pings you when the brief is ready.</p>
+      <p>To manage or edit your scheduled runs later, go to your profile settings and look for Tasks (or just ask ChatGPT "show me my scheduled tasks").</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">5</span>
+      <h3>Build the morning habit</h3>
+      <p>An unread brief is worthless. Here's the routine that makes this pay off:</p>
+      <ul>
+        <li><strong>Read the brief with your coffee.</strong> Two minutes, max. It's already ranked by urgency.</li>
+        <li><strong>Act on item one immediately.</strong> Bad review? Respond before 9am. Competitor cut prices? Decide if you match, beat, or hold.</li>
+        <li><strong>Log the wins.</strong> Keep a running note of every catch the agent makes. In the video, mine spotted a competitor price cut before I'd heard a word about it. That's the kind of edge that compounds.</li>
+      </ul>
+      <p>After a week, tune the prompt. If the brief keeps surfacing stuff you don't care about, tell the agent to drop it. If you keep manually checking something it missed, add it to the list. The prompt is a living document for the first two weeks, then it just runs.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">6</span>
+      <h3>Level up: from watching to doing</h3>
+      <p>The nightly brief is level one. It watches and reports. Level two is agents that actually execute: reading your inbox, drafting replies, pricing quotes off rules you write down once. That's the stack I run with Claude and n8n, and fair warning, the first few weeks of building it were ugly. I broke it more than it worked.</p>
+      <p>Start with the brief. Once you trust it, you'll know exactly which task you want automated next, because it'll be the item that shows up in your brief every single morning.</p>
+      <p>One mindset shift before you go: the business doesn't need you awake. It needs the rules written down. Every prompt you write is a rule your business can run without you. Start writing them down.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The recap checklist</h2>
+    <ul class="checklist">
+      <li>Confirm you're on ChatGPT Plus or Pro</li>
+      <li>Type /agent in a new chat and select agent mode</li>
+      <li>Paste the overnight ops prompt</li>
+      <li>Customize it with your business, competitors, and city</li>
+      <li>Run it once and check the output quality</li>
+      <li>Hit the clock icon and schedule it nightly</li>
+      <li>Read the brief every morning and act on item one</li>
+      <li>Tune the prompt after week one</li>
+    </ul>
+    <p>Total setup: 15 minutes tonight. Payoff: a morning brief waiting for you at 6am, every day, forever.</p>
+  </section>
+
+  <div class="cta">
+    <h2>Want the rest of the stack?</h2>
+    <p>This playbook is one of six in the free AI Automation Starter Stack. Grab all of them and build the full system.</p>
+    <a href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=replica-my-ai-agents-run-businesses-while">Get the full free 6-pack of guides</a>
+  </div>
+
+  <footer>Made by Make It Ryne. Go build something that works while you sleep.</footer>
+
+</div>
+
+</body>
+</html>

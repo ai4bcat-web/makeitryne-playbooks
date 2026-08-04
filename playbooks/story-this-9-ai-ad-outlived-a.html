@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ad That Refused to Die | A Make It Ryne Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; font-weight: 400; line-height: 1.15; }
+
+  .hero { padding: 64px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(34px, 7vw, 52px); margin-bottom: 18px; }
+  .hero .promise { font-size: 19px; font-weight: 600; max-width: 560px; }
+  .hero .promise em { font-style: normal; color: var(--emerald); }
+
+  section { padding: 44px 0 8px; }
+  section h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 18px; }
+  p { margin-bottom: 16px; }
+  ul { margin: 0 0 16px 22px; }
+  li { margin-bottom: 8px; }
+
+  .step { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(26,22,19,0.15); }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    background: var(--emerald);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .step h3 { font-size: 21px; margin-bottom: 12px; }
+
+  .code {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 18px 0 20px;
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 14.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code .label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: 10px;
+  }
+
+  .callout {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18,133,92,0.07);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 18px 0 20px;
+    font-size: 16px;
+  }
+  .callout strong { color: var(--emerald); }
+
+  .checklist { list-style: none; margin-left: 0; }
+  .checklist li {
+    position: relative;
+    padding-left: 34px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 3px;
+    width: 20px; height: 20px;
+    border: 2.5px solid var(--emerald);
+    border-radius: 6px;
+  }
+
+  .cta {
+    margin: 56px 0 72px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .cta h2 { color: var(--cream); font-size: clamp(24px, 5vw, 30px); margin-bottom: 12px; }
+  .cta p { color: rgba(245,240,231,0.85); max-width: 480px; margin: 0 auto 24px; }
+  .cta a {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 10px;
+  }
+  .cta a:hover { filter: brightness(1.1); }
+
+  footer { padding-bottom: 48px; text-align: center; font-size: 13px; opacity: 0.55; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>The Ad That Refused to Die</h1>
+    <p class="promise">Build a paid video ad with one Claude prompt and one AI video tool, launch it for pocket change, and rotate creative <em>before</em> ad fatigue kills your results.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>What you'll build</h2>
+    <p>The story in the video is simple: an ad written by Claude and rendered by an AI video tool for a few dollars in credits kept performing long after an expensive agency spot flatlined. Not because AI is magic. Because the agency shipped one ad and prayed, while the AI workflow made fresh creative cheap enough to replace the moment the algorithm got bored.</p>
+    <p>That is the actual lesson, and it is what this playbook installs. By the end of today you will have:</p>
+    <ul>
+      <li>A complete short-form ad script generated from one Claude prompt</li>
+      <li>A finished vertical video rendered with an AI video tool, no camera, no crew</li>
+      <li>A small test campaign live on Meta or TikTok</li>
+      <li>A fatigue watch routine so you refresh creative on schedule instead of on vibes</li>
+    </ul>
+    <div class="callout"><strong>The mindset shift:</strong> ads do not fail because they are ugly. They fail because the audience has seen them too many times. Cheap, fast creative production is not a cost hack. It is a fatigue weapon.</div>
+  </section>
+
+  <section>
+    <div class="step">
+      <span class="step-num">1</span>
+      <h3>Write the ad script with one Claude prompt</h3>
+      <p>Open Claude and paste the prompt below. Fill in the three brackets. Be specific in the audience line, "busy people" is not an audience, "solo real estate agents drowning in follow-up" is.</p>
+      <div class="code"><span class="label">Claude prompt</span>You are a direct response copywriter for short-form video ads.
+
+Product: [what you sell, one sentence]
+Audience: [who exactly buys it and the painful problem they have]
+Offer: [what happens when they click: free trial, discount, lead magnet]
+
+Write a 30 second vertical video ad script. Rules:
+1. The first line must be a pattern interrupt: a surprising number, a bold claim, or a "stop doing X" statement. No greetings, no brand intro.
+2. Agitate the problem in 2 lines using the audience's own words.
+3. Present the product as the obvious fix in 2 lines. One benefit only.
+4. End with one clear call to action.
+5. Conversational spoken English, short sentences, no jargon.
+
+Then give me 3 alternate first lines, each using a different hook style: number-first, contrarian, and question. Format the script as numbered scenes with spoken line plus a one-line visual description per scene.</div>
+      <p>Read the output loud. Anything you would not say to a friend, tell Claude to rewrite in plainer language. Two passes max. Do not polish this to death, the whole point is speed.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span>
+      <h3>Render the video with one AI tool</h3>
+      <p>Pick one tool and commit. Higgsfield, HeyGen, and Runway all handle this job. If your ad works as a person talking to camera, use an avatar tool like HeyGen or Higgsfield's UGC-style workflows. If it works as product shots and motion, use a text-to-video tool like Runway and stitch clips.</p>
+      <p>The process is the same everywhere:</p>
+      <ul>
+        <li>Set the format to 9:16 vertical. Every major short-form ad placement wants vertical.</li>
+        <li>Paste your script scene by scene. One scene, one generation. Short clips render better than one long one.</li>
+        <li>Generate 2 to 3 takes of the hook scene only. The first 3 seconds decide everything, spend your credits there.</li>
+        <li>Assemble scenes in the tool's editor or in CapCut, which is free.</li>
+      </ul>
+      <p>Most of these tools have starter tiers where a single 30 second ad costs you a handful of credits. Check current pricing before you commit, plans change constantly. The point stands either way: you are spending tool credits, not shoot days.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span>
+      <h3>Finish it like a native post, not an ad</h3>
+      <p>Polished ads get skipped. Native-looking content gets watched. Before you export:</p>
+      <ul>
+        <li>Burn in captions. Most short-form video gets watched with sound off. CapCut auto-captions in one click.</li>
+        <li>Put your hook as on-screen text in the first frame. Big, bold, readable on a phone.</li>
+        <li>Cut any logo intro. Your brand can appear at the CTA, not before.</li>
+        <li>Keep it under 35 seconds. If a line does not sell, it dies.</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <span class="step-num">4</span>
+      <h3>Launch small and let the platform vote</h3>
+      <p>In Meta Ads Manager or TikTok Ads Manager, build the simplest possible test:</p>
+      <div class="code"><span class="label">Test campaign structure</span>Campaign: 1 (Sales or Leads objective, whatever matches your offer)
+Ad set: 1 (broad targeting, let the algorithm find buyers)
+Ads: 3 (same video, three different hook lines from Step 1)
+Budget: a daily amount you can run for a week without flinching
+Duration: 5 to 7 days before you judge anything</div>
+      <p>Three hooks, one body. That is a real creative test for the cost of one nice dinner. The platform will push spend toward the winner on its own. Do not touch anything for the first few days, early edits reset learning.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">5</span>
+      <h3>Watch for fatigue, not feelings</h3>
+      <p>The agency ad in the story did not get worse. The audience got tired. Fatigue shows up in your metrics before it shows up in your revenue, so check these every 2 to 3 days:</p>
+      <ul>
+        <li><strong>Frequency climbing past 3 to 4.</strong> The same people are seeing the ad on repeat.</li>
+        <li><strong>CTR sliding down week over week.</strong> The hook has stopped stopping thumbs.</li>
+        <li><strong>CPM or cost per result creeping up</strong> with no change on your end. The platform is working harder to find people who have not seen it.</li>
+      </ul>
+      <p>Any two of those trending the wrong way at the same time means the ad is dying. Not dead, dying. That is your window.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">6</span>
+      <h3>Refresh before it craters</h3>
+      <p>This is the whole game. When fatigue signals appear, you do not fix the old ad. You replace it, and because your production cost is tool credits, replacement takes an afternoon. Go back to Claude:</p>
+      <div class="code"><span class="label">Claude prompt: the refresh</span>Here is an ad script that performed well but is fatiguing: [paste script]
+
+Write 2 new 30 second scripts for the same product and offer that attack from completely different angles. Options: a customer objection ("this sounds too good"), a myth to bust, a before-and-after story, or a cost-of-inaction angle. Do not reuse the original hook structure. Same rules as before: pattern interrupt first line, short spoken sentences, one CTA.</div>
+      <p>Render the winner's replacement with the same tool, swap it into the ad set, and keep the old ad running until the new one beats it. Set a recurring reminder: new creative in the pipeline every 2 weeks minimum, faster if you are spending more.</p>
+      <div class="callout"><strong>Why this beats the agency model:</strong> it is not the $9 versus the $4,200. It is that one workflow produces a new angle every afternoon and the other produces one angle per quarter. Fresh angles are the only known cure for ad fatigue. Now you can afford an infinite supply.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The checklist</h2>
+    <ul class="checklist">
+      <li>Run the ad script prompt in Claude with your real product, audience, and offer</li>
+      <li>Pick one AI video tool and render the script in 9:16 with 2 to 3 hook takes</li>
+      <li>Add burned-in captions and on-screen hook text, cut the logo intro</li>
+      <li>Launch 1 campaign, 1 ad set, 3 hook variants, and leave it alone for 5 to 7 days</li>
+      <li>Check frequency, CTR, and CPM every 2 to 3 days</li>
+      <li>Generate replacement angles with the refresh prompt before the metrics crater</li>
+      <li>Put "new ad creative" on your calendar as a recurring task, every 2 weeks</li>
+    </ul>
+  </section>
+
+  <div class="cta">
+    <h2>This is 1 of 6 free guides</h2>
+    <p>The AI Automation Starter Stack has five more playbooks like this one: real workflows, real prompts, zero fluff. Grab the whole set free.</p>
+    <a href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=story-this-9-ai-ad-outlived-a">Get the full free 6-pack of guides</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">Make It Ryne. Build with AI, keep the margin.</div>
+</footer>
+
+</body>
+</html>

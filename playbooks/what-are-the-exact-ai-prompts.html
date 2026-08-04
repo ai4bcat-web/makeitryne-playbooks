@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Exact AI Prompts That Take You From Idea to First Paying Customer | Make It Ryne</title>
+<meta name="description" content="The 5 ChatGPT prompts, in the exact order, that take you from side hustle idea to your first paying customer. Copy, paste, execute today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  h1, h2, h3 {
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  /* Hero */
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(32px, 7vw, 52px); margin-bottom: 20px; }
+  .hero p.promise { font-size: 19px; font-weight: 600; max-width: 560px; }
+  .hero p.promise em { font-style: normal; color: var(--emerald); }
+  /* Sections */
+  section { padding: 48px 0 8px; }
+  section h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 20px; }
+  section p { margin-bottom: 18px; }
+  section ul, section ol { margin: 0 0 18px 22px; }
+  section li { margin-bottom: 10px; }
+  /* What you get */
+  .get-card {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-bottom: 8px;
+  }
+  .get-card ul { list-style: none; margin-left: 0; }
+  .get-card li { padding-left: 30px; position: relative; }
+  .get-card li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 7px;
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    background: var(--emerald);
+  }
+  /* Steps */
+  .step { margin-top: 44px; }
+  .step-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    background: var(--emerald);
+    color: var(--cream);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step h3 { font-size: clamp(20px, 4.5vw, 26px); }
+  /* Code blocks */
+  .prompt {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 20px 0 24px;
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 14.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .prompt-tag {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+  /* Callout */
+  .callout {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18, 133, 92, 0.07);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 20px 0 24px;
+    font-size: 16px;
+  }
+  .callout strong { color: var(--emerald); }
+  /* Checklist */
+  .checklist {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-top: 8px;
+  }
+  .checklist ul { list-style: none; margin-left: 0; }
+  .checklist li { padding-left: 34px; position: relative; margin-bottom: 12px; font-weight: 600; }
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  /* CTA */
+  .cta {
+    margin-top: 64px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 14px; color: var(--cream); }
+  .cta p { margin-bottom: 26px; opacity: 0.85; }
+  .cta a.btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 999px;
+  }
+  .cta a.btn:hover { filter: brightness(1.1); }
+  footer {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 40px;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>The 5 AI Prompts That Take You From Idea to First Paying Customer</h1>
+    <p class="promise">The exact prompts from the video, in the exact order, with the fill-in-the-blank parts labeled. Run all five today and you end with <em>real outreach sent to real people</em>, not another notes doc.</p>
+  </header>
+
+  <section>
+    <h2>What you'll walk away with</h2>
+    <div class="get-card">
+      <ul>
+        <li>A side hustle picked for speed to first dollar, not for how cool it sounds</li>
+        <li>A specific first customer profile, including where to find them today</li>
+        <li>A one-price, one-deliverable offer with a 48 hour turnaround</li>
+        <li>Five personalized DMs that read like a human, ready to send tonight</li>
+        <li>A word-for-word closer for the moment they ask "how much?"</li>
+      </ul>
+    </div>
+    <p>One thing before you start: the prompts are not the secret. The order is. Most people jump straight to writing outreach for an offer they never defined, aimed at a customer they never described. Every prompt below feeds the next one, so run them top to bottom in a single ChatGPT conversation and do not skip ahead.</p>
+  </section>
+
+  <section>
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">1</div>
+        <h3>Rank ideas by speed to first dollar</h3>
+      </div>
+      <p>Open a fresh ChatGPT conversation. The mistake here is asking for "side hustle ideas," which gets you the same recycled listicle everyone else has. Instead, force a ranking by one metric: how fast a total beginner collects a first payment. And give it your real context, because the answer changes completely based on what you can already do.</p>
+      <div class="prompt"><span class="prompt-tag">Prompt 1: The Idea Ranker</span>I want to start a side hustle and get my first paying customer within 14 days.
+
+About me: [your job, skills, tools you know, and hours per week you can commit, e.g. "office manager, organized, comfortable with spreadsheets and Google tools, 5 hours a week"]
+
+Give me 10 side hustle ideas ranked by speed to first dollar for a beginner. For each one: what the service is in one sentence, who pays for it, a realistic first-job price, and why a stranger would pay someone with no track record. Services only. Nothing that needs an audience, a website, or upfront money.</div>
+      <p>Pick from the top three, and pick the boring one. In the video, mine was cleaning up Google Business Profile listings for local shops. Nobody brags about that hustle, which is exactly why the people who need it are underserved and willing to pay. Boring plus urgent beats exciting plus crowded every time.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">2</div>
+        <h3>Describe your exact first customer</h3>
+      </div>
+      <p>"Small business owners" is not a customer. You cannot DM a demographic. This prompt forces the profile down to one findable person: what they do, what problem is annoying them this week, and which app they actually open. Stay in the same conversation so ChatGPT builds on the hustle you just picked.</p>
+      <div class="prompt"><span class="prompt-tag">Prompt 2: The First Customer Profile</span>My side hustle is: [the idea you picked in Prompt 1].
+
+Describe my single easiest first customer. Not a market, one specific type of person. Include: their role and business type, the painful symptom they notice (in their words, not industry jargon), where I can find 20 of them online today (specific platforms, groups, or search methods), and why they would take a chance on a beginner. Then give me a 5 minute test to confirm a specific person actually has this problem before I message them.</div>
+      <div class="callout"><strong>The filter that matters:</strong> your first customer should be someone who answers their own DMs. Owner-operators, solo founders, one-location shops. If your message has to survive a gatekeeper or a committee, you picked too big. Aim smaller.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">3</div>
+        <h3>Build a no-brainer offer</h3>
+      </div>
+      <p>Beginners lose customers by giving them decisions. Three packages, hourly rates, "depends on scope" answers. Every decision is a chance to say no. Your first offer needs exactly one price, one deliverable, and one deadline, so the only decision left is yes or no.</p>
+      <div class="prompt"><span class="prompt-tag">Prompt 3: The Offer Builder</span>Build me a beginner-friendly offer for [your side hustle] aimed at [the customer from Prompt 2].
+
+Rules: one flat price, one clearly defined deliverable, delivered within 48 hours. Price it low enough that a stranger says yes without a call, but high enough to be worth my time. Give me: the offer in one sentence I could say out loud, exactly what is and is not included, the price with your reasoning, and how I prove the work is done (a before-and-after, a report, a screenshot). Then poke three holes in this offer as a skeptical buyer and fix each one.</div>
+      <p>Write the final one-sentence version somewhere you can see it. That sentence is your whole business for the next two weeks. Resist the urge to add options, raise the scope, or build a website around it. You can raise prices after the first few wins.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">4</div>
+        <h3>Write five DMs that don't sound like a pitch</h3>
+      </div>
+      <p>Now go find five real people using the "where they hang out" answer from Prompt 2. Get their actual names and look at their actual business for two minutes each, because the prompt needs one true, specific observation per person. That observation is the entire difference between a message that gets read and one that gets deleted.</p>
+      <div class="prompt"><span class="prompt-tag">Prompt 4: The DM Writer</span>Write 5 short outreach DMs for my offer: [your one-sentence offer from Prompt 3].
+
+Here are the 5 real people, with one specific thing I noticed about each business: [e.g. "1. Maria, bakery owner, her weekend hours online don't match the sign on her door"]
+
+Rules for every message: under 60 words, open with the specific thing I noticed, no links, no "I hope this finds you well," no buzzwords, and end with a low-pressure question they can answer in one line. It should read like a helpful local person, not a marketer. Vary the wording so no two messages feel templated.</div>
+      <p>Read each one out loud before sending. If any line makes you cringe, tell ChatGPT which line and why, and have it rewrite. Then send all five the same day you write them. Not tomorrow. The gap between writing outreach and sending outreach is where side hustles go to die.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">5</div>
+        <h3>Close with the price, then stop typing</h3>
+      </div>
+      <p>When a reply comes in asking "how much?" or "what would that cost?", that is a buying signal, and it is exactly where beginners fumble by over-explaining, discounting before they were asked, or burying the price in a paragraph of justification. Run this prompt before your first reply comes in, so the answer is ready.</p>
+      <div class="prompt"><span class="prompt-tag">Prompt 5: The Closer</span>Someone replied to my DM asking how much it costs. My offer: [your one-sentence offer and price from Prompt 3].
+
+Write my exact reply: 2 to 3 sentences that state the price plainly, restate the deliverable and the 48 hour turnaround, and tell them the one simple thing they do to start (e.g. reply "yes" and send one detail I need). No discounts, no apologizing for the price, no "let me know if that works." Also give me short replies for the three most likely responses: "that's too expensive," "let me think about it," and "how do I know you're legit?"</div>
+      <div class="callout"><strong>The hard part:</strong> send the price message, then stop typing. No follow-up bubble explaining yourself, no "but I'm flexible!" thirty seconds later. Silence after a price is not rejection. It is a person deciding. Let them.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">6</div>
+        <h3>Run the loop until someone pays</h3>
+      </div>
+      <p>Five DMs is a start, not a strategy. Reasonable cold outreach reply rates are low, so treat this as a numbers game with a feedback loop: five new personalized DMs a day using Prompt 4, and after every batch, tell ChatGPT what happened. Which messages got replies, which got silence, what objections came up. Ask it to adjust the next batch based on that data. If you get ten straight conversations that stall at the same point, go back one step. Stalls at the price mean the offer needs work in Prompt 3. No replies at all means the targeting is off in Prompt 2. The order runs backwards, too, and that is what makes it a system instead of a script.</p>
+      <p>For collecting the actual payment, keep it as simple as the offer: a payment link from Stripe, PayPal, or whatever is standard where you live, sent only after they say yes. No invoices with net-30 terms, no contracts for a two-figure job.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The checklist</h2>
+    <div class="checklist">
+      <ul>
+        <li>Ran Prompt 1 with your real skills and picked a boring, urgent hustle</li>
+        <li>Ran Prompt 2 and named where you'll find 20 real prospects</li>
+        <li>Ran Prompt 3: one price, one deliverable, 48 hours, written in one sentence</li>
+        <li>Found 5 real people and noted one specific thing about each</li>
+        <li>Ran Prompt 4 and sent all five DMs the same day</li>
+        <li>Ran Prompt 5 so your price reply is ready before anyone asks</li>
+        <li>Repeating 5 DMs a day and feeding results back into ChatGPT</li>
+      </ul>
+    </div>
+    <p>All seven boxes are doable today. The whole sequence, prompts included, takes about an hour before you're sending. Everything after that is repetitions.</p>
+  </section>
+
+  <div class="cta">
+    <h2>This is 1 of 6 free guides</h2>
+    <p>The full 6-pack covers the rest of the system: picking offers, landing clients, and turning one paying customer into a pipeline. All free, all this direct.</p>
+    <a class="btn" href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=what-are-the-exact-ai-prompts">Get the full free 6-pack of guides</a>
+  </div>
+
+  <footer>© Make It Ryne. Go send the DMs.</footer>
+
+</div>
+</body>
+</html>

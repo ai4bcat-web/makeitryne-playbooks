@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Train ChatGPT to Write Exactly Like You | Make It Ryne</title>
+<meta name="description" content="The step-by-step playbook for training ChatGPT to match your writing voice using Wikipedia's own AI-detection guide, your real writing samples, and permanent memory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  h1, h2, .eyebrow, .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: 400;
+  }
+  .hero {
+    padding: 64px 0 48px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(32px, 7vw, 48px);
+    line-height: 1.08;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .promise {
+    font-size: 19px;
+    font-weight: 500;
+    max-width: 560px;
+  }
+  .section { padding-top: 48px; }
+  h2 {
+    font-size: clamp(22px, 5vw, 28px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  p { margin-bottom: 16px; }
+  strong { font-weight: 700; }
+  .get-list { list-style: none; margin-bottom: 8px; }
+  .get-list li {
+    padding: 12px 0 12px 32px;
+    position: relative;
+    border-bottom: 1px solid rgba(26, 22, 19, 0.12);
+    font-weight: 500;
+  }
+  .get-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--emerald);
+  }
+  .step {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 3px solid var(--ink);
+  }
+  .step-num {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-size: 14px;
+    padding: 6px 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .code-block {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 20px 22px;
+    margin: 20px 0;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 14.5px;
+    line-height: 1.7;
+    border-left: 4px solid var(--emerald);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: -12px;
+    margin-top: 24px;
+  }
+  .callout {
+    border: 2px solid var(--emerald);
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-weight: 500;
+  }
+  .callout .tag {
+    color: var(--emerald);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .checklist { list-style: none; margin: 20px 0; }
+  .checklist li {
+    padding: 12px 0 12px 38px;
+    position: relative;
+    border-bottom: 1px solid rgba(26, 22, 19, 0.12);
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 16px;
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid var(--emerald);
+  }
+  .checklist li::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 19px;
+    width: 6px;
+    height: 10px;
+    border: solid var(--emerald);
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+  .cta-card {
+    margin-top: 64px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta-card h2 { color: var(--cream); margin-bottom: 12px; }
+  .cta-card p { color: rgba(245, 240, 231, 0.85); max-width: 440px; margin: 0 auto 28px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    padding: 18px 32px;
+    transition: transform 0.15s ease;
+  }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .footer-note {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(26, 22, 19, 0.55);
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">A Make It Ryne Playbook</div>
+    <h1>Train ChatGPT to Write Exactly Like You</h1>
+    <p class="promise">Three lines, said once, and every draft comes out sounding like you instead of a press release. Setup time: about 20 minutes, and most of that is finding old emails.</p>
+  </header>
+
+  <section class="section">
+    <h2>What You'll Build</h2>
+    <p>Wikipedia's editors got so tired of AI-generated junk that they published a field guide for spotting it. This playbook flips that guide into a ban list, pairs it with samples of your real writing, and locks both into ChatGPT's memory so the setup survives every future chat. You never repeat it again.</p>
+    <ul class="get-list">
+      <li>A permanent ban list built from Wikipedia's actual AI-detection guide</li>
+      <li>A voice profile trained on 5 to 10 pieces of your real writing</li>
+      <li>Memory-saved rules that apply to every new chat automatically</li>
+      <li>A quick test to prove it worked before you trust it</li>
+      <li>The same setup ported to Claude and Gemini</li>
+    </ul>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 1</div>
+    <h2>Gather Your Real Writing First</h2>
+    <p>Before you touch ChatGPT, collect 5 to 10 samples of writing that is genuinely yours. Sent emails are the best source because nobody performs in an email. Slack messages, old blog posts, and text threads work too. Ideally grab stuff you wrote before you started using AI at all.</p>
+    <p>Two rules for picking samples. First, they should sound like you on a normal day, not your most polished work. Second, strip out anything sensitive: client names, numbers, addresses. You are teaching rhythm, not sharing secrets. Paste them all into one doc so they're ready.</p>
+    <div class="callout">
+      <span class="tag">Why this matters</span>
+      Most people skip straight to prompting and wonder why the output still sounds generic. The samples are the training data. Ten real emails beat any clever description of your style, because you will describe how you wish you wrote, not how you actually write.
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 2</div>
+    <h2>Line One: The Ban List</h2>
+    <p>Open a fresh ChatGPT conversation and paste this:</p>
+    <div class="code-label">Paste into ChatGPT</div>
+    <div class="code-block">Search for Wikipedia's page called "Signs of AI writing" (maintained by WikiProject AI Cleanup). Every pattern that page describes is banned from your replies to me. That includes: the word "delve", decorative em dashes, "not only X but Y" constructions, the rule-of-three habit, vague openers like "In today's fast-paced world", empty summary endings like "In conclusion", excessive bolding, hedging phrases like "it's important to note", and inflated words like "crucial", "vital", "seamless", and "landscape". Confirm you understand, then list the top 10 patterns you'll avoid.</div>
+    <p>The page is real. Search "Wikipedia Signs of AI writing" and read it yourself; it is the sharpest catalog of AI tells anywhere because it was written by people who delete AI slop for fun. Asking ChatGPT to list the patterns back is your verification that it actually processed the list instead of nodding along.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 3</div>
+    <h2>Line Two: Feed It Your Voice</h2>
+    <p>Same conversation. Paste this, followed by your samples from Step 1:</p>
+    <div class="code-label">Paste into ChatGPT</div>
+    <div class="code-block">Below are several emails and messages I actually wrote. Study them and match my sentence length, punctuation, paragraph length, greetings, sign-offs, and rhythm. Copy how I talk, not what I say. Then summarize my writing style in 8 to 10 specific rules.
+
+[PASTE YOUR 5 TO 10 SAMPLES HERE]</div>
+    <p>The summary it produces is the important part. Read it. If it says you write short punchy sentences and you actually ramble, correct it right there: "No, I use long sentences with commas, fix rule 3." You are editing your own style profile, and this is the only time you'll ever have to do it.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 4</div>
+    <h2>Line Three: Make It Permanent</h2>
+    <p>This is the line everybody skips, and it's the one that makes the whole thing stick. Without it, your training dies the second you close the chat.</p>
+    <div class="code-label">Paste into ChatGPT</div>
+    <div class="code-block">Save all of these writing rules to memory: the full ban list from the Signs of AI writing page, and every rule from my style summary. Apply them to all my future chats.</div>
+    <p>ChatGPT will confirm it updated its memory. To double-check, go to Settings, then Personalization, then Memory, and you'll see the saved entries. Memory needs to be switched on for this to work; it usually is by default, but if that toggle is off, flip it.</p>
+    <div class="callout">
+      <span class="tag">Backup option</span>
+      For rules you never want silently pruned, also paste your style summary into Custom Instructions (Settings, then Personalization, under the question about how ChatGPT should respond). Custom Instructions are applied to every chat, no memory feature required.
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 5</div>
+    <h2>Test It Before You Trust It</h2>
+    <p>Open a brand new chat. This matters: a new chat proves the memory took, because nothing from your setup conversation carries over except what got saved.</p>
+    <div class="code-label">The test</div>
+    <div class="code-block">Write a short email to a client pushing our meeting from Tuesday to Thursday. Keep it to my usual length.</div>
+    <p>Read the output next to one of your real emails. Same greeting style? Same sentence length? No banned words creeping in? If something is off, say exactly what and finish with "update your memory with that." Every correction compounds. Two or three rounds of this and the drafts stop needing edits at all.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 6</div>
+    <h2>Port It to Claude and Gemini</h2>
+    <p>The same three lines work in the other major tools, they just save differently.</p>
+    <p><strong>Claude:</strong> create a Project and paste your ban list plus style summary into the Project's custom instructions. Everything in that Project follows your voice. Claude's Styles feature is even more direct: choose "Create custom style," upload your writing samples, and Claude builds a reusable style you can switch on in any chat.</p>
+    <p><strong>Gemini:</strong> go to Settings, then "Saved Info," and paste your ban list and style rules there. Gemini applies saved info across future conversations, same idea as ChatGPT's memory.</p>
+    <p>Keep your master doc from Step 1 with the samples, the ban list, and the final style summary. New tool comes out next year? Ten-minute setup instead of starting from zero.</p>
+  </section>
+
+  <section class="section">
+    <h2>The Recap Checklist</h2>
+    <ul class="checklist">
+      <li>Collected 5 to 10 real writing samples, sensitive info stripped</li>
+      <li>Line one: banned every pattern from Wikipedia's Signs of AI writing page</li>
+      <li>Line two: pasted samples and got a style summary you corrected</li>
+      <li>Line three: saved the ban list and style rules to memory</li>
+      <li>Verified the entries in Settings, Personalization, Memory</li>
+      <li>Tested in a fresh chat against a real email</li>
+      <li>Ported the setup to Claude (Projects or Styles) and Gemini (Saved Info)</li>
+      <li>Kept a master doc so you can redo this anywhere in 10 minutes</li>
+    </ul>
+    <p>The whole trick in one sentence: the fix was never teaching AI to write better. It was telling it exactly what to knock off, then showing it what you sound like instead.</p>
+  </section>
+
+  <div class="cta-card">
+    <h2>Want the Full Stack?</h2>
+    <p>This playbook is one piece of the AI Automation Starter Stack: six free guides for putting AI to work on the stuff you actually do every day.</p>
+    <a class="cta-btn" href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=replica-how-to-train-chatgpt-to-write">Get the Full Free 6-Pack of Guides</a>
+  </div>
+
+  <p class="footer-note">Make It Ryne. Real automations, no fluff.</p>
+
+</div>
+</body>
+</html>

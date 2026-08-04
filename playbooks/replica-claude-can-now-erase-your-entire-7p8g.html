@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Yourself Off the Internet With Claude | Make It Ryne</title>
+<meta name="description" content="The step-by-step playbook for using Claude to find every data broker holding your personal info and get yourself removed, for free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  h1, h2, .eyebrow, .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: 400;
+  }
+  .hero {
+    padding: 64px 0 48px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(32px, 7vw, 48px);
+    line-height: 1.08;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .promise {
+    font-size: 19px;
+    font-weight: 500;
+    max-width: 560px;
+  }
+  .section { padding-top: 48px; }
+  h2 {
+    font-size: clamp(22px, 5vw, 28px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  p { margin-bottom: 16px; }
+  strong { font-weight: 700; }
+  .get-list { list-style: none; margin-bottom: 8px; }
+  .get-list li {
+    padding: 12px 0 12px 32px;
+    position: relative;
+    border-bottom: 1px solid rgba(26, 22, 19, 0.12);
+    font-weight: 500;
+  }
+  .get-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--emerald);
+  }
+  .step {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 3px solid var(--ink);
+  }
+  .step-num {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-size: 14px;
+    padding: 6px 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .code-block {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 20px 22px;
+    margin: 20px 0;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 14.5px;
+    line-height: 1.7;
+    border-left: 4px solid var(--emerald);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: -12px;
+    margin-top: 24px;
+  }
+  .callout {
+    border: 2px solid var(--emerald);
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-weight: 500;
+  }
+  .callout .tag {
+    color: var(--emerald);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .checklist { list-style: none; margin: 20px 0; }
+  .checklist li {
+    padding: 12px 0 12px 38px;
+    position: relative;
+    border-bottom: 1px solid rgba(26, 22, 19, 0.12);
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 16px;
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid var(--emerald);
+  }
+  .checklist li::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 19px;
+    width: 6px;
+    height: 10px;
+    border: solid var(--emerald);
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+  .cta-card {
+    margin-top: 64px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta-card h2 { color: var(--cream); margin-bottom: 12px; }
+  .cta-card p { color: rgba(245, 240, 231, 0.85); max-width: 440px; margin: 0 auto 28px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    padding: 18px 32px;
+    transition: transform 0.15s ease;
+  }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .footer-note {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(26, 22, 19, 0.55);
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">A Make It Ryne Playbook</div>
+    <h1>Delete Yourself Off the Internet With Claude</h1>
+    <p class="promise">Find every data broker selling your home address and phone number, then get removed from all of them for free. Total cost: one evening and zero dollars.</p>
+  </header>
+
+  <section class="section">
+    <h2>What You'll Get</h2>
+    <p>People-search sites like Spokeo and Whitepages scrape public records and sell your address, phone number, relatives, and past homes to anyone with a credit card. There are hundreds of these sites. Services like DeleteMe charge over $100 a year to clean them up. You are about to do the same job with Claude, free.</p>
+    <ul class="get-list">
+      <li>A complete list of the broker sites currently holding your info</li>
+      <li>A direct opt-out link for every single one</li>
+      <li>Removal emails written for you, citing the privacy laws brokers actually respond to</li>
+      <li>A tracking system so nothing slips through</li>
+      <li>A 15-minute quarterly re-run routine so you stay deleted</li>
+    </ul>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 1</div>
+    <h2>See What's Out There</h2>
+    <p>Open a private browser window and Google your full name in quotes, plus your city. Then run it again with your name plus "address" and once more with your phone number. Private window matters because you want the results a stranger sees, not results personalized to you.</p>
+    <p>Copy every result that shows your personal info. The site name and the URL is enough. Fair warning: seeing it all in one place is unsettling. That's the point. Now you know exactly what you're cleaning up.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 2</div>
+    <h2>Run the Master Prompt</h2>
+    <p>Open Claude at claude.ai and make sure <strong>web search is turned on</strong> in the settings or the tools menu. Without it, Claude can't look anything up and this whole play falls apart. Then paste this:</p>
+    <div class="code-label">The Prompt</div>
+    <div class="code-block">Search people-search and data broker sites for my name: [YOUR FULL NAME], in [YOUR CITY, STATE]. I also found these listings myself: [PASTE YOUR GOOGLE RESULTS].
+
+1. List every site that appears to hold my personal info.
+2. Separate actual data brokers from normal accounts I created myself.
+3. For each broker, find and link its official opt-out or removal page.
+4. Sort the list by how much info each site exposes, worst first.</div>
+    <p>Claude comes back with the full rundown: the big names like Spokeo, Whitepages, BeenVerified, and Radaris, plus the sketchy clones you've never heard of. For a typical US adult, expect somewhere between 25 and 50 listings. Don't panic at the number. You're about to work the list.</p>
+    <div class="callout">
+      <span class="tag">Why the sorting step matters</span>
+      An old forum account you made in college is not a data broker. You delete that one yourself by logging in. The brokers are the ones that scraped you without asking, and those are the ones the law forces to remove you.
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 3</div>
+    <h2>Generate the Removal Letters</h2>
+    <p>Most brokers have a self-serve opt-out form, and for those you just fill in the form Claude linked. But some make you email them, and some ignore casual requests. That's where the legal letter comes in. Paste this next:</p>
+    <div class="code-label">The Prompt</div>
+    <div class="code-block">For each broker on the list that requires an email or written request, write me a removal request. Each letter should:
+
+1. Demand deletion of my personal information and opt-out from sale.
+2. Cite the California Consumer Privacy Act's right to delete and right to opt out of sale, and note that many brokers honor these requests regardless of the requester's state.
+3. Include a line requesting written confirmation of deletion within 45 days.
+4. Stay short, firm, and professional. No filler.
+
+My info to include: [NAME], [CITY, STATE], and the URL of my listing on that site.</div>
+    <p>The CCPA is the California law that gives residents the right to have their data deleted, and 45 days is the response window it sets. Many brokers apply one removal process to everyone rather than checking your state, and a growing number of other states have passed similar laws. If you live in California, you have the strongest hand here. Either way, a letter citing specific law gets processed faster than "please remove me."</p>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 4</div>
+    <h2>Send Everything and Track It</h2>
+    <p>Now your only job is execution. Work the list top to bottom, worst offenders first. Fill out the opt-out forms, send the letters. Copy, paste, hit send. Most people finish the first pass in about an hour. One episode of TV.</p>
+    <p>Before you close the tab, have Claude build your tracker:</p>
+    <div class="code-label">The Prompt</div>
+    <div class="code-block">Turn this list into a tracking table with columns: Site, Opt-out link, Date submitted, Method (form or email), Confirmed removed (Y/N), Re-check date (90 days out). Format it so I can paste it into Google Sheets.</div>
+    <p>Paste it into a sheet and update it as confirmations come in. Two things to expect: some brokers make you click a confirmation link they email you, and removals take anywhere from a couple of days to a few weeks to actually disappear from search. Both are normal. The tracker is what keeps you from wondering whether you actually finished.</p>
+    <div class="callout">
+      <span class="tag">Bonus move</span>
+      Google has a free "Results about you" tool that requests removal of search results exposing your address and phone number. Run it after your broker cleanup so the dead listings drop out of Google faster.
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">Step 5</div>
+    <h2>Re-Run It Every Quarter</h2>
+    <p>Here's the catch nobody tells you: these sites re-scrape public records. Get removed in January and you can reappear by summer. This is exactly why the paid services charge annually instead of once.</p>
+    <p>Your fix is a calendar event every 90 days: re-run the Step 2 prompt, compare against your tracker, and opt out of anything that came back. First pass takes an evening. Every pass after takes 15 minutes, because you already have the letters and the links. That's the whole maintenance plan.</p>
+  </section>
+
+  <section class="section">
+    <h2>The Checklist</h2>
+    <ul class="checklist">
+      <li>Google yourself in a private window: name, name + address, phone number</li>
+      <li>Turn on web search in Claude</li>
+      <li>Run the master prompt with your name, city, and pasted results</li>
+      <li>Separate real brokers from your own old accounts</li>
+      <li>Generate removal letters citing the CCPA for email-only brokers</li>
+      <li>Submit every opt-out form and send every letter, worst sites first</li>
+      <li>Build the tracking sheet and log every submission</li>
+      <li>Run Google's "Results about you" tool</li>
+      <li>Set a 90-day calendar reminder and re-run the sweep</li>
+    </ul>
+    <p>Everybody's using AI to get famous. You just used it to disappear.</p>
+  </section>
+
+  <div class="cta-card">
+    <h2>Want the Full Stack?</h2>
+    <p>This playbook is one of six in the free AI Automation Starter Stack. Grab the rest and put Claude to work on the boring stuff for you.</p>
+    <a class="cta-btn" href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=replica-claude-can-now-erase-your-entire-7p8g">Get the Full Free 6-Pack of Guides</a>
+  </div>
+
+  <p class="footer-note">Made by Make It Ryne. Not legal advice, just a very effective evening.</p>
+
+</div>
+</body>
+</html>

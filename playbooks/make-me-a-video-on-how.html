@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Put Every Terminal Window on One Dashboard | Make It Ryne</title>
+<meta name="description" content="The exact setup from the video: one command that shows every terminal session and project on one dashboard, flags the one waiting on you, and lets you jump in and out with a keystroke.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  h1, h2, h3 {
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(32px, 7vw, 52px); margin-bottom: 20px; }
+  .hero p.promise { font-size: 19px; font-weight: 600; max-width: 560px; }
+  .hero p.promise em { font-style: normal; color: var(--emerald); }
+  section { padding: 48px 0 8px; }
+  section h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 20px; }
+  section p { margin-bottom: 18px; }
+  section ul, section ol { margin: 0 0 18px 22px; }
+  section li { margin-bottom: 10px; }
+  .get-card {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-bottom: 8px;
+  }
+  .get-card ul { list-style: none; margin-left: 0; }
+  .get-card li { padding-left: 30px; position: relative; }
+  .get-card li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 7px;
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    background: var(--emerald);
+  }
+  .step { margin-top: 44px; }
+  .step-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    background: var(--emerald);
+    color: var(--cream);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step h3 { font-size: clamp(20px, 4.5vw, 26px); }
+  .prompt {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 20px 0 24px;
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 14.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .prompt-tag {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+  code.inline {
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 15px;
+    background: rgba(26, 22, 19, 0.08);
+    padding: 2px 6px;
+    border-radius: 5px;
+  }
+  .callout {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18, 133, 92, 0.07);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 20px 0 24px;
+    font-size: 16px;
+  }
+  .callout strong { color: var(--emerald); }
+  .checklist {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-top: 8px;
+  }
+  .checklist ul { list-style: none; margin-left: 0; }
+  .checklist li { padding-left: 34px; position: relative; margin-bottom: 12px; font-weight: 600; }
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .cta {
+    margin-top: 64px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 14px; color: var(--cream); }
+  .cta p { margin-bottom: 26px; opacity: 0.85; }
+  .cta a.btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 999px;
+  }
+  .cta a.btn:hover { filter: brightness(1.1); }
+  footer {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 40px;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>Put Every Terminal Window on One Dashboard</h1>
+    <p class="promise">One command shows every terminal session and every project on your machine, flags the one that is stuck waiting on you, and lets you jump in and out with a <em>single keystroke</em>. Setup takes about 15 minutes.</p>
+  </header>
+
+  <section>
+    <h2>What you'll walk away with</h2>
+    <div class="get-card">
+      <ul>
+        <li>A session layer that keeps every project alive even when you close the window</li>
+        <li>A <code class="inline">multic</code> command that opens a live dashboard of all your sessions</li>
+        <li>A visual flag on any session that is waiting on a human, including Claude Code permission prompts</li>
+        <li>A one-keystroke attach and detach loop so you never hunt for a window again</li>
+        <li>A helper that tracks every new project from the second it starts</li>
+      </ul>
+    </div>
+    <p>Quick honesty note before we start: <code class="inline">multic</code> is what I named my session hub. Under the hood it runs on tmux, the battle-tested session manager that ships in every package manager on earth. You are not installing some fragile new app. You are wiring a tool that has existed for 15 years into the exact workflow from the video, and you keep it forever.</p>
+  </section>
+
+  <section>
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">1</div>
+        <h3>Install the session layer</h3>
+      </div>
+      <p>Everything runs on tmux. It lets terminal sessions live in the background, detached from any window, which is what makes a dashboard of all of them possible.</p>
+      <div class="prompt"><span class="prompt-tag">Terminal (Mac)</span>brew install tmux</div>
+      <div class="prompt"><span class="prompt-tag">Terminal (Linux)</span>sudo apt install tmux</div>
+      <p>Verify it with <code class="inline">tmux -V</code>. Anything version 3.x or newer is perfect. That is the entire install.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">2</div>
+        <h3>Drop in the config</h3>
+      </div>
+      <p>Create a file called <code class="inline">.tmux.conf</code> in your home folder and paste this in. Five lines, each one earning its spot.</p>
+      <div class="prompt"><span class="prompt-tag">~/.tmux.conf</span># click and scroll work like a normal terminal
+set -g mouse on
+
+# flag any session that rings the bell (this powers the "needs you" alert)
+set -g bell-action any
+setw -g monitor-bell on
+
+# alert silently in the session list instead of flashing the screen
+set -g visual-bell off
+
+# refresh status info every 5 seconds
+set -g status-interval 5</div>
+      <p>The bell settings are the secret. When a program inside any session rings the terminal bell, tmux marks that session with a <code class="inline">!</code> in the dashboard. That mark is the flagged row you saw in the video.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">3</div>
+        <h3>Create the multic command</h3>
+      </div>
+      <p>Now build the one-command dashboard. Add these two functions to your <code class="inline">~/.zshrc</code> (or <code class="inline">~/.bashrc</code> if that is your shell).</p>
+      <div class="prompt"><span class="prompt-tag">~/.zshrc</span># multic: open the live dashboard of every session
+multic() {
+  if [ -n "$TMUX" ]; then
+    tmux choose-tree -Zs
+  else
+    tmux new-session -A -s hub \; choose-tree -Zs
+  fi
+}
+
+# mnew: start a new tracked project session
+# usage: mnew &lt;name&gt; [directory]
+mnew() {
+  tmux new-session -d -s "${1:?usage: mnew &lt;name&gt; [dir]}" -c "${2:-$PWD}"
+  echo "tracked: $1"
+}</div>
+      <p>Reload your shell with <code class="inline">source ~/.zshrc</code>, then type <code class="inline">multic</code>. You will land in a live tree of every session on the machine, with a preview pane showing exactly what each one is doing right now. Empty on the first run. We fix that next.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">4</div>
+        <h3>Register your projects</h3>
+      </div>
+      <p>Give every active project its own named session. One line each, pointed at the project folder.</p>
+      <div class="prompt"><span class="prompt-tag">Terminal</span>mnew dispatch ~/code/dispatch
+mnew site ~/code/my-site
+mnew scraper ~/code/photo-scraper
+mnew invoice-agent ~/code/invoice-agent</div>
+      <p>Each session starts detached in the right directory, already tracked. Attach to one, start whatever runs there (a dev server, a build, a Claude Code agent), and it keeps running whether you are watching or not. From now on, when you start work on anything, <code class="inline">mnew</code> it first. Two seconds of habit buys you a machine where nothing gets lost.</p>
+      <div class="callout"><strong>The mindset shift:</strong> stop thinking in windows. Windows are disposable glass you look through. Sessions are the actual work, and they survive closed laptops, closed terminals, and your memory.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">5</div>
+        <h3>Wire the "needs you" flag for Claude Code</h3>
+      </div>
+      <p>This is the part that saves whole afternoons. If you run Claude Code agents, tell Claude to ring the terminal bell when it needs input.</p>
+      <div class="prompt"><span class="prompt-tag">Terminal</span>claude config set --global preferredNotifChannel terminal_bell</div>
+      <p>Now the chain works end to end: Claude Code hits a permission question, rings the bell, tmux catches it, and the next time you glance at <code class="inline">multic</code> that session carries a <code class="inline">!</code> flag. In the video that was my invoice agent, parked on one question for 22 minutes. The dashboard surfaced it in two seconds. If a newer Claude Code version renames this setting, run <code class="inline">claude config list</code> and look for the notification channel option.</p>
+      <p>This works for anything, not just Claude. Any script can flag itself by printing the bell character when it finishes or gets stuck:</p>
+      <div class="prompt"><span class="prompt-tag">End of any long script</span>printf '\a'</div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">6</div>
+        <h3>Run the loop: attach, answer, detach</h3>
+      </div>
+      <p>The whole daily workflow is four moves, and your hands never leave the keyboard.</p>
+      <ol>
+        <li><strong>Open the dashboard:</strong> type <code class="inline">multic</code>. Every session, live previews, flags on whatever needs you.</li>
+        <li><strong>Attach:</strong> arrow to a session and hit Enter. You are inside, exactly where that work left off.</li>
+        <li><strong>Back to the overview:</strong> press <code class="inline">Ctrl+b</code> then <code class="inline">s</code>. The dashboard reopens without leaving tmux.</li>
+        <li><strong>Detach completely:</strong> press <code class="inline">Ctrl+b</code> then <code class="inline">d</code>. Everything keeps running in the background.</li>
+      </ol>
+      <p>That is the entire system. Morning check-in becomes: <code class="inline">multic</code>, scan for flags, answer whatever is blocked, detach. The agents do the work. You clear the bottlenecks. The terminals report to you.</p>
+      <div class="callout"><strong>Level up later:</strong> once this feels natural, look at the tmux-resurrect plugin so your sessions survive a full reboot, and at tools like claude-squad if you scale to many agents on many branches. Same workflow, more firepower.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The 15-minute checklist</h2>
+    <div class="checklist">
+      <ul>
+        <li>Install tmux and confirm with tmux -V</li>
+        <li>Paste the 5-line config into ~/.tmux.conf</li>
+        <li>Add the multic and mnew functions to your shell config, then source it</li>
+        <li>Register every active project with mnew</li>
+        <li>Set Claude Code notifications to terminal_bell</li>
+        <li>Run multic and practice the loop: Enter, Ctrl+b s, Ctrl+b d</li>
+        <li>Tomorrow morning: multic first, everything else second</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Want the other five playbooks?</h2>
+    <p>This is one guide from the free Make It Ryne 6-pack: the exact setups I use to run AI agents, content systems, and client work without losing my mind or my afternoons.</p>
+    <a class="btn" href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=make-me-a-video-on-how">Get the full free 6-pack of guides</a>
+  </div>
+
+  <footer>© Make It Ryne. Built so your terminals report to you.</footer>
+
+</div>
+</body>
+</html>

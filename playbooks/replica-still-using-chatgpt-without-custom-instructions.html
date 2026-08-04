@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ChatGPT Custom Instructions Playbook | Make It Ryne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  h1, h2, h3 {
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .hero {
+    padding: 72px 0 48px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 7vw, 48px);
+    margin-bottom: 20px;
+  }
+  .hero .promise {
+    font-size: 19px;
+    font-weight: 600;
+    max-width: 560px;
+  }
+  section { padding-top: 48px; }
+  h2 {
+    font-size: clamp(22px, 5vw, 28px);
+    margin-bottom: 18px;
+  }
+  .step-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 16px; }
+  ul, ol { margin: 0 0 16px 22px; }
+  li { margin-bottom: 8px; }
+  strong { font-weight: 700; }
+  .code-block {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin: 20px 0 24px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 14.5px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code-block .cb-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+  .callout {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18, 133, 92, 0.07);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 20px 0 24px;
+    font-size: 15.5px;
+  }
+  .checklist {
+    list-style: none;
+    margin-left: 0;
+  }
+  .checklist li {
+    position: relative;
+    padding-left: 34px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid var(--emerald);
+    border-radius: 6px;
+  }
+  .cta-card {
+    margin-top: 64px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .cta-card h2 {
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .cta-card p {
+    max-width: 460px;
+    margin: 0 auto 24px;
+    opacity: 0.9;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 999px;
+    transition: transform 0.15s ease;
+  }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .footer-note {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 32px;
+    opacity: 0.6;
+  }
+  .divider {
+    border: none;
+    border-top: 2px solid var(--ink);
+    opacity: 0.12;
+    margin-top: 48px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>Make ChatGPT Remember Who You Are, Permanently</h1>
+    <p class="promise">Set up Custom Instructions, Memory, and Projects in one sitting so every chat opens already knowing your business, your standards, and how you want answers.</p>
+  </header>
+
+  <section>
+    <h2>What you'll build</h2>
+    <p>ChatGPT wipes its brain every time you close a chat. Come back tomorrow and you're a stranger again, re-explaining your company, your role, and how you want answers. This playbook fixes that in one sitting.</p>
+    <ul>
+      <li><strong>A filled-out Custom Instructions profile</strong> so every new chat starts with full context on you and your business</li>
+      <li><strong>A response style setting</strong> that kills the generic essay voice and gets you numbers and next steps instead</li>
+      <li><strong>Memory turned on</strong> so ChatGPT keeps building on what it learns between chats</li>
+      <li><strong>A Project</strong> for your biggest ongoing initiative, with its own standing instructions</li>
+    </ul>
+    <p>Total time: one focused sitting. You do this once and every future conversation pays you back.</p>
+  </section>
+
+  <section>
+    <span class="step-label">Step 1</span>
+    <h2>Open the buried setting</h2>
+    <p>This screen has been sitting in your account the whole time. Here's the path:</p>
+    <ol>
+      <li>Open ChatGPT and tap your <strong>profile icon</strong> (bottom left on desktop, top of the menu on mobile)</li>
+      <li>Tap <strong>Settings</strong></li>
+      <li>Go to <strong>Personalization</strong></li>
+      <li>Open <strong>Custom Instructions</strong></li>
+    </ol>
+    <p>You'll see two boxes. The top one asks what ChatGPT should know about you. The bottom one asks how you want it to respond. Each gives you around 1,500 characters. If yours are empty, that's why ChatGPT treats you like a stranger.</p>
+  </section>
+
+  <section>
+    <span class="step-label">Step 2</span>
+    <h2>Fill the top box: who you are</h2>
+    <p>This is not a bio. It's a briefing. Write it like you're onboarding a sharp new hire who starts in five minutes. Cover four things: what you do, who you serve, what you're working toward, and what it should assume about you.</p>
+    <div class="code-block"><span class="cb-label">Copy and customize this template</span>I run [business type] in [location/market]. We serve [who your customers are] and make money by [how revenue actually works].
+
+My role: [what you own and decide]. Assume I know my industry. Don't explain basics back to me.
+
+Current priorities: [top 2-3 things you're pushing on right now].
+
+Constraints that matter: [budget reality, team size, tools you already use, anything it should never suggest around].</div>
+    <p>Real example of the shape you're going for: "I run a freight brokerage in Chicago. I make the decisions. Assume I know my industry." Short, factual, loaded with context. Swap in your world.</p>
+    <div class="callout"><strong>Keep it current, not complete.</strong> You don't need your life story. You need the facts that change what a good answer looks like. If a detail wouldn't change the answer, cut it.</div>
+  </section>
+
+  <section>
+    <span class="step-label">Step 3</span>
+    <h2>Fill the bottom box: how it talks to you</h2>
+    <p>This box is where you kill the fluff. By default ChatGPT warms up, hedges, and pads. Tell it exactly what a useful answer looks like for you.</p>
+    <div class="code-block"><span class="cb-label">Copy and customize this template</span>Skip the warm-up and the recap. Get straight to the answer.
+
+Give me numbers, specifics, and next steps. When you estimate, say it's an estimate.
+
+Default to under 200 words unless I ask for depth. Use short paragraphs or tight bullet lists.
+
+If my question is vague, ask one clarifying question instead of guessing.
+
+If you don't know, say so. Never pad an answer to sound complete.</div>
+    <p>Adjust to taste. If you like longer breakdowns, raise the word cap. If you want it to challenge your thinking, add a line like "Push back when my plan has a hole in it." The point is that you decide the voice once instead of correcting it every chat.</p>
+  </section>
+
+  <section>
+    <span class="step-label">Step 4</span>
+    <h2>Save, then run the before-and-after test</h2>
+    <p>Hit save, open a brand new chat, and ask a question you'd actually ask on a normal workday. Something like:</p>
+    <div class="code-block"><span class="cb-label">Test prompt</span>Give me three ways to get more out of my current customers this quarter. Be specific to my business.</div>
+    <p>Watch what comes back. It should answer in your world, using your industry, your constraints, and your format. No "As a large language model" energy, no generic essay. If the answer still feels off, go back and sharpen the boxes. Vague instructions get vague results. Specific instructions get an assistant that sounds like it's been on your payroll.</p>
+  </section>
+
+  <section>
+    <span class="step-label">Step 5</span>
+    <h2>Turn on Memory while you're in there</h2>
+    <p>Custom Instructions are the foundation you write once. Memory is the layer that grows on its own. It lives on the same Personalization screen.</p>
+    <ol>
+      <li>Go back to <strong>Settings, then Personalization</strong></li>
+      <li>Find the <strong>Memory</strong> section and toggle it on</li>
+    </ol>
+    <p>With Memory on, ChatGPT carries useful details between chats. Mention a client, a pricing change, or a preference once and it can reference it next week without you repeating yourself. Two commands worth knowing:</p>
+    <ul>
+      <li>Say <strong>"Remember this:"</strong> before anything you want it to hold onto</li>
+      <li>Ask <strong>"What do you remember about me?"</strong> to audit what it's stored, and delete anything stale from the Memory section in Settings</li>
+    </ul>
+    <div class="callout"><strong>Sensitive info rule:</strong> keep client confidential data, financials you wouldn't email, and anything under NDA out of Memory and Custom Instructions. Context, not secrets.</div>
+  </section>
+
+  <section>
+    <span class="step-label">Step 6</span>
+    <h2>Spin up a Project for your big thing</h2>
+    <p>Custom Instructions cover everything. Projects cover one thing deeply. If you've got a long-running initiative, a product launch, a hiring push, a content engine, give it its own home.</p>
+    <ol>
+      <li>In the sidebar, create a <strong>New Project</strong> and name it after the initiative</li>
+      <li>Add <strong>project instructions</strong> that only apply inside it</li>
+      <li>Upload the files that matter: briefs, pricing sheets, past examples</li>
+      <li>Start every chat about that initiative inside the Project</li>
+    </ol>
+    <div class="code-block"><span class="cb-label">Example project instructions</span>This project is for [initiative name]. Goal: [the specific outcome and deadline].
+
+Reference the uploaded files before answering. Flag anything in my plan that conflicts with them.
+
+Every answer ends with the single next action I should take.</div>
+    <p>Now your global setup handles the day-to-day and each Project holds the deep context for the work that actually moves the needle.</p>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2>The checklist</h2>
+    <ul class="checklist">
+      <li>Opened Settings, then Personalization, then Custom Instructions</li>
+      <li>Top box: business, role, priorities, constraints</li>
+      <li>Bottom box: format, length, tone, "ask before guessing"</li>
+      <li>Saved and ran the before-and-after test in a fresh chat</li>
+      <li>Toggled Memory on in the same Personalization screen</li>
+      <li>Audited what Memory stored after a week of use</li>
+      <li>Created one Project with its own instructions and files</li>
+    </ul>
+    <p>Do this once today and every chat from here on starts warm. The tool didn't get smarter. You finally told it who it's working for.</p>
+  </section>
+
+  <div class="cta-card">
+    <h2>Want the rest of the Stack?</h2>
+    <p>This playbook is one piece of the AI Automation Starter Stack. Grab the full free 6-pack of guides and build the whole system.</p>
+    <a class="cta-btn" href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=replica-still-using-chatgpt-without-custom-instructions">Get the full free 6-pack of guides</a>
+  </div>
+
+  <p class="footer-note">Make It Ryne. Built for operators, not spectators.</p>
+
+</div>
+</body>
+</html>
