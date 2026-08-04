@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build a Sellable Digital Product With AI in One Afternoon | Make It Ryne</title>
+<meta name="description" content="The exact two-prompt playbook for building a digital product with ChatGPT and selling it on Gumroad, start to checkout link, in one afternoon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  h1, h2, h3 {
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  /* Hero */
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(32px, 7vw, 52px); margin-bottom: 20px; }
+  .hero p.promise { font-size: 19px; font-weight: 600; max-width: 560px; }
+  .hero p.promise em { font-style: normal; color: var(--emerald); }
+  /* Sections */
+  section { padding: 48px 0 8px; }
+  section h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 20px; }
+  section p { margin-bottom: 18px; }
+  section ul, section ol { margin: 0 0 18px 22px; }
+  section li { margin-bottom: 10px; }
+  /* What you get */
+  .get-card {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-bottom: 8px;
+  }
+  .get-card ul { list-style: none; margin-left: 0; }
+  .get-card li { padding-left: 30px; position: relative; }
+  .get-card li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 7px;
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    background: var(--emerald);
+  }
+  /* Steps */
+  .step { margin-top: 44px; }
+  .step-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    background: var(--emerald);
+    color: var(--cream);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step h3 { font-size: clamp(20px, 4.5vw, 26px); }
+  /* Code blocks */
+  .prompt {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 20px 0 24px;
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 14.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .prompt-tag {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+  /* Callout */
+  .callout {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18, 133, 92, 0.07);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 20px 0 24px;
+    font-size: 16px;
+  }
+  .callout strong { color: var(--emerald); }
+  /* Checklist */
+  .checklist {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-top: 8px;
+  }
+  .checklist ul { list-style: none; margin-left: 0; }
+  .checklist li { padding-left: 34px; position: relative; margin-bottom: 12px; font-weight: 600; }
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  /* CTA */
+  .cta {
+    margin-top: 64px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 14px; color: var(--cream); }
+  .cta p { margin-bottom: 26px; opacity: 0.85; }
+  .cta a.btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 999px;
+  }
+  .cta a.btn:hover { filter: brightness(1.1); }
+  footer {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 40px;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>Build a Sellable Digital Product With AI in One Afternoon</h1>
+    <p class="promise">Two prompts, a free Gumroad account, and about three focused hours. You end today with a <em>live checkout link</em>, not another half-finished idea.</p>
+  </header>
+
+  <section>
+    <h2>What you'll walk away with</h2>
+    <div class="get-card">
+      <ul>
+        <li>A product idea validated against what people already pay for</li>
+        <li>A complete digital product drafted by ChatGPT and edited by you</li>
+        <li>A clean, downloadable PDF file buyers actually want to open</li>
+        <li>A live Gumroad product page with a shareable checkout link</li>
+        <li>A dead-simple launch move for your first sales</li>
+      </ul>
+    </div>
+    <p>This is the exact flow from the video, expanded so you can run it without me. No ads, no email list, no design skills required. Block one afternoon and go step by step.</p>
+  </section>
+
+  <section>
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">1</div>
+        <h3>Pick your product with Prompt One</h3>
+      </div>
+      <p>Open ChatGPT and run the idea prompt. The trick is forcing it to rank by speed to sell, not by how impressive the idea sounds. Give it context about you first, because generic input gets generic products.</p>
+      <div class="prompt"><span class="prompt-tag">Prompt 1: The Idea Ranker</span>I want to build a digital product this afternoon and sell it on Gumroad.
+
+About me: [your job, skills, and who you know best, e.g. "I run cold outreach for a small agency and know B2B sales"]
+
+Give me 10 digital products I could realistically build today, ranked by how fast they typically sell. For each one, tell me: who buys it, why they buy it now, and what I'd price it at. Products only, no courses and nothing that takes more than one day to make.</div>
+      <p>Pick from the top three. Template packs, prompt libraries, checklists, swipe files, and spreadsheet tools win here because buyers use them the same day they buy. In the video, mine was a cold email template pack. Boring on purpose. Boring sells.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">2</div>
+        <h3>Validate it in ten minutes, not ten days</h3>
+      </div>
+      <p>Before you build, confirm people already pay for this. You are not looking for zero competition. You want the opposite: proof of demand.</p>
+      <ul>
+        <li>Search your product type on Gumroad's Discover page and on Etsy. If similar products exist with ratings, demand is real.</li>
+        <li>Search Reddit or X for your buyer's exact complaint, like "cold email templates that actually get replies."</li>
+        <li>If you find nothing anywhere, that is a warning, not an opportunity. Go back to your ranked list and pick the next idea.</li>
+      </ul>
+      <div class="callout"><strong>Rule of thumb:</strong> copy the category, differentiate the angle. "50 cold email templates" exists everywhere. "50 cold email templates for agencies pitching local businesses" is the same afternoon of work with a sharper buyer.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">3</div>
+        <h3>Build the whole product with Prompt Two</h3>
+      </div>
+      <p>Now generate the full product in one shot. Be specific about structure, and make ChatGPT write the sales copy in the same session while it has full context.</p>
+      <div class="prompt"><span class="prompt-tag">Prompt 2: The Product Builder</span>Now write the full product: [e.g. "all 50 cold email templates for agencies pitching local businesses"].
+
+Structure it like this:
+1. A short intro explaining who this is for and how to use it
+2. The full content, organized into clear sections with a use case note for each item
+3. A one-page "how to customize this" guide
+
+Then write a Gumroad sales page for it: a headline, 3 short benefit bullets, and a 100-word description that speaks to [buyer] about [their painful problem].</div>
+      <p>ChatGPT will produce the draft in a few minutes. Do not skip the next part: read every line and edit like a human. Cut the weakest 20 percent, rewrite anything that sounds robotic, and fact-check any claim or number it generated. Your edit pass is what separates a real product from AI slop, and it is why people leave good reviews instead of refund requests.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">4</div>
+        <h3>Package it into a file worth $19</h3>
+      </div>
+      <p>Buyers judge the file in the first five seconds. Make it clean:</p>
+      <ol>
+        <li>Paste the edited content into Google Docs or Notion.</li>
+        <li>Add a simple title page: product name, one-line promise, your name.</li>
+        <li>Use consistent headings so it is skimmable, then export as PDF. In Google Docs that is File, Download, PDF Document.</li>
+      </ol>
+      <p>That is the entire design process. A tidy PDF beats a fancy one that took you four extra hours you promised yourself you would not spend.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">5</div>
+        <h3>Put it on Gumroad and hit publish</h3>
+      </div>
+      <p>Gumroad is free to start. There is no monthly fee, they just take a cut of each sale, which is exactly what you want on day one: zero risk if it flops.</p>
+      <ol>
+        <li>Create a free account at gumroad.com and start a new product. Choose the digital product type.</li>
+        <li>Paste in the name and the sales page copy ChatGPT wrote for you. Tighten the headline so the outcome is obvious in one line.</li>
+        <li>Upload your PDF as the content buyers receive.</li>
+        <li>Price it at $19. It is high enough to feel real and low enough to be an impulse buy. You can test other prices next week.</li>
+        <li>Add a simple cover image. A plain background with the product title in big text works fine.</li>
+        <li>Hit publish and copy your checkout link.</li>
+      </ol>
+      <p>That link is the finish line for the afternoon. Everything after this is distribution.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">
+        <div class="step-num">6</div>
+        <h3>Get it in front of buyers today</h3>
+      </div>
+      <p>Do not build it and stare at the dashboard. Do these three things before you close the laptop:</p>
+      <ul>
+        <li><strong>Post where your buyer already hangs out.</strong> Share what you made and who it helps in one honest post on X, LinkedIn, or a relevant community. Lead with the problem it solves, not "I made a thing."</li>
+        <li><strong>Send it to five people</strong> who match your buyer profile and ask for blunt feedback. Some will buy. All will tell you what to fix.</li>
+        <li><strong>Put the link in your bios.</strong> Every profile you own should point at the checkout page this week.</li>
+      </ul>
+      <div class="callout"><strong>Reality check:</strong> this is not passive income magic. It is one focused afternoon that creates an asset that can keep selling while you sleep. First sales usually come from you actively showing it to the right people, then the link compounds.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The afternoon checklist</h2>
+    <div class="checklist">
+      <ul>
+        <li>Ran Prompt 1 with real context about my skills</li>
+        <li>Picked a boring product from the top three</li>
+        <li>Found proof people already pay for this category</li>
+        <li>Ran Prompt 2 and generated the full draft plus sales copy</li>
+        <li>Edited every line and cut the weakest 20 percent</li>
+        <li>Exported a clean PDF with a title page</li>
+        <li>Published on Gumroad at $19 and copied my link</li>
+        <li>Shared it in one place my buyers actually hang out</li>
+        <li>Sent it to five people who fit the buyer profile</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Want the full free 6-pack of guides?</h2>
+    <p>This playbook is one of six. Grab the rest and build the whole AI-powered content and product machine.</p>
+    <a class="btn" href="https://makeitryne.ai/?utm_source=playbook&utm_medium=organic&utm_campaign=how-do-i-build-a-digital">Get the full free 6-pack of guides</a>
+  </div>
+
+  <footer>Make It Ryne · Build it once, let it sell.</footer>
+
+</div>
+</body>
+</html>
