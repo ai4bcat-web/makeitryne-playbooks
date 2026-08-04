@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 7 Levels of Claude Code | Make It Ryne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; line-height: 1.15; }
+
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(34px, 7vw, 56px); margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--emerald); }
+  .hero p { font-size: 19px; font-weight: 500; max-width: 560px; }
+
+  section { padding: 48px 0 8px; }
+  .lede { padding-bottom: 8px; }
+  h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 16px; }
+  p { margin-bottom: 16px; }
+  ul { margin: 0 0 16px 22px; }
+  li { margin-bottom: 8px; }
+
+  .get-list {
+    list-style: none;
+    margin: 0 0 16px 0;
+  }
+  .get-list li {
+    padding-left: 30px;
+    position: relative;
+    font-weight: 500;
+  }
+  .get-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--emerald);
+    font-weight: 700;
+  }
+
+  .step {
+    border-top: 2px solid rgba(26,22,19,0.15);
+    padding-top: 40px;
+    margin-top: 40px;
+  }
+  .step:first-of-type { border-top: none; margin-top: 0; padding-top: 8px; }
+  .badge {
+    display: inline-block;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--emerald);
+    color: var(--cream);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .step h3 { font-size: 24px; margin-bottom: 12px; }
+  .cost {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--emerald);
+    margin-bottom: 14px;
+  }
+
+  pre {
+    background: var(--ink);
+    color: #EDE7DB;
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 0 0 18px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  pre .c { color: #7FBFA4; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.92em;
+    background: rgba(18,133,92,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  pre code { background: none; padding: 0; }
+
+  .checklist {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 24px 0;
+  }
+  .checklist h2 { font-size: 22px; }
+  .checklist ol { margin-left: 22px; }
+  .checklist li { font-weight: 500; }
+
+  .cta {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 14px;
+    padding: 40px 32px;
+    text-align: center;
+    margin: 48px 0 24px;
+  }
+  .cta h2 { color: var(--cream); font-size: 26px; }
+  .cta p { color: rgba(245,240,231,0.8); max-width: 440px; margin: 0 auto 24px; }
+  .cta a {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px 32px;
+    border-radius: 999px;
+  }
+  .cta a:hover { filter: brightness(1.1); }
+
+  footer {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(26,22,19,0.55);
+    padding: 16px 0 48px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">A Make It Ryne Playbook · AI Automation Starter Stack</span>
+    <h1>The <em>7 levels</em> of Claude Code</h1>
+    <p>Level 1 is a chatbot in your terminal. Level 7 is a business that runs while you sleep. Here's the whole ladder, with the exact commands to climb it.</p>
+  </div>
+</header>
+
+<section class="lede">
+  <div class="wrap">
+    <h2>What you'll have when you're done</h2>
+    <ul class="get-list">
+      <li>Claude Code installed and doing real work from plain English</li>
+      <li>A CLAUDE.md memory file so you never repeat yourself</li>
+      <li>Custom slash commands for your top 3 repeat tasks</li>
+      <li>MCP connections into your actual tools</li>
+      <li>Subagents working in parallel while you manage</li>
+      <li>Headless runs firing on a schedule, no human at the keyboard</li>
+    </ul>
+    <p>Every level takes minutes, not weeks. The skill gap between Level 1 and Level 7 is not coding ability. It's knowing these features exist. Now you do.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="step">
+      <span class="badge">Level 1</span>
+      <h3>The terminal</h3>
+      <p class="cost">Time: 5 minutes</p>
+      <p>Install it, open a terminal in any project folder, type one word:</p>
+      <pre><code>npm install -g @anthropic-ai/claude-code
+cd your-project
+claude</code></pre>
+      <p>Then just talk. "Fix the bug in checkout.js." "Explain what this repo does." "Rename every file in /img to lowercase." It reads your files, makes the edits, runs the tests, and shows you the diff before anything ships. No syntax to learn. Plain English is the whole skill, and being specific is the whole craft. "Fix the null price bug on the checkout page" beats "fix my code" every single time.</p>
+    </div>
+
+    <div class="step">
+      <span class="badge">Level 2</span>
+      <h3>CLAUDE.md, the memory file</h3>
+      <p class="cost">Time: 2 minutes. Run one command.</p>
+      <p>By default, every session starts from zero. CLAUDE.md fixes that. It's a plain markdown file at your project root that Claude Code loads automatically every time it starts. Don't write it by hand. Inside a session, run:</p>
+      <pre><code>/init</code></pre>
+      <p>Claude scans your project and drafts the file for you. Then edit it like a briefing doc for a new hire:</p>
+      <pre><code><span class="c"># CLAUDE.md</span>
+Stack: Next.js 15, Supabase, Stripe
+Rules: TypeScript strict, no console.log in commits
+Voice: punchy, direct, zero fluff
+Never touch: /legacy, .env files</code></pre>
+      <p>From now on it knows your stack, your rules, and your standards before you type a word. Every correction you find yourself repeating belongs in this file.</p>
+    </div>
+
+    <div class="step">
+      <span class="badge">Level 3</span>
+      <h3>Slash commands</h3>
+      <p class="cost">Time: 5 minutes per command</p>
+      <p>Any prompt you've typed twice should become a command. Create a markdown file in <code>.claude/commands/</code> and its filename becomes a slash command:</p>
+      <pre><code>mkdir -p .claude/commands
+cat &gt; .claude/commands/weekly-report.md &lt;&lt; 'EOF'
+Pull this week's numbers from the analytics
+export in /data. Summarize wins, losses, and
+next actions in my voice. Save the report to
+/reports with today's date.
+EOF</code></pre>
+      <p>Now <code>/weekly-report</code> runs that entire workflow on demand. Use <code>$ARGUMENTS</code> inside the file to pass inputs, like <code>/write-post topic goes here</code>. Start with your three most annoying weekly tasks. Your workflows just became buttons.</p>
+    </div>
+
+    <div class="step">
+      <span class="badge">Level 4</span>
+      <h3>MCP, the hands</h3>
+      <p class="cost">Time: 10 minutes per tool</p>
+      <p>Everything so far only touched files on your machine. MCP (Model Context Protocol) plugs Claude Code into your real tools: Stripe, Gmail, your database, your CRM. One command per connection:</p>
+      <pre><code>claude mcp add stripe -- npx -y @stripe/mcp --tools=all
+claude mcp list</code></pre>
+      <p>Now "who hasn't paid this month?" is a question it can actually answer, because it checks Stripe itself and drafts the reminder emails. This is the level where a chatbot becomes an operator. One rule as you climb: start read-only where the tool allows it, and keep approving actions manually until you trust the pattern. It can touch money now. Act like it.</p>
+    </div>
+
+    <div class="step">
+      <span class="badge">Level 5</span>
+      <h3>Subagents</h3>
+      <p class="cost">Time: 1 prompt</p>
+      <p>You've been working one task at a time. Stop. Ask for a team:</p>
+      <pre><code>&gt; use 3 parallel agents: one hunts bugs,
+  one writes missing tests, one updates docs</code></pre>
+      <p>Claude Code spawns subagents that each get their own context window and work simultaneously, then report back. For agents you'll reuse, define them once as markdown files in <code>.claude/agents/</code> with their own instructions and tool permissions, the same way slash commands work. This is the mindset shift of the whole ladder: you stopped doing the work. You started managing the workers.</p>
+    </div>
+
+    <div class="step">
+      <span class="badge">Level 6</span>
+      <h3>Headless mode</h3>
+      <p class="cost">Time: 15 minutes</p>
+      <p>Every level so far had you at the keyboard. The <code>-p</code> flag removes you. It runs one prompt, does the work, prints the result, and exits, which means it can run from a script or a schedule:</p>
+      <pre><code><span class="c"># run it once, no interactive session</span>
+claude -p "triage new support emails, draft replies" \
+  --allowedTools "Read,Write,Bash"
+
+<span class="c"># run it every morning at 7am (crontab -e)</span>
+0 7 * * * cd ~/business &amp;&amp; claude -p "/weekly-report"</code></pre>
+      <p>The <code>--allowedTools</code> flag is what lets it act without stopping to ask permission, so scope it deliberately: grant only the tools that job needs. Pair headless runs with the slash commands from Level 3 and every workflow you've built becomes schedulable.</p>
+    </div>
+
+    <div class="step">
+      <span class="badge">Level 7</span>
+      <h3>The business that runs itself</h3>
+      <p class="cost">Time: a weekend to wire, then it compounds</p>
+      <p>Level 7 isn't a new feature. It's Levels 2 through 6 stacked into a loop. CLAUDE.md holds the business rules. Slash commands define the jobs. MCP gives them hands. Subagents split the work. Cron pulls the trigger:</p>
+      <pre><code>0 7  * * * claude -p "/triage-inbox"
+0 9  * * * claude -p "/draft-content"
+0 17 * * * claude -p "/chase-unpaid-invoices"
+0 20 * * * claude -p "/daily-summary" <span class="c"># emails YOU</span></code></pre>
+      <p>The last line is the one that matters. Every automated system needs a human checkpoint, so end every day with a summary job that reports what ran, what shipped, and what got stuck. You're not out of the loop. You're at the top of it, reading one email instead of doing forty tasks. That's the level.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="checklist">
+      <h2>The climb, recapped</h2>
+      <ol>
+        <li>Install Claude Code, open a project, describe what you want in plain English</li>
+        <li>Run <code>/init</code>, then edit CLAUDE.md with your stack, rules, and voice</li>
+        <li>Turn your top 3 repeat tasks into files in <code>.claude/commands/</code></li>
+        <li>Connect one real tool with <code>claude mcp add</code>, read-only first</li>
+        <li>Ask for parallel subagents on your next multi-part task</li>
+        <li>Take one slash command headless with <code>claude -p</code> on a cron schedule</li>
+        <li>Stack it all into a daily loop with a summary email to you</li>
+      </ol>
+    </div>
+    <p>Do Levels 1 and 2 today. They take ten minutes combined and they change how every session after this one works. The rest of the ladder is waiting whenever you are.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Want the other 5 guides?</h2>
+      <p>This playbook is one of six in the free AI Automation Starter Stack. Grab the full 6-pack and build the whole system.</p>
+      <a href="https://makeitryne.ai/?utm_source=playbook&utm_medium=organic&utm_campaign=carousel-varner-levels-test">Get the full free 6-pack of guides</a>
+    </div>
+    <footer>Make It Ryne · Built with Claude Code, obviously.</footer>
+  </div>
+</section>
+
+</body>
+</html>

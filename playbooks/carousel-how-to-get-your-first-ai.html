@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your First AI Client in 30 Days | Make It Ryne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; line-height: 1.15; }
+
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--emerald); }
+  .hero .promise { font-size: 20px; font-weight: 500; max-width: 560px; }
+
+  section { padding: 48px 0 8px; }
+  .get { border-bottom: 3px solid var(--ink); padding-bottom: 40px; }
+  .get h2 { font-size: 24px; margin-bottom: 20px; }
+  .get ul { list-style: none; }
+  .get li { padding: 10px 0 10px 34px; position: relative; font-weight: 500; }
+  .get li::before {
+    content: "→";
+    position: absolute; left: 0;
+    color: var(--emerald);
+    font-weight: 700;
+  }
+
+  .step { padding: 44px 0 12px; }
+  .step-badge {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+  }
+  .step h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 16px; }
+  .step h2 em { font-style: normal; color: var(--emerald); }
+  .step p { margin-bottom: 16px; }
+  .step strong { font-weight: 700; }
+
+  pre {
+    background: var(--ink);
+    color: #E8E2D6;
+    border-radius: 12px;
+    padding: 20px;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13.5px;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 20px 0 24px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  pre .c { color: #12C283; }
+  pre .d { color: #8A8378; }
+
+  .tip {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18, 133, 92, 0.07);
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    font-weight: 500;
+    margin: 20px 0 24px;
+  }
+  .tip b { color: var(--emerald); }
+
+  .checklist { border-top: 3px solid var(--ink); padding: 48px 0; }
+  .checklist h2 { font-size: 26px; margin-bottom: 24px; }
+  .checklist ol { list-style: none; counter-reset: step; }
+  .checklist li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(26, 22, 19, 0.15);
+    font-weight: 500;
+  }
+  .checklist li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: 'Archivo Black', sans-serif;
+    color: var(--emerald);
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .cta {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+    margin: 24px 0 72px;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 14px; }
+  .cta p { margin-bottom: 26px; opacity: 0.85; }
+  .cta a {
+    display: inline-block;
+    background: var(--emerald);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 10px;
+  }
+  .cta a:hover { filter: brightness(1.1); }
+
+  footer { text-align: center; font-size: 13px; opacity: 0.6; padding-bottom: 48px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>Your First <em>AI Client</em> in 30 Days</h1>
+    <p class="promise">No audience. No portfolio. No cold-call scripts. Six levels, thirty days, one paying client. This is the map.</p>
+  </div>
+</header>
+
+<section class="get">
+  <div class="wrap">
+    <h2>What you'll have by day 30</h2>
+    <ul>
+      <li>One boring niche with a visible, expensive problem</li>
+      <li>One flat-priced offer with one bold promise</li>
+      <li>A working system built before anyone paid you</li>
+      <li>A 2-minute proof video that replaces every credential</li>
+      <li>A researched list of 40 real prospects</li>
+      <li>An outreach loop that runs until someone says yes</li>
+    </ul>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <section class="step">
+    <span class="step-badge">Level 1 · Days 1-3</span>
+    <h2>Pick the <em>Pain</em></h2>
+    <p>Your job for the first three days is not to pick a niche you love. It's to find one boring niche that pays humans to do work a script could do. Boring niches sign fastest because nobody else is pitching them.</p>
+    <p>Open Claude Code and make it do the digging:</p>
+<pre>&gt; claude "which local business niches bleed money on
+  manual, repetitive work? Scan job boards, forums, and
+  reviews. For each: the task, what it costs them, and
+  how visible it is from outside."
+
+<span class="c">✓ dentists: no-shows cost $200 a slot</span>
+<span class="c">✓ realtors: 5 hrs/wk writing listings</span>
+<span class="c">✓ law firms: intake buried in email</span></pre>
+    <p>Then sanity-check the output yourself. Read ten Google reviews of local clinics. Search "front desk" job listings in your city and note what they're paid to do all day. When the same complaint shows up three times, you've found the pain.</p>
+    <p><strong>Pick one you can reach this week.</strong> This playbook runs with dental no-shows as the example. Swap in whatever your research surfaced.</p>
+    <div class="tip"><b>Tip:</b> chase margins, not passion. Rich and boring beats cool and broke.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Level 2 · Days 4-5</span>
+    <h2>One <em>Offer</em></h2>
+    <p>Do not build a services menu. Menus force the buyer to think, and thinking stalls deals. Turn the one pain into a single flat-priced system with one bold promise, and write it down before you build anything.</p>
+<pre>&gt; cat offer.md
+<span class="d"># The Offer</span>
+No-show killer for dental clinics.
+Every booking confirmed and reminded, automatically.
+
+Price:   $1,000 setup + $400/mo
+Promise: cut no-shows in half
+Scope:   one workflow, nothing custom</pre>
+    <p>Three rules make this work. Flat price, so there's no negotiation surface. One promise, stated in their numbers, not your features. Tight scope, so you can actually deliver it in a week without drowning in custom requests.</p>
+    <p>Notice what's missing: the word "AI". The clinic owner doesn't care how it works. They care that empty chairs stop costing them $200 a slot.</p>
+    <div class="tip"><b>Tip:</b> sell the outcome, never "AI". The tech is your implementation detail, not their reason to buy.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Level 3 · Days 6-12</span>
+    <h2>Build It <em>First</em></h2>
+    <p>Here's the move nobody makes: build the entire system for a fake clinic before anyone pays you. Invent "Sunrise Dental", give it a free Calendly account, and build the real thing against it. The working demo IS your portfolio.</p>
+    <p>The no-show killer is four pieces, and Claude Code can scaffold all of them:</p>
+<pre>&gt; claude "build the no-show killer for a demo clinic:
+  1. webhook endpoint that catches new Calendly bookings
+  2. draft + send a confirmation text on each booking
+  3. reminder texts at 24h and 2h before the slot
+  4. if they reply R, send a reschedule link
+  Use Node, Twilio for SMS, and a simple SQLite store."
+
+<span class="c">✓ webhook catches new Calendly booking</span>
+<span class="c">✓ confirmation text drafted and sent</span>
+<span class="c">✓ reminders fire 24h + 2h before</span>
+<span class="c">✓ reply "R" reschedules automatically</span>
+
+&gt; npm run demo
+<span class="c">✓ demo clinic live on localhost:3000</span></pre>
+    <p>Costs to build this: Calendly free tier, a Twilio trial account for test texts, and your evenings. Book fake appointments on your own phone and watch the whole loop fire: booking in, confirmation out, reminders on time, reschedule on reply. Fix what breaks. Run it again until it doesn't.</p>
+    <p>Seven days is plenty because the scope is one workflow. That's why Level 2 mattered.</p>
+    <div class="tip"><b>Tip:</b> ship ugly. A working system with zero styling beats a beautiful deck every single time.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Level 4 · Day 13</span>
+    <h2>Record <em>Proof</em></h2>
+    <p>One day, three assets. This is the entire sales kit, and it replaces the portfolio, the case studies, and the credentials you don't have.</p>
+<pre>&gt; ls proof/
+demo-2min.mp4     <span class="d">the money shot</span>
+before-after.png  <span class="d">the no-show math</span>
+one-pager.pdf     <span class="d">offer + price, one page</span></pre>
+    <p>The video is a 2-minute screen recording, and the script is fixed:</p>
+<pre><span class="d"># 2 MINUTES, NO SLIDES, NO INTRO</span>
+0:00  a booking comes in on the demo clinic
+0:30  confirmation + reminders fire on a real phone
+1:30  "that's a $200 slot that didn't go empty"</pre>
+    <p>Record it with whatever you have: QuickTime, Loom, OBS. Keep your phone in frame when the texts land, because that's the moment it becomes real for the viewer. No feature tour, no code walkthrough. Show their pain getting solved, not your stack.</p>
+    <p>The before-after image is simple arithmetic on their numbers: slots per week, typical no-show rate, dollars per slot, dollars recovered if you cut it in half. The one-pager is your offer.md from Level 2, made presentable.</p>
+    <div class="tip"><b>Tip:</b> show their pain, not your code. Nobody buys a webhook. They buy full chairs.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Level 5 · Days 14-15</span>
+    <h2>Lead <em>List</em></h2>
+    <p>Forty researched prospects beat four thousand scraped emails. You're sending forty personal messages, not a blast, so every row on this list needs three things: the clinic, the owner's name, and a visible gap you can point at.</p>
+<pre>&gt; claude -p "find 40 dental clinics in Phoenix.
+  For each: clinic name, owner or office manager name,
+  email, and one visible gap: no online booking, reviews
+  mentioning missed appointments, or no reminder system."
+
+<span class="c">✓ 40 clinics found</span>
+<span class="c">✓ 31 owner emails verified</span>
+<span class="c">✓ gap noted for each row</span></pre>
+    <p>Verify what Claude gives you. Open each clinic's site, confirm the name, skim the reviews yourself. A wrong name in the first line kills the message. Fifteen minutes per ten leads is the price of every message landing warm.</p>
+    <p>The "visible gap" column is your opener. "Saw your booking page doesn't send reminders" is research. "I help businesses with AI" is spam.</p>
+    <div class="tip"><b>Tip:</b> 40 researched beats 4,000 scraped. Depth is the advantage the mass-blasters can't copy.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Level 6 · Days 16-30</span>
+    <h2>Send Until <em>Signed</em></h2>
+    <p>Two weeks, one loop: five personal emails a day, every day. Each message is three sentences and leans entirely on the proof you built.</p>
+<pre><span class="d"># the whole email</span>
+Hi [name], saw [the gap] at [clinic].
+I built a system that confirms and reminds every
+booking automatically. Here's a 2-min video of it
+working: [link]
+If cutting no-shows in half is worth a look,
+happy to show you on a quick call.</pre>
+    <p>No attachment, no pitch deck, no "just following up on my previous email" on day two. Follow up once, four days later, with one new sentence. Then move on. Forty leads at this pace covers your whole list with room to re-touch.</p>
+    <p>When someone bites, the call is a demo, not a pitch. Share your screen, book a fake appointment, let them watch the texts land. Then say the price from your one-pager and stop talking. The system does the convincing, because you built it before you asked anyone for money.</p>
+    <p>First yes: install the same workflow on their real calendar. That's your setup fee, and days of work you've already done once.</p>
+    <div class="tip"><b>Tip:</b> the demo closes. Your job is just to get it in front of forty people who feel the pain.</div>
+  </section>
+
+</div>
+
+<section class="checklist">
+  <div class="wrap">
+    <h2>The 30-day recap</h2>
+    <ol>
+      <li>Days 1-3: research niches, pick one boring pain you can reach this week</li>
+      <li>Days 4-5: write one flat-priced offer with one bold promise in offer.md</li>
+      <li>Days 6-12: build the full system for a fake clinic, test it end to end</li>
+      <li>Day 13: record the 2-minute proof video, make the before-after math, one-pager</li>
+      <li>Days 14-15: research 40 real prospects with owner names and visible gaps</li>
+      <li>Days 16-30: five personal emails a day, one follow-up each, demo every reply</li>
+      <li>First yes: install on their real calendar, collect setup + monthly</li>
+    </ol>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta">
+    <h2>This is 1 of 6 playbooks</h2>
+    <p>The full free 6-pack covers picking niches, pricing, building, and landing clients with AI. Grab the rest.</p>
+    <a href="https://makeitryne.ai/?utm_source=playbook&amp;utm_medium=organic&amp;utm_campaign=carousel-how-to-get-your-first-ai">Get the full free 6-pack of guides</a>
+  </div>
+</div>
+
+<footer>Make It Ryne · makeitryne.ai</footer>
+
+</body>
+</html>

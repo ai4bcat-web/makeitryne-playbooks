@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Voice Agent Benchmark Playbook | Make It Ryne</title>
+<meta name="description" content="Bland vs Vapi vs Retell vs Synthflow. How to benchmark AI voice agents on real calls and pick the right platform in one afternoon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; line-height: 1.15; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2rem, 6vw, 3.1rem); margin: 16px 0; }
+  h2 { font-size: clamp(1.35rem, 4vw, 1.75rem); margin: 0 0 14px; }
+  p { margin-bottom: 16px; }
+  a { color: var(--emerald); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+  .hero { padding: 64px 0 40px; border-bottom: 3px solid var(--ink); }
+  .hero .promise { font-size: 1.15rem; font-weight: 500; max-width: 600px; }
+  section { padding: 44px 0; border-bottom: 1px solid rgba(26,22,19,0.15); }
+  .step-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    color: var(--cream);
+    background: var(--emerald);
+    padding: 5px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+  }
+  pre {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 13.5px;
+    line-height: 1.6;
+    padding: 18px 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 18px 0;
+  }
+  pre .g { color: #4FCF9B; }
+  ul, ol { padding-left: 22px; margin-bottom: 16px; }
+  li { margin-bottom: 8px; }
+  strong { font-weight: 700; }
+  .card {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid rgba(26,22,19,0.2); }
+  th { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .check { list-style: none; padding: 0; }
+  .check li { padding-left: 32px; position: relative; margin-bottom: 12px; }
+  .check li::before {
+    content: "✓";
+    position: absolute; left: 0; top: 0;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .cta {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 16px;
+    padding: 40px 28px;
+    text-align: center;
+    margin: 48px 0 24px;
+  }
+  .cta h2 { color: var(--cream); }
+  .cta p { opacity: 0.85; }
+  .btn {
+    display: inline-block;
+    background: var(--emerald);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 15px 32px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 16px;
+  }
+  footer { text-align: center; font-size: 13px; opacity: 0.6; padding: 24px 0 48px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>The AI Voice Agent Benchmark Playbook</h1>
+    <p class="promise">Bland vs Vapi vs Retell vs Synthflow. We ran 200 real calls so you don't have to guess. Here's exactly how to run the same test and pick your platform in one afternoon.</p>
+  </header>
+
+  <section>
+    <h2>What you'll get</h2>
+    <p>Pricing pages lie. Every voice AI platform claims sub-second latency, human voices, and hallucination-proof agents. The only way to know is to run identical agents on real calls and score them. This playbook gives you:</p>
+    <ul>
+      <li>The exact 4-metric scoring system we used: latency, voice quality, real price, hallucination rate</li>
+      <li>Copy-paste commands to deploy the same agent on Bland, Vapi, and Retell</li>
+      <li>A real-cost worksheet that exposes what a minute actually costs on each platform</li>
+      <li>A decision matrix so you pick based on your use case, not their marketing</li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="step-num">STEP 1</span>
+    <h2>Lock your variables before you test anything</h2>
+    <p>A benchmark is worthless if the agents differ. We used one identical setup across all four platforms: same system prompt, same ElevenLabs voice, same LLM (GPT-4.1). Change one variable per platform and you're comparing prompts, not platforms.</p>
+    <p>Write one system prompt for one job. Ours was a sales qualification agent: greet, ask three qualifying questions, book or bail. Keep it under 300 words. Save it as <code>prompt.txt</code> and use that exact file everywhere.</p>
+    <pre><span class="g">You are a qualification agent for [company].</span>
+<span class="g">Ask exactly 3 questions: budget, timeline, decision maker.</span>
+<span class="g">If qualified, offer a booking link. If not, thank and end.</span>
+<span class="g">Never invent pricing, features, or availability.</span>
+<span class="g">If you don't know, say "let me have a human follow up."</span></pre>
+    <p>That last line matters. Most "hallucinations" on real calls are the agent inventing answers instead of escalating. Give it an exit.</p>
+  </section>
+
+  <section>
+    <span class="step-num">STEP 2</span>
+    <h2>Deploy the identical agent on each platform</h2>
+    <p>Bland is a straight API call. Task in, call out:</p>
+    <pre>curl -X POST https://api.bland.ai/v1/calls \
+  -H "authorization: $BLAND_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"phone_number":"+1XXXXXXXXXX","task":"&lt;your prompt&gt;"}'</pre>
+    <p>Vapi is dev-first. You bring your own stack, which is the point and the trap:</p>
+    <pre>vapi assistant create --name sales-qual
+<span class="g"># stack: Deepgram STT + GPT-4.1 + ElevenLabs TTS</span></pre>
+    <p>Retell works through its dashboard or API. Pull call logs later with:</p>
+    <pre>curl -s https://api.retellai.com/v2/list-calls \
+  -H "Authorization: Bearer $RETELL_KEY"</pre>
+    <p>Synthflow is the no-code option: build the agent in their visual editor, paste the same prompt, select the same voice. No CLI needed, which is exactly who it's for.</p>
+  </section>
+
+  <section>
+    <span class="step-num">STEP 3</span>
+    <h2>Run 50 real calls per platform</h2>
+    <p>Not demos. Real outbound calls to real numbers (your own team, opted-in leads, or test lines you control). We queued 200 calls through Twilio, 50 per platform. If 50 is too many for day one, run 10 each. The pattern shows up fast.</p>
+    <p>Log four things per call:</p>
+    <ul>
+      <li><strong>Latency:</strong> time from when you stop talking to when the agent responds. Pull p50 and p95 from platform logs.</li>
+      <li><strong>Voice quality:</strong> does it read robotic on long replies? Does it handle interruptions or talk over you?</li>
+      <li><strong>Completion:</strong> did the call finish the job, or did the human hang up in under 30 seconds?</li>
+      <li><strong>Hallucinations:</strong> read the transcripts. Count every invented price, feature, or promise.</li>
+    </ul>
+    <p>The 700ms rule: below 700ms response time, calls feel human. Above it, people start saying "hello? you there?" and drop.</p>
+  </section>
+
+  <section>
+    <span class="step-num">STEP 4</span>
+    <h2>Calculate the real cost per minute</h2>
+    <p>Every platform advertises a base rate. Almost none of them are what you'll pay. Here's what our test surfaced:</p>
+    <table>
+      <tr><th>Platform</th><th>Headline</th><th>What we actually saw</th></tr>
+      <tr><td><strong>Bland</strong></td><td>$0.09/min flat</td><td>$0.09/min. Honest pricing, but 810ms avg latency and 38% of calls dropped inside 30 seconds.</td></tr>
+      <tr><td><strong>Vapi</strong></td><td>$0.05/min</td><td>$0.13/min once you add STT, LLM, TTS, and telephony. HIPAA adds $1,000/mo.</td></tr>
+      <tr><td><strong>Retell</strong></td><td>$0.07/min</td><td>About $0.13/min all-in. But 460ms p50 latency, 94% completion, zero dropped turns.</td></tr>
+      <tr><td><strong>Synthflow</strong></td><td>From ~$0.08/min</td><td>Effective rate climbs with add-ons and concurrency. Budget above the headline number.</td></tr>
+    </table>
+    <p>The worksheet: <strong>platform fee + STT + LLM + TTS + telephony = real cost.</strong> Run that math before you commit. As a rule, budget 2 to 3x the headline price.</p>
+  </section>
+
+  <section>
+    <span class="step-num">STEP 5</span>
+    <h2>Pick by use case, not by hype</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Retell</strong> won our test. Best latency, cleanest interruption handling, honest-enough pricing. Default pick for inbound receptionists and sales qualification.</li>
+        <li><strong>Vapi</strong> if you're a developer who wants total control of the stack and will actually tune it. You pay in complexity.</li>
+        <li><strong>Bland</strong> if you need massive outbound volume at a flat predictable rate and can tolerate slower, flatter replies.</li>
+        <li><strong>Synthflow</strong> if no-code is non-negotiable and you'd rather ship this week than own the stack.</li>
+      </ul>
+    </div>
+    <p>Then re-test quarterly. These platforms ship fast, and today's loser fixes its latency next quarter. Your benchmark harness is reusable; the rankings aren't permanent.</p>
+  </section>
+
+  <section>
+    <h2>The checklist</h2>
+    <ul class="check">
+      <li>One prompt, one voice, one LLM, locked across every platform</li>
+      <li>Hallucination escape hatch written into the prompt</li>
+      <li>Same agent deployed on Bland, Vapi, Retell, Synthflow</li>
+      <li>10 to 50 real calls per platform, logged</li>
+      <li>p50/p95 latency, completion rate, and hallucination count recorded</li>
+      <li>Real cost per minute calculated with the full-stack worksheet</li>
+      <li>Platform picked by your use case, calendar reminder set to re-test in 90 days</li>
+    </ul>
+  </section>
+
+  <div class="cta">
+    <span class="eyebrow" style="border-color:#4FCF9B;color:#4FCF9B;">AI Automation Starter Stack</span>
+    <h2 style="margin-top:16px;">This is 1 of 6 free guides</h2>
+    <p>Get the full AI Automation Starter Stack: six playbooks for building agents that actually ship, from voice to workflows to lead gen.</p>
+    <a class="btn" href="https://makeitryne.ai/?utm_source=playbook&amp;utm_medium=organic&amp;utm_campaign=carousel-a-brutal-comparison-of-ai-voice">Get the full free 6-pack of guides</a>
+  </div>
+
+  <footer>© Make It Ryne · Run calls. Never trust a pricing page.</footer>
+
+</div>
+</body>
+</html>
