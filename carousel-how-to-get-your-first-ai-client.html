@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Land Your First AI Client | Make It Ryne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; line-height: 1.15; }
+
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--emerald); }
+  .hero .promise { font-size: 20px; font-weight: 500; max-width: 560px; }
+
+  section { padding: 48px 0 8px; }
+  .get { border-bottom: 3px solid var(--ink); padding-bottom: 40px; }
+  .get h2 { font-size: 24px; margin-bottom: 20px; }
+  .get ul { list-style: none; }
+  .get li { padding: 10px 0 10px 34px; position: relative; font-weight: 500; }
+  .get li::before {
+    content: "→";
+    position: absolute; left: 0;
+    color: var(--emerald);
+    font-weight: 700;
+  }
+
+  .step { padding: 44px 0 12px; }
+  .step-badge {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+  }
+  .step h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 16px; }
+  .step h2 em { font-style: normal; color: var(--emerald); }
+  .step p { margin-bottom: 16px; }
+  .step strong { font-weight: 700; }
+
+  pre {
+    background: var(--ink);
+    color: #E8E2D6;
+    border-radius: 12px;
+    padding: 20px;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13.5px;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 20px 0 24px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  pre .c { color: #12C283; }
+  pre .d { color: #8A8378; }
+
+  .tip {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18, 133, 92, 0.07);
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    font-weight: 500;
+    margin: 20px 0 24px;
+  }
+  .tip b { color: var(--emerald); }
+
+  .checklist { border-top: 3px solid var(--ink); padding: 48px 0; }
+  .checklist h2 { font-size: 26px; margin-bottom: 24px; }
+  .checklist ol { list-style: none; counter-reset: step; }
+  .checklist li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(26, 22, 19, 0.15);
+    font-weight: 500;
+  }
+  .checklist li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: 'Archivo Black', sans-serif;
+    color: var(--emerald);
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .cta {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+    margin: 24px 0 72px;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 14px; }
+  .cta p { margin-bottom: 26px; opacity: 0.85; }
+  .cta a {
+    display: inline-block;
+    background: var(--emerald);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 10px;
+  }
+  .cta a:hover { filter: brightness(1.1); }
+
+  footer { text-align: center; font-size: 13px; opacity: 0.6; padding-bottom: 48px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>Land Your First <em>AI Client</em></h1>
+    <p class="promise">Six moves, in order: pick a niche that bleeds money, build one proof system, film it working, find the businesses that need it, send DMs they can't ignore, and close. No portfolio. No cold pitch deck. Proof.</p>
+  </div>
+</header>
+
+<section class="get">
+  <div class="wrap">
+    <h2>What you'll build</h2>
+    <ul>
+      <li>A scored shortlist of local niches where one automatable problem burns real money</li>
+      <li>One working demo system (missed-call textback) running on a cheap Twilio number</li>
+      <li>A 90-second proof video that replaces an entire portfolio</li>
+      <li>A lead list trimmed to only the businesses you can prove are bleeding</li>
+      <li>A DM script built on evidence, not compliments</li>
+      <li>A close that installs the system by Friday</li>
+    </ul>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <section class="step">
+    <span class="step-badge">Step 1 · Niche</span>
+    <h2>Pick a Niche That <em>Bleeds Money</em></h2>
+    <p>Skip SaaS and ecom. Every agency on earth is already pitching them. Local service businesses are the opposite: real revenue, obvious problems, almost zero AI competition. The rule is simple. <strong>Rich and boring beats cool and broke.</strong></p>
+    <p>Paste this into Claude and let it do the scoring:</p>
+<pre><span class="d"># Prompt: niche radar</span>
+I'm starting an AI automation business in [YOUR CITY].
+Score these local niches: roofers, med spas, plumbers,
+HVAC, dentists, landscapers, auto detailers.
+
+For each: (1) the single most automatable money leak
+(missed calls, no-shows, slow follow-up), (2) rough
+monthly cost of that leak for a typical shop, (3) average
+job value, (4) do they already pay vendors for software
+or marketing? Rank them and pick one winner for me.
+<span class="c">✓ one niche, one city, one problem. target locked.</span></pre>
+    <p>Sanity-check the winner yourself: read 10 Google reviews in that niche. If customers complain about "nobody answered" or "took days to call back," you found the leak.</p>
+    <div class="tip"><b>Rule:</b> pick a niche that already pays vendors. A roofer paying $2k/mo for lead gen will pay you. A niche that pays for nothing won't start with you.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 2 · Proof</span>
+    <h2>Build One System <em>Before Anyone Pays</em></h2>
+    <p>Proof first. Portfolio never. Build a missed-call textback demo: when a call rings out, the caller gets a text back in seconds, an AI qualifies them, and hot leads get pushed to the owner. It attacks the exact leak you just scored.</p>
+    <p>The stack is n8n plus Twilio, and the demo runs on a Twilio number that costs about a dollar a month. Have Claude scaffold it:</p>
+<pre><span class="d"># Prompt: proof machine</span>
+Build me an n8n workflow for missed-call textback:
+1. Twilio webhook fires when a call to my number
+   goes unanswered
+2. Send an SMS back within 30 seconds that sounds
+   human, not automated
+3. An AI step qualifies the reply for roofing:
+   roof age, active leak, insurance claim
+4. If qualified, SMS the "owner" number (my cell)
+   with the lead summary
+Give me the exact nodes, the Twilio setup steps,
+and the webhook config.
+<span class="c">✓ then call your own demo line and watch it fire</span></pre>
+    <p>Test it until a call to your demo number gets a text back in under 30 seconds, every time. That's the whole build.</p>
+    <div class="tip"><b>Rule:</b> one system. Resist building five. You're not building a product line, you're building evidence.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 3 · Video</span>
+    <h2>Film the <em>90-Second Proof</em></h2>
+    <p>One video beats ten case studies. Open Loom, screen-record your phone and n8n side by side, and follow this script. No slides, no intro, no "hey guys."</p>
+<pre><span class="d"># proof/loom-script.md — 90 seconds, no slides</span>
+0:00  call the demo line on camera, let it ring out
+0:20  the SMS lands on screen in real time
+0:45  reply as a customer, AI qualifies and books
+      the estimate, no human touches it
+1:15  face camera: "want this running on your
+      line by friday?"
+<span class="c">✓ this video IS the portfolio</span></pre>
+    <p>Re-record until it feels effortless. Five takes is normal. The moment that sells is 0:20, when the text arrives while the viewer is still processing that the call just rang out.</p>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 4 · Leads</span>
+    <h2>Find the Businesses That Are <em>Actually Bleeding</em></h2>
+    <p>Don't pitch 100 random roofers. Prove which ones have the problem first. Pull a list of roofers in your city from Google Maps (Claude can help you structure the scrape, or use Apollo to enrich owner names and emails). Then run the filter that matters:</p>
+<pre><span class="d"># The verify pass</span>
+1. Take your list of local roofers
+2. Call each business after hours or at lunch
+3. Log two things per call:
+   - did it ring out to voicemail?
+   - did anyone text or call back within a day?
+4. Keep ONLY the ones that rang out with no
+   follow-up. Delete the rest.
+<span class="c">✓ leads.csv trimmed to the bleeders. focus wins.</span></pre>
+    <p>Call them yourself. It takes an afternoon, and every rang-out call is documented proof of the leak you're about to pitch. The businesses that answered? Delete them. They don't need you yet.</p>
+    <div class="tip"><b>Rule:</b> their missed call is your pitch. You're not selling AI, you're reporting a leak they can verify in their own call log.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 5 · DMs</span>
+    <h2>Send DMs Built on <em>Evidence</em></h2>
+    <p>Now the outreach writes itself, because you're not opening with a compliment or a pitch. You're opening with their own missed call.</p>
+<pre><span class="d"># DM / email / voicemail script</span>
+"Hey [NAME], I called [BUSINESS] Tuesday at 6:12pm.
+It rang out and I never got a text or callback.
+That's probably happening with real customers too.
+
+I build a system that texts missed callers back in
+30 seconds and books the estimate automatically.
+Here's a 90-second video of it catching a live call:
+[LOOM LINK]
+
+Want it running on your line by Friday?"
+<span class="c">✓ specific time, verifiable claim, proof attached</span></pre>
+    <p>Send it everywhere they live: email, Instagram DM, Facebook page, even a voicemail on the number that rang out. Follow up twice, two days apart, then move on. You have a whole list of bleeders. No single reply matters.</p>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 6 · Close</span>
+    <h2>Close With a <em>Friday Install</em></h2>
+    <p>When an owner replies, don't send a proposal. Get them on a 15-minute call, share your screen, and run the demo live: call the line, let it ring, let them watch the text land. Then make one offer with one deadline.</p>
+<pre><span class="d"># The offer</span>
+"I'll install this on your business line and have
+it live by Friday. Flat monthly, cancel anytime,
+first invoice goes out after it catches its first
+missed call."
+<span class="c">✓ one system, one price, one deadline. no menu.</span></pre>
+    <p>Price it as a monthly subscription in the low hundreds. One saved job in most trades covers the month, and you should say exactly that on the call. First client? Trade a small discount for a testimonial and permission to screen-record the results. That recording becomes the proof video for client two.</p>
+    <div class="tip"><b>Rule:</b> you own the Twilio number and the n8n instance. The client pays for access to a running system. That's why they keep paying.</div>
+  </section>
+
+</div>
+
+<section class="checklist">
+  <div class="wrap">
+    <h2>Run It Back</h2>
+    <ol>
+      <li>Score local niches with Claude, pick one that already pays vendors</li>
+      <li>Build one missed-call textback demo in n8n + Twilio</li>
+      <li>Film the 90-second Loom of it catching a live call</li>
+      <li>Test-dial your list, keep only the businesses that rang out</li>
+      <li>DM the bleeders with the exact missed call and the video</li>
+      <li>Demo live, offer a Friday install, invoice monthly</li>
+    </ol>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta">
+    <h2>This Is 1 of 6 Free Guides</h2>
+    <p>The full 6-pack covers niches, automations, pricing, tools, and the systems behind all of it. Grab the rest free.</p>
+    <a href="https://makeitryne.ai/?utm_source=playbook&utm_medium=organic&utm_campaign=carousel-how-to-get-your-first-ai-client">Get the full free 6-pack of guides</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Make It Ryne · Built with AI, shipped by a human</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First AI Client in 30 Days | Make It Ryne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E7;
+    --ink: #1A1613;
+    --emerald: #12855C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: 'Archivo Black', sans-serif; line-height: 1.15; }
+
+  .hero { padding: 72px 0 48px; border-bottom: 3px solid var(--ink); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--emerald); }
+  .hero .promise { font-size: 20px; font-weight: 500; max-width: 560px; }
+
+  section { padding: 48px 0 8px; }
+  .get { border-bottom: 3px solid var(--ink); padding-bottom: 40px; }
+  .get h2 { font-size: 24px; margin-bottom: 20px; }
+  .get ul { list-style: none; }
+  .get li { padding: 10px 0 10px 34px; position: relative; font-weight: 500; }
+  .get li::before {
+    content: "→";
+    position: absolute; left: 0;
+    color: var(--emerald);
+    font-weight: 700;
+  }
+
+  .step { padding: 44px 0 12px; }
+  .step-badge {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+  }
+  .step h2 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 16px; }
+  .step h2 em { font-style: normal; color: var(--emerald); }
+  .step p { margin-bottom: 16px; }
+  .step strong { font-weight: 700; }
+
+  pre {
+    background: var(--ink);
+    color: #E8E2D6;
+    border-radius: 12px;
+    padding: 20px;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13.5px;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 20px 0 24px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  pre .c { color: #12C283; }
+  pre .d { color: #8A8378; }
+
+  .tip {
+    border-left: 4px solid var(--emerald);
+    background: rgba(18, 133, 92, 0.07);
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    font-weight: 500;
+    margin: 20px 0 24px;
+  }
+  .tip b { color: var(--emerald); }
+
+  .checklist { border-top: 3px solid var(--ink); padding: 48px 0; }
+  .checklist h2 { font-size: 26px; margin-bottom: 24px; }
+  .checklist ol { list-style: none; counter-reset: step; }
+  .checklist li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(26, 22, 19, 0.15);
+    font-weight: 500;
+  }
+  .checklist li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: 'Archivo Black', sans-serif;
+    color: var(--emerald);
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .cta {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+    margin: 24px 0 72px;
+  }
+  .cta h2 { font-size: clamp(24px, 5vw, 30px); margin-bottom: 14px; }
+  .cta p { margin-bottom: 26px; opacity: 0.85; }
+  .cta a {
+    display: inline-block;
+    background: var(--emerald);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 10px;
+  }
+  .cta a:hover { filter: brightness(1.1); }
+
+  footer { text-align: center; font-size: 13px; opacity: 0.6; padding-bottom: 48px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">A Make It Ryne Playbook</span>
+    <h1>Zero Portfolio + 30 Days = <em>First AI Client</em></h1>
+    <p class="promise">The exact playbook I'd run starting from nothing. No portfolio, no audience, no case studies. Just proof, focus, and 30 days of doing the boring thing well.</p>
+  </div>
+</header>
+
+<section class="get">
+  <div class="wrap">
+    <h2>What you'll have by day 30</h2>
+    <ul>
+      <li>One boring, profitable niche picked on evidence, not vibes</li>
+      <li>One working automation that fixes one expensive problem</li>
+      <li>A 90-second Loom that replaces an entire portfolio</li>
+      <li>A researched list of 37 businesses that visibly need you</li>
+      <li>An outreach system running 10 personal DMs a day</li>
+    </ul>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <section class="step">
+    <span class="step-badge">Step 1 · Days 1-3</span>
+    <h2>Pick <em>Boring</em></h2>
+    <p>Cool niches are broke. Boring niches pay. Rich, boring businesses bleed money on problems a weekend build can fix, and nobody is pitching them because everyone is chasing SaaS and ecom.</p>
+    <p>Open Claude and score niches by automation pain. You want a niche where the problem is visible from the outside and expensive on the inside.</p>
+<pre>&gt; claude "rank 10 local business niches by automation pain.
+  For each: the most expensive recurring problem, roughly
+  what it costs them, and whether I can see it from outside"
+
+<span class="d">NICHE SCORECARD</span>
+med spas    no-shows eat 20% of revenue   ★★★★★
+roofers     leads die in voicemail        ★★★★☆
+law firms   intake takes 3 days           ★★★☆☆
+<span class="d">skipped: saas + ecom (every agency is already there)</span>
+<span class="c">✓ picked: med spas, one city, one problem</span></pre>
+    <p>Then commit: <strong>one niche, one city, one problem.</strong> Write it as a single sentence. Mine would be: "I fix no-shows for med spas in Austin." If you can't say it in one sentence, you haven't picked yet.</p>
+    <div class="tip"><b>Tip:</b> rich and boring beats cool and broke. Every time.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 2 · Days 4-7</span>
+    <h2>Build <em>One</em> System</h2>
+    <p>You are not building a portfolio. You are building proof. One system that fixes the one expensive problem you just picked. For med spas, that's a no-show recovery agent: when an appointment gets missed, the system chases it automatically.</p>
+    <p>Use Claude Code to scaffold the workflow, n8n to run it, and a free Calendly account as your fake booking system to test against.</p>
+<pre>&gt; claude "build me an n8n workflow: no-show recovery agent.
+  Trigger on a missed-appointment webhook from Calendly.
+  Step 1: SMS within 5 min of the miss.
+  Step 2: email with a rebooking link.
+  Step 3: alert the front desk if no reply in 24h.
+  Output the workflow JSON I can import into n8n."
+
+<span class="c">✓ trigger: missed-appointment webhook</span>
+<span class="c">✓ sms within 5 min → rebooking email → 24h escalation</span>
+
+&gt; npx n8n
+<span class="d">import the JSON, wire your Twilio + email creds, hit test</span>
+<span class="c">✓ test run passed, 3/3 messages fired</span></pre>
+    <p>Three evenings of work. Near-zero cost: n8n self-hosted is free, Calendly is free, Twilio trial credit covers your test texts. The only thing that matters is that it fires for real, end to end, while you watch.</p>
+    <div class="tip"><b>Tip:</b> one system. Resist the urge to build five. Five half-built demos close zero clients.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 3 · Days 8-10</span>
+    <h2>The Loom <em>Proof</em></h2>
+    <p>Now turn the system into an asset. Record a 90-second Loom of your build catching a fake missed appointment in real time. No slides, no intro music, no pitch deck. One video replaces every case study you don't have.</p>
+    <p>Script it tight:</p>
+<pre><span class="d"># 90 SECONDS, NO SLIDES</span>
+0:00  "this is a fake med spa i built"
+0:15  cancel an appointment on screen
+0:40  sms + email fire in real time, show your phone
+1:10  "want this running on yours?"</pre>
+    <p>Face cam on. Energy up. Zero pitch. You are showing, not selling. Re-record it until it feels effortless, because the version where you stumble through it will not get replies, and the version where you sound like you've done this a hundred times will.</p>
+    <div class="tip"><b>Tip:</b> the moment the SMS hits your phone on camera is the whole video. Make sure it's visible.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 4 · Days 11-14</span>
+    <h2>Build the List: 37 <em>Real</em> Leads</h2>
+    <p>Volume outreach is dead. Small list, deep research wins. Pull about 100 local businesses in your niche and city, then keep only the ones with the visible bleeding problem.</p>
+<pre>&gt; claude "pull med spas in austin from google maps,
+  enrich with apollo: owner name, email, instagram,
+  review count. Output leads.csv"
+
+<span class="c">✓ leads.csv: 100 rows with owner, email, ig, reviews</span>
+
+&gt; claude "go through leads.csv. Flag every business with
+  no online booking, or reviews mentioning missed appts
+  and phone tag. Delete the rest."
+
+<span class="c">✓ 37 flagged with the visible leak</span>
+<span class="d">the other 63? deleted. focus wins.</span></pre>
+    <p>For each of the 37, write one line of specifics: what you saw, where you saw it. A review complaining nobody called back is worth more than any cold email template ever written.</p>
+    <div class="tip"><b>Tip:</b> their bad reviews are your pitch. Quote the problem back to them in their customers' words.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 5 · Days 15-22</span>
+    <h2>10 DMs a Day</h2>
+    <p>Now the reps. Ten personal messages a day to your list of 37, on whatever channel the owner actually uses. For med spas that's usually Instagram or email. Every message follows the same shape: their specific problem, your Loom, one low-friction question.</p>
+<pre><span class="d"># THE MESSAGE (60 words max)</span>
+"Hey [name], saw [specific thing: the review, the
+missing booking link, the voicemail-only phone line].
+
+I built a system that texts no-shows within 5 minutes
+and rebooks them automatically. Here's a 90-second
+video of it working: [loom link]
+
+Worth a look for [business name]?"</pre>
+    <p>No pricing in the first message. No "just following up" spam. Follow up twice, three days apart, each time with something new: a second angle on their problem, or a one-line result from your test build. Track every send in a sheet: name, date, channel, reply.</p>
+    <div class="tip"><b>Tip:</b> 10 great messages beat 100 templated ones. If you can swap the name into another message unchanged, it's too generic.</div>
+  </section>
+
+  <section class="step">
+    <span class="step-badge">Step 6 · Days 23-30</span>
+    <h2>Close the First One</h2>
+    <p>With 37 researched leads and real proof, expect a handful of replies. When someone bites, don't pitch a retainer. Offer a paid pilot: "I'll set this up on your calendar this week. Flat setup fee, and if it doesn't catch a single no-show in 30 days, I refund it." Price it low enough that saying yes is easy and high enough that they take it seriously.</p>
+    <p>You already built the system. Deployment is wiring your existing workflow into their booking tool, which is days, not weeks. Deliver fast, over-communicate, and ask for the referral the moment the first recovered appointment lands.</p>
+    <p>Client one is the hard one. Client two comes from client one's Loom.</p>
+  </section>
+
+</div>
+
+<section class="checklist">
+  <div class="wrap">
+    <h2>The 30-Day Checklist</h2>
+    <ol>
+      <li>Score niches by automation pain. Pick one niche, one city, one problem.</li>
+      <li>Build one system that fixes that one problem. Claude Code + n8n + Calendly.</li>
+      <li>Test it end to end until it fires 3/3.</li>
+      <li>Record the 90-second Loom. Face cam on, zero pitch. Re-record until effortless.</li>
+      <li>Pull 100 local leads, enrich them, keep the 37 with the visible leak.</li>
+      <li>Send 10 personal DMs a day: their problem, your Loom, one question.</li>
+      <li>Follow up twice, three days apart, with something new each time.</li>
+      <li>Close the first reply with a low-risk paid pilot, deliver in days, ask for the referral.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta">
+    <h2>Want the other five playbooks?</h2>
+    <p>This is one of six free guides on landing your first customers with AI. Grab the full 6-pack and run the whole system.</p>
+    <a href="https://makeitryne.ai/?utm_source=playbook&utm_medium=organic&utm_campaign=carousel-a-step-by-step-playbook-for">Get the full free 6-pack of guides</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Make It Ryne · makeitryne.ai</div>
+</footer>
+
+</body>
+</html>
