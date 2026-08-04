@@ -34,6 +34,36 @@
   .cta p{margin:0 0 18px;color:#CFC7BC;line-height:1.5}
   .btn{display:inline-block;background:#12855C;color:#fff;text-decoration:none;font-weight:700;
        padding:13px 22px;border-radius:999px}
+
+  /* --- toolbar: search + category chips ------------------------------------ */
+  .toolbar{position:sticky;top:0;z-index:5;margin:0 -20px 26px;padding:16px 20px 14px;
+           background:rgba(245,240,231,.92);backdrop-filter:blur(8px);
+           border-bottom:1px solid rgba(26,22,19,.09)}
+  .search{position:relative;max-width:460px}
+  .search input{width:100%;font:inherit;font-size:16px;padding:13px 42px 13px 44px;color:#1A1613;
+                background:#FFFDF9;border:1px solid rgba(26,22,19,.16);border-radius:999px;outline:none}
+  .search input:focus{border-color:#12855C;box-shadow:0 0 0 3px rgba(18,133,92,.18)}
+  .search input::placeholder{color:#8B837C}
+  .search .icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#8B837C;pointer-events:none;
+                width:18px;height:18px}
+  .search .clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:transparent;
+                 color:#8B837C;font-size:20px;line-height:1;cursor:pointer;padding:8px;border-radius:50%;display:none}
+  .search .clear:hover{color:#1A1613}
+  .search .clear:focus-visible{outline:2px solid #12855C;outline-offset:1px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{font:inherit;font-size:13px;font-weight:700;cursor:pointer;padding:7px 14px;border-radius:999px;
+        color:#4A4340;background:transparent;border:1px solid rgba(26,22,19,.18)}
+  .chip:hover{border-color:rgba(18,133,92,.5);color:#1A1613}
+  .chip:focus-visible{outline:2px solid #12855C;outline-offset:2px}
+  .chip.is-on{background:#12855C;border-color:#12855C;color:#fff}
+  .chip .n{opacity:.65;font-weight:600;margin-left:3px}
+  .chip.is-on .n{opacity:.8}
+  .count{font-size:13.5px;color:#6B635C;margin:0 0 18px}
+  .empty{display:none;padding:44px 4px;color:#4A4340}
+  .empty h3{font-family:"Archivo Black",Inter,sans-serif;font-size:20px;margin:0 0 8px;font-weight:900;color:#1A1613}
+  .empty p{margin:0;line-height:1.55}
+  .card[hidden]{display:none}
+  .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
   @media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 </style>
 </head>
@@ -42,139 +72,231 @@
     <p class="eyebrow">Free playbooks</p>
     <h1>Every build, written up.</h1>
     <p class="sub">Each one expands a post into steps you can run today. No email required to read them.</p>
-    <div class="grid">
-      <a class="card" href="/playbooks/what-are-the-exact-ai-prompts.html">
-        <span class="tag">50 AI Prompts to Launch Your Side Hustle</span>
+
+    <div class="toolbar">
+      <div class="search">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <label class="sr" for="pb-q">Search playbooks</label>
+        <input id="pb-q" type="search" autocomplete="off" placeholder="Search playbooks...">
+        <button class="clear" id="pb-clear" type="button" aria-label="Clear search">&times;</button>
+      </div>
+      <div class="chips" id="pb-chips" role="group" aria-label="Filter by category">
+        <button class="chip is-on" data-cat="*" aria-pressed="true">All <span class="n">21</span></button>
+        <button class="chip" data-cat="Automation" aria-pressed="false">Automation <span class="n">14</span></button>
+        <button class="chip" data-cat="Getting Clients" aria-pressed="false">Getting Clients <span class="n">3</span></button>
+        <button class="chip" data-cat="Content" aria-pressed="false">Content <span class="n">1</span></button>
+        <button class="chip" data-cat="Products" aria-pressed="false">Products <span class="n">1</span></button>
+        <button class="chip" data-cat="Prompts" aria-pressed="false">Prompts <span class="n">1</span></button>
+        <button class="chip" data-cat="Side Hustle" aria-pressed="false">Side Hustle <span class="n">1</span></button>
+      </div>
+    </div>
+
+    <p class="count" id="pb-count" role="status" aria-live="polite">21 playbooks</p>
+
+    <div class="grid" id="pb-grid">
+      <a class="card" href="/playbooks/what-are-the-exact-ai-prompts.html" data-cat="Prompts" data-search="the exact ai prompts that take you from idea to first paying customer what are the exact ai prompts that take you from side hustle idea to first paying customer, in the right order? 50 ai prompts to launch your side hustle prompts prompts">
+        <span class="tag">Prompts</span>
         <h2>The Exact AI Prompts That Take You From Idea to First Paying Customer</h2>
         <p class="blurb">What are the exact AI prompts that take you from side hustle idea to first paying customer, in the right order?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/story-this-9-ai-ad-outlived-a.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/story-this-9-ai-ad-outlived-a.html" data-cat="Automation" data-search="the ad that refused to die how did a $9 ai ad outlast $4,200 of agency creative by 11 days? ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The Ad That Refused to Die</h2>
         <p class="blurb">How did a $9 AI ad outlast $4,200 of agency creative by 11 days?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/replica-top-5-ai-tools-that-turn.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/replica-top-5-ai-tools-that-turn.html" data-cat="Automation" data-search="the ai headshot playbook what are the top 5 ai tools that turn a single selfie into a professional headshot? ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The AI Headshot Playbook</h2>
         <p class="blurb">What are the top 5 AI tools that turn a single selfie into a professional headshot?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/replica-still-using-chatgpt-without-custom-instructions.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/replica-still-using-chatgpt-without-custom-instructions.html" data-cat="Automation" data-search="the chatgpt custom instructions playbook still using chatgpt without custom instructions? ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The ChatGPT Custom Instructions Playbook</h2>
         <p class="blurb">Still using ChatGPT without Custom Instructions?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/replica-pov-you-let-claude-scrape-overnight.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/replica-pov-you-let-claude-scrape-overnight.html" data-cat="Automation" data-search="the night shift lead machine what happens when you let claude code scrape leads all night while you sleep? ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The Night Shift Lead Machine</h2>
         <p class="blurb">What happens when you let Claude Code scrape leads all night while you sleep?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/replica-my-ai-agents-run-businesses-while.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/replica-my-ai-agents-run-businesses-while.html" data-cat="Automation" data-search="the overnight ops manager can you build a chatgpt agent that works your business while you sleep? ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The Overnight Ops Manager</h2>
         <p class="blurb">Can you build a ChatGPT agent that works your business while you sleep?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/replica-how-to-train-chatgpt-to-write.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/replica-how-to-train-chatgpt-to-write.html" data-cat="Automation" data-search="train chatgpt to write exactly like you how do you train chatgpt to write exactly like you? ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>Train ChatGPT to Write Exactly Like You</h2>
         <p class="blurb">How do you train ChatGPT to write exactly like you?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/replica-claude-can-now-erase-your-entire-7p8g.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/replica-claude-can-now-erase-your-entire-7p8g.html" data-cat="Automation" data-search="delete yourself off the internet with claude can claude really erase your personal info off the internet for free? ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>Delete Yourself Off the Internet With Claude</h2>
         <p class="blurb">Can Claude really erase your personal info off the internet for free?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/make-me-a-video-on-how.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/make-me-a-video-on-how.html" data-cat="Automation" data-search="put every terminal window on one dashboard how to keep track of all your terminal windows and projects using multic ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>Put Every Terminal Window on One Dashboard</h2>
         <p class="blurb">How to keep track of all your terminal windows and projects using multic</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/how-do-i-run-a-faceless.html">
-        <span class="tag">Faceless Content System</span>
+      <a class="card" href="/playbooks/how-do-i-run-a-faceless.html" data-cat="Content" data-search="run a faceless shorts channel with ai how do i run a faceless short video channel with ai that earns without showing my face or editing? faceless content system faceless content">
+        <span class="tag">Content</span>
         <h2>Run a Faceless Shorts Channel With AI</h2>
         <p class="blurb">How do I run a faceless short video channel with AI that earns without showing my face or editing?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/how-do-i-launch-a-real.html">
-        <span class="tag">The Weekend Side Hustle</span>
+      <a class="card" href="/playbooks/how-do-i-launch-a-real.html" data-cat="Side Hustle" data-search="the weekend side hustle: launch a real side hustle with ai in 48 hours how do i launch a real side hustle with ai in a single weekend — pick it friday, build it saturday, land a first customer sunday? the weekend side hustle weekend side hustle">
+        <span class="tag">Side Hustle</span>
         <h2>The Weekend Side Hustle: Launch a Real Side Hustle With AI in 48 Hours</h2>
         <p class="blurb">How do I launch a real side hustle with AI in a single weekend — pick it Friday, build it Saturday, land a first customer Sunday?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/how-do-i-build-a-digital.html">
-        <span class="tag">AI Digital Product Builder</span>
+      <a class="card" href="/playbooks/how-do-i-build-a-digital.html" data-cat="Products" data-search="build a sellable digital product with ai in one afternoon how do i build a digital product i can actually sell using ai, in one afternoon? ai digital product builder builder products">
+        <span class="tag">Products</span>
         <h2>Build a Sellable Digital Product With AI in One Afternoon</h2>
         <p class="blurb">How do I build a digital product I can actually sell using AI, in one afternoon?</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-varner-levels-test.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/carousel-varner-levels-test.html" data-cat="Automation" data-search="the 7 levels of claude code the 7 levels of using claude code, from total beginner to a business that runs itself ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The 7 Levels of Claude Code</h2>
         <p class="blurb">The 7 levels of using Claude Code, from total beginner to a business that runs itself</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-the-complete-tool-stack-for-a-japu.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/carousel-the-complete-tool-stack-for-a-japu.html" data-cat="Automation" data-search="the solo ai operator stack the complete tool stack for a solo ai automation operator ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The Solo AI Operator Stack</h2>
         <p class="blurb">The complete tool stack for a solo AI automation operator</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-how-to-run-a-multi-agent.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/carousel-how-to-run-a-multi-agent.html" data-cat="Automation" data-search="the $44 agent stack how to run a multi-agent ai operation on a shoestring — the exact agent stack, hosting costs, and monthly breakdown for a production system handling sales, support, and delivery. ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The $44 Agent Stack</h2>
         <p class="blurb">How to run a multi-agent AI operation on a shoestring — the exact agent stack, hosting costs, and monthly breakdown for a production system handling sales, support, and delivery.</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-how-to-get-your-first-ai-client.html">
-        <span class="tag">First 10 Customers</span>
+      <a class="card" href="/playbooks/carousel-how-to-get-your-first-ai-client.html" data-cat="Getting Clients" data-search="land your first ai client carousel-how-to-get-your-first-ai-client first 10 customers customers getting clients">
+        <span class="tag">Getting Clients</span>
         <h2>Land Your First AI Client</h2>
         <p class="blurb">carousel-how-to-get-your-first-ai-client</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-how-to-get-your-first-ai.html">
-        <span class="tag">First 10 Customers</span>
+      <a class="card" href="/playbooks/carousel-how-to-get-your-first-ai.html" data-cat="Getting Clients" data-search="your first ai client in 30 days your first ai client in 30 days first 10 customers customers getting clients">
+        <span class="tag">Getting Clients</span>
         <h2>Your First AI Client in 30 Days</h2>
         <p class="blurb">Your First AI Client in 30 Days</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-five-proven-sellable-ai-automations-for.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/carousel-five-proven-sellable-ai-automations-for.html" data-cat="Automation" data-search="the ai automation starter stack five proven, sellable ai automations for local businesses — missed-call textback, review requests, lead follow-up, appointment reminders, faq chatbot — with what to charge for each ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The AI Automation Starter Stack</h2>
         <p class="blurb">Five proven, sellable AI automations for local businesses — missed-call textback, review requests, lead follow-up, appointment reminders, FAQ chatbot — with what to charge for each</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-a-step-by-step-playbook-for.html">
-        <span class="tag">First 10 Customers</span>
+      <a class="card" href="/playbooks/carousel-a-step-by-step-playbook-for.html" data-cat="Getting Clients" data-search="first ai client in 30 days carousel-a-step-by-step-playbook-for first 10 customers customers getting clients">
+        <span class="tag">Getting Clients</span>
         <h2>First AI Client in 30 Days</h2>
         <p class="blurb">carousel-a-step-by-step-playbook-for</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-a-brutal-comparison-of-ai-voice.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/carousel-a-brutal-comparison-of-ai-voice.html" data-cat="Automation" data-search="the ai voice agent benchmark playbook a brutal comparison of ai voice/call agents — bland, vapi, retell, synthflow — ranked on latency, voice quality, pricing, and how often they hallucinate on real calls. ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>The AI Voice Agent Benchmark Playbook</h2>
         <p class="blurb">A brutal comparison of AI voice/call agents — Bland, Vapi, Retell, Synthflow — ranked on latency, voice quality, pricing, and how often they hallucinate on real calls.</p>
         <span class="more">Read the playbook &rarr;</span>
       </a>
-      <a class="card" href="/playbooks/carousel-the-complete-tool-stack-for-a.html">
-        <span class="tag">AI Automation Starter Stack</span>
+      <a class="card" href="/playbooks/carousel-the-complete-tool-stack-for-a.html" data-cat="Automation" data-search="build the solo ai operator stack ai automation starter stack stack automation">
+        <span class="tag">Automation</span>
         <h2>Build the Solo AI Operator Stack</h2>
         
         <span class="more">Read the playbook &rarr;</span>
       </a>
     </div>
+
+    <div class="empty" id="pb-empty">
+      <h3>No playbooks match that.</h3>
+      <p>Try a different word, or clear the filters to see all 21.</p>
+    </div>
+
     <section class="cta">
       <h3>Want the full 6-pack of guides?</h3>
       <p>The complete resource library, free.</p>
       <a class="btn" href="https://makeitryne.ai/resources?utm_source=library&utm_medium=organic&utm_campaign=index">Get them at makeitryne.ai</a>
     </section>
   </main>
+
+<script>
+(function(){
+  // Progressive enhancement: every card is already in the HTML, so the page works with no JS
+  // and stays indexable. This only hides and shows what is already there.
+  var q = document.getElementById('pb-q');
+  var clear = document.getElementById('pb-clear');
+  var chips = [].slice.call(document.querySelectorAll('#pb-chips .chip'));
+  var cards = [].slice.call(document.querySelectorAll('#pb-grid .card'));
+  var count = document.getElementById('pb-count');
+  var empty = document.getElementById('pb-empty');
+  if (!q || !cards.length) return;
+
+  var cat = '*';
+
+  function apply(){
+    // All tokens must match, so "client email" narrows instead of widening.
+    var tokens = q.value.toLowerCase().split(/\s+/).filter(Boolean);
+    var shown = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var c = cards[i];
+      var okCat = cat === '*' || c.getAttribute('data-cat') === cat;
+      var hay = c.getAttribute('data-search') || '';
+      var okText = true;
+      for (var t = 0; t < tokens.length; t++) {
+        if (hay.indexOf(tokens[t]) === -1) { okText = false; break; }
+      }
+      var show = okCat && okText;
+      c.hidden = !show;
+      if (show) shown++;
+    }
+    count.textContent = shown === cards.length
+      ? cards.length + ' playbook' + (cards.length === 1 ? '' : 's')
+      : 'Showing ' + shown + ' of ' + cards.length;
+    empty.style.display = shown ? 'none' : 'block';
+    clear.style.display = q.value ? 'block' : 'none';
+  }
+
+  q.addEventListener('input', apply);
+  q.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { q.value = ''; apply(); }
+  });
+  clear.addEventListener('click', function(){ q.value = ''; q.focus(); apply(); });
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      cat = chip.getAttribute('data-cat');
+      chips.forEach(function(c){
+        var on = c === chip;
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      apply();
+    });
+  });
+
+  // "/" focuses search, the convention people already expect from docs sites.
+  document.addEventListener('keydown', function(e){
+    if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); }
+  });
+
+  apply();
+})();
+</script>
 </body>
 </html>
