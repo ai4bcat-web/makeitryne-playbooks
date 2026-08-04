@@ -29,11 +29,20 @@
   .card h2{font-family:"Archivo Black",Inter,sans-serif;font-size:19px;line-height:1.25;margin:2px 0 0;font-weight:900}
   .blurb{font-size:14.5px;line-height:1.5;color:#4A4340;margin:0}
   .more{margin-top:auto;padding-top:6px;font-size:14px;font-weight:700;color:#12855C}
-  .cta{margin-top:56px;padding:28px;border-radius:18px;background:#1A1613;color:#F5F0E7}
-  .cta h3{font-family:"Archivo Black",Inter,sans-serif;font-size:22px;margin:0 0 8px;font-weight:900}
-  .cta p{margin:0 0 18px;color:#CFC7BC;line-height:1.5}
+  .cta{margin-top:56px;padding:36px 32px;border-radius:20px;background:#1A1613;color:#F5F0E7}
+  .cta-eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+               color:#8FD9BC;margin:0 0 10px}
+  .cta h3{font-family:"Archivo Black",Inter,sans-serif;font-size:clamp(21px,3vw,28px);
+          margin:0 0 10px;font-weight:900;line-height:1.15;max-width:22ch}
+  .cta p{margin:0 0 22px;color:#CFC7BC;line-height:1.55;max-width:56ch}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:12px}
   .btn{display:inline-block;background:#12855C;color:#fff;text-decoration:none;font-weight:700;
-       padding:13px 22px;border-radius:999px}
+       padding:13px 22px;border-radius:999px;transition:transform .16s ease,background .16s ease}
+  .btn:hover{background:#0C6344;transform:translateY(-2px)}
+  .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.28);color:#F5F0E7}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+  @media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
 
   /* --- toolbar: search + category chips ------------------------------------ */
   .toolbar{position:sticky;top:0;z-index:5;margin:0 -20px 26px;padding:16px 20px 14px;
@@ -229,9 +238,16 @@
     </div>
 
     <section class="cta">
-      <h3>Want the full 6-pack of guides?</h3>
-      <p>The complete resource library, free.</p>
-      <a class="btn" href="https://makeitryne.ai/resources?utm_source=library&utm_medium=organic&utm_campaign=index">Get them at makeitryne.ai</a>
+      <p class="cta-eyebrow">Done reading?</p>
+      <h3>Or skip ahead and have it built for you.</h3>
+      <p>
+        Every playbook here was written and published by a machine, on its own, the moment a post
+        promised it. That same machine can run your content. You approve, it ships.
+      </p>
+      <div class="cta-actions">
+        <a class="btn" href="/automate?utm_source=library&utm_medium=organic&utm_campaign=library_footer">See how the automation works</a>
+        <a class="btn btn-ghost" href="https://makeitryne.ai/resources?utm_source=library&utm_medium=organic&utm_campaign=index">Get the free 6-pack</a>
+      </div>
     </section>
   </main>
 

@@ -1,0 +1,399 @@
+<!--
+  ===========================================================================
+  MAKE IT RYNE — CONTENT AUTOMATION LANDING PAGE
+  Published to: https://library.makeitryne.ai/automate
+  Source of truth: this file. Edit here, then run a publish (or let the next
+  playbook generation publish it) and it goes live with no Replit republish.
+  ===========================================================================
+
+  READ BEFORE YOU SHIP — three placeholders are deliberately unfilled.
+
+  Everything describing what the machine DOES is real: each capability below
+  maps to something already running in Rainmaker Studio (scripts, clips,
+  carousels, b-roll, captions, thumbnails, Buffer scheduling, per-post lead
+  magnets, newsletter drafts, analytics). Nothing there is aspirational.
+
+  What I did NOT write, because inventing it would be lying to buyers:
+
+    1. PRICING       — search "PLACEHOLDER: PRICING". I do not know your
+                       numbers or your tiers.
+    2. TESTIMONIALS  — search "PLACEHOLDER: PROOF". You have no client quotes
+                       I can verify, and fake ones are the fastest way to lose
+                       someone who checks.
+    3. METRICS       — the reference page leads with "110K+ operators" and
+                       "8.5M views". Your real verified number from the studio
+                       analytics is 45 Instagram posts with a best post at
+                       13,588 views. That is honest and usable, but it is your
+                       call whether to publish it, so it is commented out in
+                       the hero rather than live.
+
+  I also deliberately left OUT the reference's countdown timer and "20 of 60
+  seats claimed" counter. Both are manufactured scarcity. If you run a real
+  cohort with real caps, put the real number in. Otherwise it is a lie that
+  costs trust with exactly the operator-type buyer you want.
+
+  BOOKING LINK: set BOOK_URL below. Defaults to your existing GHL audit call.
+  ===========================================================================
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Automation | Make It Ryne</title>
+<meta name="description" content="One idea in. A week of content out. Same voice, every platform. I build the machine inside your business and you own it.">
+<meta property="og:title" content="Your content should run without you.">
+<meta property="og:description" content="One idea in. A week of content out. Same voice, every platform.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  :root{
+    --cream:#F5F0E7; --ink:#1A1613; --emerald:#12855C; --emerald-dark:#0C6344;
+    --muted:#4A4340; --faint:#6B635C; --card:#FFFDF9; --line:rgba(26,22,19,.10);
+  }
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+       -webkit-font-smoothing:antialiased;line-height:1.55}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:"Archivo Black",Inter,sans-serif;font-weight:900;line-height:1.06;margin:0}
+  h1{font-size:clamp(34px,6vw,60px);letter-spacing:-.015em}
+  h2{font-size:clamp(26px,3.8vw,40px);letter-spacing:-.01em}
+  h3{font-size:19px;line-height:1.25}
+  p{margin:0}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald)}
+  section{padding:76px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+  .lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:60ch}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+       background:var(--emerald);color:#fff;text-decoration:none;font-weight:700;font-size:15px;
+       padding:15px 26px;border-radius:999px;transition:transform .16s ease,background .16s ease,box-shadow .16s ease}
+  .btn:hover{background:var(--emerald-dark);transform:translateY(-2px);
+             box-shadow:0 14px 30px -12px rgba(18,133,92,.55)}
+  .btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .btn--ghost{background:transparent;color:var(--ink);border:1px solid rgba(26,22,19,.22)}
+  .btn--ghost:hover{background:rgba(26,22,19,.04);border-color:var(--emerald);box-shadow:none}
+  .btn--light{background:#fff;color:var(--ink)}
+  .btn--light:hover{background:#F0EBE2}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+  /* hero */
+  .hero{padding:84px 0 72px}
+  .hero h1{margin:14px 0 18px;max-width:16ch}
+  .hero .lead{font-size:clamp(18px,2.2vw,21px)}
+  .note{margin-top:16px;font-size:13.5px;color:var(--faint)}
+
+  /* generic grids */
+  .grid{display:grid;gap:18px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .card h3{margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15px}
+
+  /* problem list */
+  .plist{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px;max-width:62ch}
+  .plist li{position:relative;padding-left:30px;color:var(--muted);font-size:16.5px}
+  .plist li::before{content:"";position:absolute;left:6px;top:11px;width:8px;height:8px;
+                    border-radius:50%;background:var(--emerald);opacity:.55}
+  .kicker{margin-top:26px;font-weight:700;font-size:17px;max-width:56ch}
+
+  /* before / after */
+  .ba{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:34px}
+  .ba .col{border-radius:16px;padding:26px;border:1px solid var(--line)}
+  .ba .before{background:transparent}
+  .ba .after{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .ba h3{font-size:15px;letter-spacing:.1em;text-transform:uppercase;font-family:Inter,sans-serif;font-weight:700}
+  .ba .before h3{color:var(--faint)}
+  .ba .after h3{color:#8FD9BC}
+  .steps{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:11px;counter-reset:s}
+  .steps li{font-size:15.5px;padding-left:30px;position:relative;counter-increment:s}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:20px;height:20px;
+       border-radius:50%;font-size:11px;font-weight:700;display:grid;place-items:center;
+       background:rgba(26,22,19,.08);color:var(--faint)}
+  .ba .before .steps li{color:var(--muted)}
+  .ba .after .steps li{color:#E6DFD4}
+  .ba .after .steps li::before{background:rgba(255,255,255,.14);color:#8FD9BC}
+  .ba .tail{margin-top:20px;font-size:14.5px;font-weight:600}
+  .ba .before .tail{color:var(--faint)}
+  .ba .after .tail{color:#8FD9BC}
+
+  /* capability list */
+  .caps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));margin-top:34px}
+  .cap{display:flex;gap:12px;align-items:flex-start;background:var(--card);
+       border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .cap svg{flex:0 0 auto;margin-top:2px;color:var(--emerald)}
+  .cap b{display:block;font-size:15.5px;margin-bottom:3px}
+  .cap span{font-size:14px;color:var(--muted);line-height:1.5}
+
+  /* fit check */
+  .fit{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:34px}
+  .fit ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:12px}
+  .fit li{position:relative;padding-left:30px;font-size:15.5px;color:var(--muted)}
+  .fit li::before{position:absolute;left:0;top:0;font-weight:700}
+  .yes li::before{content:"✓";color:var(--emerald)}
+  .no li::before{content:"×";color:#B4433A}
+
+  /* faq */
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;
+          padding:18px 22px;margin-top:12px}
+  details[open]{border-color:rgba(18,133,92,.34)}
+  summary{cursor:pointer;font-weight:700;font-size:16.5px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--emerald);font-size:20px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:12px;color:var(--muted);font-size:15.5px}
+
+  /* closing */
+  .close{background:var(--ink);color:var(--cream);border-radius:20px;padding:52px 32px;margin:0 0 76px}
+  .close h2{color:#fff;max-width:20ch}
+  .close p{color:#CFC7BC;margin-top:14px;max-width:54ch}
+  footer{border-top:1px solid var(--line);padding:30px 0 60px;color:var(--faint);font-size:14px}
+  footer a{color:var(--faint)}
+
+  /* the placeholder blocks you must fill before shipping */
+  .todo{border:2px dashed #B4433A;background:rgba(180,67,58,.05);border-radius:14px;
+        padding:22px;margin-top:24px}
+  .todo b{color:#B4433A;display:block;margin-bottom:6px;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .todo p{color:var(--muted);font-size:15px}
+
+  @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ======================= HERO ======================= -->
+<header class="wrap hero">
+  <p class="eyebrow">Content automation</p>
+  <h1>Your content should run without you.</h1>
+  <p class="lead">
+    One idea goes in. A week of content comes out, in your voice, sized for every platform.
+    You approve it. The machine posts it. That is the whole job.
+  </p>
+  <div class="actions">
+    <a class="btn" id="cta-hero" href="#book">Book a call</a>
+    <a class="btn btn--ghost" href="#what">See what it actually does</a>
+  </div>
+
+  <!--
+    PLACEHOLDER: METRICS. Your real verified numbers from the studio analytics are
+    45 Instagram posts and a best post at 13,588 views. Honest and usable, but your
+    call. Uncomment and edit if you want proof above the fold.
+
+  <p class="note">45 posts shipped through this machine. Best one did 13,588 views.</p>
+  -->
+</header>
+
+<!-- ======================= PROBLEM ======================= -->
+<section class="wrap">
+  <p class="eyebrow">The real problem</p>
+  <h2>You are the bottleneck.</h2>
+  <ul class="plist">
+    <li>You film once, then lose three days cutting clips, writing captions, and designing carousels.</li>
+    <li>You post to one platform because repurposing to the rest is a second full-time job.</li>
+    <li>Good ideas die in your notes app because turning one into a finished post takes an afternoon.</li>
+    <li>When work gets busy, content stops. Then leads stop about three weeks later.</li>
+  </ul>
+  <p class="kicker">
+    It is not an effort problem. You have plenty of effort. It is that every single step waits on you.
+  </p>
+</section>
+
+<!-- ======================= BEFORE / AFTER ======================= -->
+<section class="wrap">
+  <p class="eyebrow">What changes</p>
+  <h2>Same input. The work happens without you.</h2>
+  <div class="ba">
+    <div class="col before">
+      <h3>Now</h3>
+      <ol class="steps">
+        <li>Think of an idea</li>
+        <li>Write the script</li>
+        <li>Film it</li>
+        <li>Cut the long-form</li>
+        <li>Find the clip moments</li>
+        <li>Caption every clip</li>
+        <li>Design the carousel</li>
+        <li>Make a thumbnail</li>
+        <li>Write ten captions</li>
+        <li>Schedule each platform</li>
+        <li>Check what worked</li>
+      </ol>
+      <p class="tail">Eleven steps. All of them you.</p>
+    </div>
+    <div class="col after">
+      <h3>With the machine</h3>
+      <ol class="steps">
+        <li>Give it an idea, or let it pull one from what is working in your niche</li>
+        <li>Film the one thing it tells you to film</li>
+        <li>Approve what it drafts</li>
+      </ol>
+      <p class="tail">Three steps. It runs the other eight and reports back.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHAT IT DOES ======================= -->
+<section class="wrap" id="what">
+  <p class="eyebrow">The machine</p>
+  <h2>What it actually does.</h2>
+  <p class="lead" style="margin-top:16px">
+    Every one of these is already running. This is the same system that publishes my own content.
+  </p>
+  <div class="caps">
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg><div><b>Ideas and hooks</b><span>Pulls what is working in your niche and turns it into topics worth filming.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 5h16M4 10h16M4 15h10"/></svg><div><b>Scripts in your voice</b><span>Written against your style guide, not a generic AI template.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16v12H4zM10 9l5 3-5 3z"/></svg><div><b>Clips cut automatically</b><span>Finds the moments inside a long video that stand on their own, and cuts them.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 5h10v14H4zM17 7h3v10h-3z"/></svg><div><b>Branded carousels</b><span>Multi-slide posts built to your brand, ready to publish.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 17l5-6 4 4 3-3 6 5z"/><circle cx="8" cy="7" r="2"/></svg><div><b>B-roll and visuals</b><span>Generated footage and cutaways where the talking head needs a break.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16v12H4z M7 15h10"/></svg><div><b>Captions burned in</b><span>Transcribed and styled, because most of your audience watches on mute.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 5h16v14H4z M4 10h16"/></svg><div><b>Thumbnails</b><span>Generated per video, on brand, without opening a design tool.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12M8 11l4 4 4-4M4 19h16"/></svg><div><b>Scheduling everywhere</b><span>Instagram, YouTube, TikTok and LinkedIn on a queue you approve.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 4h14v16l-7-4-7 4z"/></svg><div><b>A lead magnet per post</b><span>When a post promises a free resource, the guide that delivers it gets written and published automatically.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18v12H3z M3 9l9 5 9-5"/></svg><div><b>Newsletter drafts</b><span>The same content becomes an email, so the list gets fed without extra work.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><div><b>Analytics that tell you what to make</b><span>Not a dashboard you ignore. A short read on what to do more of.</span></div></div>
+    <div class="cap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 12a9 9 0 11-6.2-8.6"/><path d="M22 4l-9 9-3-3"/></svg><div><b>You approve everything</b><span>Nothing publishes without your yes. Automation, not autopilot.</span></div></div>
+  </div>
+</section>
+
+<!-- ======================= OWNERSHIP ======================= -->
+<section class="wrap">
+  <p class="eyebrow">The part that matters later</p>
+  <h2>You own it.</h2>
+  <div class="grid g3" style="margin-top:30px">
+    <div class="card"><h3>Runs on your accounts</h3><p>Your channels, your API keys, your data. Nothing sits on my infrastructure waiting to be taken away.</p></div>
+    <div class="card"><h3>No platform fee to me</h3><p>You are not renting access to a tool I control. You pay for the build, then you run it.</p></div>
+    <div class="card"><h3>It survives me</h3><p>If you and I never speak again, the machine keeps publishing. That is the test of whether you actually own something.</p></div>
+  </div>
+</section>
+
+<!-- ======================= PROOF ======================= -->
+<section class="wrap">
+  <p class="eyebrow">Proof</p>
+  <h2>Watch it work before you buy it.</h2>
+  <p class="lead" style="margin-top:16px">
+    The playbook library on this site is not a portfolio piece. Every guide in it was written and
+    published by the machine, on its own, when a post went live promising it. Nobody touched them.
+  </p>
+  <div class="actions">
+    <a class="btn btn--ghost" href="/">See the library it built</a>
+  </div>
+
+  <div class="todo">
+    <b>PLACEHOLDER: PROOF</b>
+    <p>
+      This is where client results and quotes go. I did not write any, because I have no verified
+      client outcomes to draw from and inventing them is the fastest way to lose a buyer who checks.
+      Add two or three real ones when you have them: who they are, what changed, and a number if you
+      have one. Until then this section still works, because the live library is real proof that
+      anyone can click and verify.
+    </p>
+  </div>
+</section>
+
+<!-- ======================= FIT ======================= -->
+<section class="wrap">
+  <p class="eyebrow">Before you book</p>
+  <h2>This is not for everyone.</h2>
+  <div class="fit">
+    <div class="card">
+      <h3>Build this with me if</h3>
+      <ul class="yes">
+        <li>You already have an offer that makes money.</li>
+        <li>You are posting now, and the bottleneck is production, not knowing what to say.</li>
+        <li>You want to own the system rather than rent an agency forever.</li>
+        <li>You will actually review a queue once a week.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Do not book if</h3>
+      <ul class="no">
+        <li>You have nothing to sell yet. Fix that first, then automate.</li>
+        <li>You want someone to hand you an audience. This ships content, it does not buy followers.</li>
+        <li>You want zero involvement. You still approve, and you still show up on camera.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note" style="margin-top:22px">
+    If that last column is you, the free playbooks are genuinely the better starting point. No pitch attached.
+  </p>
+</section>
+
+<!-- ======================= PRICING ======================= -->
+<section class="wrap" id="pricing">
+  <p class="eyebrow">Investment</p>
+  <h2>What it costs.</h2>
+  <div class="todo">
+    <b>PLACEHOLDER: PRICING</b>
+    <p>
+      I do not know your numbers, so I did not make them up. Decide the shape first: a single
+      done-for-you build, a build plus a managed retainer, or two tiers. Then put the real figure
+      here. One note worth taking from the reference page: it anchors against the cost of doing
+      nothing, which is the hours you currently spend. That framing works because it is true and
+      checkable. Manufactured seat counters and countdown timers are not, and they read as fake to
+      the exact operator you are trying to sell.
+    </p>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="wrap">
+  <p class="eyebrow">Questions</p>
+  <h2>The things people ask.</h2>
+
+  <details><summary>Do I need to be technical?</summary>
+    <p>No. I build it and hand it over running. You review a queue and approve what goes out. If you can use a phone and say yes or no, you can run it.</p></details>
+
+  <details><summary>Will it sound like AI wrote it?</summary>
+    <p>It writes against your style guide, your past posts and your actual phrasing, not a generic template. And you approve everything before it publishes, so anything off never sees daylight.</p></details>
+
+  <details><summary>Do I still have to film?</summary>
+    <p>Yes. The machine handles everything around the camera, not the camera. You are the reason people follow you, so replacing you is the one thing it should not do.</p></details>
+
+  <details><summary>What happens when the tools change?</summary>
+    <p>The system is built in pieces, so a model or platform swap is a replaced part rather than a rebuild. That is a design decision, and it is why it has survived the changes so far.</p></details>
+
+  <details><summary>What if I want to stop working with you?</summary>
+    <p>It keeps running. It lives on your accounts and your keys. That is deliberate, and it is the difference between owning a system and renting one.</p></details>
+
+  <details><summary>How long until it is live?</summary>
+    <p>Book the call and I will give you a real timeline for your setup instead of a number that sounds good on a landing page. It depends on how many platforms you run and what already exists.</p></details>
+</section>
+
+<!-- ======================= CLOSE ======================= -->
+<div class="wrap">
+  <section class="close" id="book" style="border-top:0">
+    <p class="eyebrow" style="color:#8FD9BC">Last thing</p>
+    <h2>Your content either runs on a system, or it runs on you.</h2>
+    <p>
+      Right now it runs on you. That is why it stops the week you get busy, and why the leads dry up
+      a month after that. Let us look at what you are already doing and I will tell you honestly
+      whether this is worth building for you.
+    </p>
+    <div class="actions">
+      <a class="btn btn--light" id="cta-close" href="#">Book a call</a>
+      <a class="btn btn--ghost" href="/" style="color:#F5F0E7;border-color:rgba(255,255,255,.28)">Read the free playbooks first</a>
+    </div>
+  </section>
+</div>
+
+<footer class="wrap">
+  <p>Make It Ryne &middot; <a href="https://makeitryne.ai">makeitryne.ai</a> &middot; <a href="https://jobsdonelabs.ai">Jobs Done Labs</a></p>
+</footer>
+
+<script>
+(function(){
+  // One place to change where every CTA points.
+  var BOOK_URL = 'https://api.leadconnectorhq.com/widget/bookings/jdl-audit-call-ryne';
+  ['cta-hero','cta-close'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.href = BOOK_URL;
+  });
+})();
+</script>
+</body>
+</html>
