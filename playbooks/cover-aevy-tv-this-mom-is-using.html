@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The API Parenting Starter Stack | A Make It Ryne Playbook</title>
+<meta name="description" content="Five AI agents that handle lessons, logistics, groceries, paperwork, and screen time for your household. Zero code. Build the first one tonight.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5F0E7;
+  --ink:#1A1613;
+  --emerald:#12855C;
+  --mint:#3FE39A;
+  --sand:#EFE7D9;
+  --muted:#7C7268;
+  --line:#E2D8C6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  line-height:1.65;
+  font-size:1.02rem;
+}
+.wrap{max-width:720px;margin:0 auto;padding:30px 20px 72px}
+img{max-width:100%;height:auto;border-radius:14px}
+h1,h2{font-family:'Archivo Black','Archivo',sans-serif}
+h1{font-size:clamp(2.2rem,7.5vw,3.4rem);line-height:1.02;letter-spacing:-0.015em;margin:12px 0 16px}
+h2{font-size:clamp(1.35rem,5vw,1.8rem);line-height:1.15;margin:0 0 12px}
+p{margin:0 0 16px}
+a{color:var(--emerald)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:6px}
+.eyebrow{font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--emerald)}
+.lede{font-size:clamp(1.05rem,3.6vw,1.22rem);color:#3A332D;font-weight:500}
+.meta{color:var(--muted);font-size:.85rem;margin-top:16px}
+.hero{padding:26px 0 6px}
+.card{background:var(--sand);border-radius:18px;padding:24px;margin:24px 0}
+ol.build{list-style:none;counter-reset:b;margin-top:8px}
+ol.build li{counter-increment:b;position:relative;padding:14px 0 14px 56px;border-top:1px solid var(--line)}
+ol.build li:first-child{border-top:0}
+ol.build li::before{
+  content:counter(b);
+  position:absolute;left:0;top:14px;
+  width:38px;height:38px;border-radius:12px;
+  background:var(--emerald);color:#fff;
+  font-family:'Archivo Black',sans-serif;font-size:1.05rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.step{margin:46px 0}
+.step .tag{margin-bottom:8px}
+pre{
+  background:var(--ink);color:var(--cream);
+  border-radius:14px;padding:18px;
+  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  font-size:.82rem;line-height:1.55;
+  white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;
+  margin:14px 0;
+}
+pre .c{color:var(--mint)}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background:var(--sand);padding:2px 6px;border-radius:6px}
+pre code{background:none;padding:0}
+ul.tight{margin:0 0 16px 20px}
+ul.tight li{margin-bottom:8px}
+.check{list-style:none;margin:10px 0 0}
+.check li{position:relative;padding:11px 0 11px 46px;border-bottom:1px solid var(--line)}
+.check li:last-child{border-bottom:0}
+.check li::before{content:"";position:absolute;left:2px;top:13px;width:24px;height:24px;border-radius:8px;background:var(--emerald)}
+.check li::after{content:"";position:absolute;left:10px;top:17px;width:8px;height:13px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}
+.cta{background:var(--ink);color:var(--cream);border-radius:22px;padding:32px 24px;margin:50px 0 26px}
+.cta h2{color:var(--cream)}
+.cta .accent{color:var(--mint)}
+.cta p{color:#CFC6B8}
+.btn{
+  display:inline-block;background:var(--mint);color:var(--ink);
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:1rem;
+  text-decoration:none;padding:15px 28px;border-radius:999px;
+  min-height:48px;line-height:1.25;margin-top:6px;
+}
+.byline{display:flex;gap:14px;align-items:center;color:var(--muted);font-size:.9rem;margin-top:18px}
+.byline img{width:52px;height:52px;border-radius:50%;object-fit:cover;box-shadow:0 6px 18px rgba(26,22,19,.18);margin:0}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding-top:18px;border-top:1px solid var(--line)}
+</style>
+<link rel="icon" type="image/png" sizes="32x32" href="/img/logo-mark.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/logo-mark.png">
+<link rel="apple-touch-icon" href="/img/logo-mark.png">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">A Make It Ryne Playbook</div>
+    <h1>The API Parenting Starter Stack</h1>
+    <p class="lede">Five AI agents that handle lessons, logistics, groceries, paperwork, and screen time for your household. Zero code. Build the first one tonight.</p>
+    <p class="meta">From the reel: "This mom is using AI agents to raise her kids." &nbsp;·&nbsp; Level: beginner &nbsp;·&nbsp; First agent live in about an hour</p>
+  </header>
+
+  <section class="card">
+    <h2>What you'll build</h2>
+    <p>A mom of seven went viral for running five AI agents on Mac Minis in her house. A photo of a textbook page becomes tomorrow's full lesson plan. A grocery cart builds itself: $127, untouched by human hands. A custom TV app with no ads and no algorithm, shipped in four days by someone who had never opened a terminal. This playbook is that exact stack, written as steps you can execute today.</p>
+    <ol class="build">
+      <li><strong>Lesson Planner.</strong> Photograph a textbook page, wake up to a full lesson plan and a printable worksheet.</li>
+      <li><strong>Family OS.</strong> Meals, pickups, calendar, and a grocery cart that assembles itself on schedule.</li>
+      <li><strong>Morning Briefing.</strong> One 6am message with everything the day holds.</li>
+      <li><strong>Paperwork Clerk.</strong> School forms get filed, summarized, and their deadlines land on your calendar.</li>
+      <li><strong>Kids TV.</strong> A custom video app with approved channels only. No ads, no algorithm, no rabbit holes.</li>
+    </ol>
+    <p style="margin-top:14px">Plus the foundation: one always-on machine, one house rules file every agent reads, and safety rails on anything that spends money or touches your kids.</p>
+  </section>
+
+  <section class="step">
+    <div class="eyebrow tag">Step 1 · Foundation</div>
+    <h2>The machine and the rules</h2>
+    <p>You need one computer that stays on. A Mac Mini is the classic pick: silent, sips power, hides behind a monitor. Any always-on Mac or PC works. Do not buy five machines. Start with one and split later if you want the symmetry.</p>
+    <p>Install an agent runner, the tool that reads plain English and does the work. Claude Code is the pick:</p>
+    <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+    <p>Make the home base folder:</p>
+    <pre><code>mkdir -p ~/family-stack/{inbox,lessons,calendar,paperwork,tv-app}
+cd ~/family-stack</code></pre>
+    <p>Now write <code>STACK.md</code>, the house rules every agent reads before acting. This one file is your whole household philosophy, machine-readable:</p>
+    <pre><code><span class="c"># STACK.md: House Rules</span>
+Kids: ages 4, 7, 9, 11, 13.
+Allergies: none. Dinners: 30 minutes max.
+Grocery budget: $150/week. Never check out without my approval.
+Approved channels: Mark Rober, SmarterEveryDay, Cosmic Kids
+  Yoga, Art for Kids Hub, PBS Kids.
+Screen time: TV app only, 60 minutes on school nights.
+Never message the kids. Kid-facing output comes to me first.</code></pre>
+    <p>Every agent below inherits this file. Keep it updated and the whole stack behaves.</p>
+  </section>
+
+  <section class="step">
+    <div class="eyebrow tag">Step 2 · Agent One</div>
+    <h2>The Lesson Planner</h2>
+    <p>The workflow: snap a photo of a textbook page, drop it in <code>inbox/</code> (sync that folder to your phone with iCloud or Dropbox so this takes ten seconds), and let the nightly run do the rest. Save this as a standing instruction:</p>
+    <pre><code>Every night at 9pm, check inbox/ for new photos.
+For each textbook page: identify the subject and chapter,
+then write tomorrow's lesson plan to lessons/YYYY-MM-DD.md.
+Include a morning block (45 min), an afternoon block (45 min),
+three discussion questions, and one hands-on activity using
+normal household supplies. Then build a printable worksheet
+as a clean HTML file I can print from the browser.
+Move finished photos to inbox/done/.</code></pre>
+    <p>Then tell the agent: "set this up to run every night at 9pm." It wires the schedule itself. That is the zero-code part: you describe the job, it builds the job.</p>
+  </section>
+
+  <section class="step">
+    <div class="eyebrow tag">Step 3 · Agent Two</div>
+    <h2>Family OS: meals, calendar, groceries</h2>
+    <p>Two standing instructions:</p>
+    <pre><code>Sundays 4pm: read next week's family calendar, write a
+7-day dinner plan that fits the budget in STACK.md, and
+save it to calendar/meal-plan.md.
+
+Mondays 9am: turn the meal plan into a grocery list, add
+every item to my Instacart cart, and stop at the review
+screen. Send me the total. Do not check out.</code></pre>
+    <p>Honest note: the grocery step needs a connection, either the store's app, an integration, or an agent that can drive a browser. Start with the meal plan and the list. Add the auto-cart when you trust it. The mom from the reel let hers order $127 of groceries solo. You can cap yours at the review screen and still get the hour back.</p>
+  </section>
+
+  <section class="step">
+    <div class="eyebrow tag">Step 4 · Agent Three</div>
+    <h2>The Morning Briefing</h2>
+    <pre><code>Every day at 6am, send me one message: today's calendar,
+the weather, a link to today's lesson plan, tonight's
+dinner, and anything due in the next 72 hours. Plain text,
+under 120 words. Deliver it where I actually read: email,
+iMessage, Slack, or Telegram.</code></pre>
+    <p>One message, whole day. This is the agent you will feel first.</p>
+  </section>
+
+  <section class="step">
+    <div class="eyebrow tag">Step 5 · Agent Four</div>
+    <h2>The Paperwork Clerk</h2>
+    <pre><code>When a photo of a school form lands in inbox/paperwork/:
+read it, pull out every date and deadline, add them to the
+family calendar, write a two-line summary to paperwork/,
+and set a reminder 48 hours before anything is due.</code></pre>
+    <p>Permission slips stop living in backpacks. Field trip money stops being a 7am surprise.</p>
+  </section>
+
+  <section class="step">
+    <div class="eyebrow tag">Step 6 · Agent Five</div>
+    <h2>The Kids TV app</h2>
+    <p>The headline build, and it is one prompt:</p>
+    <pre><code>Build a kids TV web app in tv-app/. Hard requirements:
+only videos from the approved channels in STACK.md, no
+recommendations, no autoplay chains, no comments, no
+shorts, no sidebar. Big tap targets, works in a TV
+browser. Use the YouTube Data API with a channel
+whitelist. Run it on a local server and give me the URL.</code></pre>
+    <p>Then parent-test it and iterate in English:</p>
+    <ul class="tight">
+      <li>"The tiles are too small. Double them."</li>
+      <li>"Add a 60-minute timer that locks the app on school nights."</li>
+      <li>"Add a parent PIN for changing the channel list."</li>
+    </ul>
+    <p>It needs a free YouTube API key, and the agent will walk you through getting one. No API key? Point it at a folder of downloaded, pre-approved videos instead. Same result, fully offline. Four days from prompt to TV is realistic. The reel was not exaggerating.</p>
+  </section>
+
+  <section class="step">
+    <div class="eyebrow tag">Non-negotiable</div>
+    <h2>Safety rails</h2>
+    <ul class="tight">
+      <li><strong>Money:</strong> budget cap in STACK.md plus a hard rule that agents stop at the review screen. Approval is one tap. Skipping it is how you get $127 of surprises.</li>
+      <li><strong>Kids:</strong> agents never message kids directly. All kid-facing output goes to a parent first. That rule lives in STACK.md, so every agent inherits it.</li>
+      <li><strong>Access:</strong> start every agent read-only on calendars and email. Grant write access one capability at a time, after a week of good behavior.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Stack checklist</h2>
+    <ul class="check">
+      <li>One always-on machine running, agent runner installed</li>
+      <li><code>family-stack</code> folder created, <code>STACK.md</code> house rules written</li>
+      <li>Lesson Planner on a nightly schedule</li>
+      <li>Meal plan Sundays, grocery cart Mondays, approval gate on</li>
+      <li>Morning briefing hitting your phone at 6am</li>
+      <li>Paperwork inbox filing forms and deadlines</li>
+      <li>TV app live with whitelisted channels and a timer</li>
+      <li>Budget caps and approval gates on for anything that spends</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <div class="eyebrow" style="color:var(--mint)">Keep building</div>
+    <h2>This is one playbook. <span class="accent">The stack goes deeper.</span></h2>
+    <p>50+ free playbooks on AI agents, automation, and running a one-person empire. No pitch, no pricing pages. Just the goods.</p>
+    <a class="btn" href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=cover-aevy-tv-this-mom-is-using">Get all 50+ free playbooks</a>
+    <div class="byline">
+      <img src="/img/ryne-portrait.jpg" alt="Portrait of Ryne Bandolik" loading="lazy">
+      <span>Written by Ryne. Dad of the resistance, builder of stacks, API parent in training.</span>
+    </div>
+  </section>
+
+  <footer>A Make It Ryne playbook · makeitryne.ai</footer>
+
+</div>
+</body>
+</html>
