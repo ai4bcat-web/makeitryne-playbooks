@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Same Prompt, Two AI Tools: Run the Test Yourself | Make It Ryne Playbook</title>
+<meta name="description" content="The exact prompt, the 5-point scorecard, and the 30-minute method behind the Claude vs Copilot calculator test. Run your own AI shootout today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5F0E7;
+    --ink:#1A1613;
+    --emerald:#12855C;
+    --mint:#3FE39A;
+    --sand:#EFE7D9;
+    --muted:#7C7268;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;height:auto}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{
+    font-family:'Archivo Black','Archivo',sans-serif;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+  }
+  h1{font-size:clamp(2rem,6.4vw,3.15rem);margin:14px 0 18px}
+  h2{font-size:clamp(1.35rem,4vw,1.75rem)}
+  h3{font-size:1.05rem;font-family:'Archivo',sans-serif;font-weight:700}
+  p{margin-bottom:16px}
+  .eyebrow{
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--emerald);
+    margin-bottom:6px;
+  }
+  .hero{padding:64px 0 36px}
+  .promise{
+    font-size:clamp(1.05rem,2.6vw,1.25rem);
+    line-height:1.5;
+    color:#3a332d;
+    max-width:36em;
+  }
+  .byline{
+    display:flex;align-items:center;gap:12px;
+    margin-top:26px;
+  }
+  .byline img{
+    width:52px;height:52px;border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 4px 14px rgba(26,22,19,0.18);
+  }
+  .byline span{font-size:0.92rem;color:var(--muted)}
+  .byline strong{color:var(--ink)}
+  .card{
+    background:var(--sand);
+    border-radius:20px;
+    padding:28px 26px;
+    margin:28px 0;
+  }
+  .card h2{margin-bottom:14px}
+  .ticks{list-style:none;margin:0 0 16px}
+  .ticks li{
+    position:relative;
+    padding-left:30px;
+    margin-bottom:12px;
+  }
+  .ticks li::before{
+    content:"";
+    position:absolute;left:0;top:4px;
+    width:18px;height:18px;
+    border-radius:6px;
+    background:var(--emerald);
+  }
+  .ticks li::after{
+    content:"";
+    position:absolute;left:5px;top:9px;
+    width:7px;height:4px;
+    border-left:2.5px solid var(--cream);
+    border-bottom:2.5px solid var(--cream);
+    transform:rotate(-45deg);
+  }
+  .step{margin:44px 0}
+  .step-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px}
+  .num{
+    flex:0 0 auto;
+    font-family:'Archivo Black',sans-serif;
+    font-size:1.15rem;
+    color:var(--cream);
+    background:var(--emerald);
+    width:44px;height:44px;
+    border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:2px;
+  }
+  ol.rules{margin:0 0 16px 22px}
+  ol.rules li{margin-bottom:10px}
+  .prompt-block{
+    background:var(--ink);
+    color:var(--cream);
+    border-radius:14px;
+    padding:20px 22px;
+    margin:18px 0;
+    font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    font-size:0.88rem;
+    line-height:1.6;
+    white-space:pre-wrap;
+    word-break:break-word;
+    overflow-x:auto;
+  }
+  .prompt-block .label{
+    display:block;
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--mint);
+    margin-bottom:10px;
+  }
+  .prompt-block .q{color:var(--mint)}
+  .score{
+    background:var(--sand);
+    border-radius:16px;
+    padding:22px;
+    margin:18px 0;
+  }
+  .score-item{
+    display:flex;gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(26,22,19,0.09);
+  }
+  .score-item:last-child{border-bottom:none}
+  .score-item .n{
+    flex:0 0 auto;
+    font-family:'Archivo Black',sans-serif;
+    color:var(--emerald);
+    font-size:1.05rem;
+    width:26px;
+  }
+  .score-item h3{margin-bottom:4px}
+  .score-item p{margin-bottom:0;font-size:0.95rem}
+  .checks{list-style:none;margin:6px 0 0}
+  .checks li{
+    position:relative;
+    padding:11px 0 11px 38px;
+    border-bottom:1px solid rgba(26,22,19,0.08);
+    font-weight:500;
+  }
+  .checks li:last-child{border-bottom:none}
+  .checks li::before{
+    content:"";
+    position:absolute;left:0;top:10px;
+    width:24px;height:24px;
+    border-radius:8px;
+    background:var(--cream);
+    border:2px solid var(--emerald);
+  }
+  .checks li::after{
+    content:"";
+    position:absolute;left:7px;top:17px;
+    width:9px;height:5px;
+    border-left:3px solid var(--emerald);
+    border-bottom:3px solid var(--emerald);
+    transform:rotate(-45deg);
+  }
+  .note{
+    border-left:4px solid var(--emerald);
+    background:var(--sand);
+    border-radius:0 14px 14px 0;
+    padding:16px 20px;
+    margin:18px 0;
+    font-size:0.95rem;
+  }
+  .note p{margin-bottom:0}
+  .cta{
+    background:var(--ink);
+    color:var(--cream);
+    border-radius:22px;
+    padding:40px 30px;
+    margin:48px 0 28px;
+    text-align:center;
+  }
+  .cta .eyebrow{color:var(--mint)}
+  .cta h2{color:var(--cream);margin-bottom:14px}
+  .cta p{color:#cfc6ba;max-width:34em;margin:0 auto 22px}
+  .btn{
+    display:inline-block;
+    background:var(--mint);
+    color:var(--ink);
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    font-size:1.02rem;
+    text-decoration:none;
+    padding:16px 32px;
+    min-height:52px;
+    border-radius:14px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(63,227,154,0.25)}
+  .cta .small{margin:18px 0 0;font-size:0.85rem;color:var(--muted)}
+  footer{padding:0 0 56px;text-align:center}
+  footer p{font-size:0.85rem;color:var(--muted);margin-bottom:6px}
+  @media (max-width:480px){
+    .card,.score{padding:22px 18px}
+    .cta{padding:34px 20px}
+    .hero{padding:48px 0 28px}
+  }
+</style>
+<link rel="icon" type="image/png" sizes="32x32" href="/img/logo-mark.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/logo-mark.png">
+<link rel="apple-touch-icon" href="/img/logo-mark.png">
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">A Make It Ryne Playbook</p>
+    <h1>Same Prompt. Two AI Tools. Run the Test Yourself.</h1>
+    <p class="promise">The exact prompt, the 5-point scorecard, and the 30-minute method behind my Claude vs Copilot calculator test. Run it tonight and score any two AI tools with your own data.</p>
+    <div class="byline">
+      <img src="/img/ryne-portrait.jpg" alt="Portrait of Ryne Bandolik" loading="lazy">
+      <span>By <strong>Ryne Bandolik</strong> · Make It Ryne</span>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2>What you will get</h2>
+    <ul class="ticks">
+      <li>The exact one-shot prompt I gave both tools, word for word</li>
+      <li>The 5-category scorecard that turned a vibe into a verdict</li>
+      <li>Three bonus prompts that extend the test past a calculator</li>
+      <li>A repeatable method for judging any AI tool before you rely on it</li>
+    </ul>
+    <p style="margin-bottom:0">In the video, I gave Claude and Microsoft Copilot the same build task. Claude returned a complete, working app in one file. Copilot returned a JavaScript fragment with no HTML, no styles, and an <code>eval()</code> doing the math. My run ended 5 to 2. This playbook shows you how to produce your own score instead of trusting mine.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="num">1</span><h2>Lock the rules before you touch a tool</h2></div>
+    <p>A fair shootout lives or dies on the rules. Set these first and do not bend them mid-test:</p>
+    <ol class="rules">
+      <li><strong>Same prompt, word for word</strong>, pasted into both tools. Not paraphrased. Pasted.</li>
+      <li><strong>Fresh session in each.</strong> No chat history carrying context into the answer.</li>
+      <li><strong>Use whatever tier you actually have.</strong> Free tier vs paid tier is fine, just write it down so the score means something later.</li>
+      <li><strong>First output is the output.</strong> No retries, no "fix this" follow-ups. You are testing one-shot ability, not your patience.</li>
+      <li><strong>Run both rounds the same day.</strong> Models change constantly. A test spread across a week compares two different products.</li>
+    </ol>
+    <div class="note"><p>Why so strict? Every "just one quick fix" you allow moves the test from <em>what does the tool ship</em> to <em>how well do I babysit it</em>. You are shopping for the first one.</p></div>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="num">2</span><h2>Paste the exact prompt</h2></div>
+    <p>Here it is, the whole thing, identical on both sides:</p>
+    <div class="prompt-block"><span class="label">The Prompt</span><span class="q">Build me a calculator app with a clean UI, keyboard support, and error handling.</span></div>
+    <p>No tech stack. No file structure. No hints. That is deliberate. The point of a one-shot test is to see what the tool considers "done" when you give it nothing to hide behind.</p>
+    <p>A calculator is the perfect probe because the spec is tiny but the failure modes are huge: layout, keyboard events, divide by zero, decimal input, display state. A lazy answer gets exposed in under a minute.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="num">3</span><h2>Run it and capture the raw output</h2></div>
+    <p>Copy each response into a file exactly as given. If a tool hands you one HTML file, save it as <code>calculator.html</code>. If it hands you only JavaScript, save only JavaScript. Do not help a tool by wrapping its code in structure it never wrote. That is the test working.</p>
+    <p>Then open the file in your browser and open the console before you touch anything: Cmd+Option+J on Mac, Ctrl+Shift+J on Windows.</p>
+    <p>Count the errors that appear before you click a single button. That number goes straight onto your scorecard. In my run, Claude's file opened clean and every button worked. Copilot's fragment threw two errors before the page loaded and the display read <code>NaN</code>. Your run is your data. Record what you actually see, not what you expected.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="num">4</span><h2>Score it on five categories</h2></div>
+    <p>Each category is worth one point, pass or fail. No half points. Half points are how you talk yourself into a tie.</p>
+    <div class="score">
+      <div class="score-item">
+        <span class="n">1</span>
+        <div>
+          <h3>Complete deliverable</h3>
+          <p>Did you get everything the prompt implied? For a web app that means markup, styles, and logic. One of three is a fail.</p>
+        </div>
+      </div>
+      <div class="score-item">
+        <span class="n">2</span>
+        <div>
+          <h3>Runs on first try</h3>
+          <p>Zero console errors on load, and the core function works with no edits from you.</p>
+        </div>
+      </div>
+      <div class="score-item">
+        <span class="n">3</span>
+        <div>
+          <h3>Spec compliance</h3>
+          <p>Keyboard support actually works: type 8, *, 7, Enter and get 56. Error handling actually handles something: 8 ÷ 0 shows a message, not <code>NaN</code> or a frozen display.</p>
+        </div>
+      </div>
+      <div class="score-item">
+        <span class="n">4</span>
+        <div>
+          <h3>Code quality</h3>
+          <p>Readable structure, no dangerous shortcuts. If <code>eval()</code> is doing the math, that is an automatic fail. <code>eval()</code> executes whatever string it is handed, and no serious tool should reach for it in 2026.</p>
+        </div>
+      </div>
+      <div class="score-item">
+        <span class="n">5</span>
+        <div>
+          <h3>Polish</h3>
+          <p>Clean layout, visible button states, and it survives a narrow screen. Open your browser's device toolbar and check it at 390 pixels wide.</p>
+        </div>
+      </div>
+    </div>
+    <p>My scorecard: Claude 5 out of 5, Copilot 2 out of 5. The gap was not raw intelligence. It was the definition of done.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="num">5</span><h2>Extend it with three bonus rounds</h2></div>
+    <p>One round is a demo. Three rounds is a pattern. Run both tools through these, same rules, same scorecard:</p>
+    <div class="prompt-block"><span class="label">Bonus Round 1 · Layout and Copy</span><span class="q">Build me a one-page landing site for a dog walking business with a headline, three benefit sections, a pricing table, and a contact form layout.</span></div>
+    <div class="prompt-block"><span class="label">Bonus Round 2 · Logic and Edge Cases</span><span class="q">Write a Python script that reads a CSV of monthly sales, prints total revenue by month, and flags any month that dropped more than 20 percent from the one before.</span></div>
+    <div class="prompt-block"><span class="label">Bonus Round 3 · State and Persistence</span><span class="q">Build me a to-do app with add, complete, and delete, saved to local storage so my list survives a refresh.</span></div>
+    <p>Each round targets a different skill: visual composition, real logic with messy input, and state that persists. A tool that wins all three is not lucky. For round two, make a small CSV by hand with one obvious bad month and see if the script catches it.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="num">6</span><h2>Know what the test tells you, and what it does not</h2></div>
+    <p>This measures one-shot generation from a blank chat box. That is one skill, not the whole job. GitHub Copilot's core product is in-editor autocomplete, a different workflow than chat generation, and consumer Copilot is a general assistant. If your daily work is prompting a model into building small apps, this test is the right one. If you write code in an editor all day, add a second test: same feature built inside your editor, timed, with the inline assistant on.</p>
+    <p>Honest tests beat hot takes. Run your own, score it yourself, and trust your scoreboard over anyone's video, including mine.</p>
+  </section>
+
+  <section class="card">
+    <h2>The checklist</h2>
+    <ul class="checks">
+      <li>Fresh sessions opened in both tools</li>
+      <li>Identical prompt pasted word for word</li>
+      <li>Raw output saved untouched, no helpful edits</li>
+      <li>Console checked before the first click</li>
+      <li>Keyboard input tested with real keys</li>
+      <li>Divide by zero tested: 8 ÷ 0</li>
+      <li>Layout checked at 390px wide</li>
+      <li>Scorecard filled in, no half points</li>
+      <li>Bonus rounds 1 to 3 run under the same rules</li>
+      <li>Result written down so you can retest in a month</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <p class="eyebrow">Keep Building</p>
+    <h2>This was one playbook. There are 50+ more.</h2>
+    <p>Every Make It Ryne playbook is free, built from a real test, and made to be used the same day you read it.</p>
+    <a class="btn" href="https://makeitryne.ai/resources?utm_source=playbook&utm_medium=organic&utm_campaign=build-me-a-test-claude-vs">Get all 50+ free playbooks</a>
+    <p class="small">makeitryne.ai/resources</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Make It Ryne. Free playbooks, no fluff, no email gate on this page.</p>
+  </footer>
+
+</main>
+</body>
+</html>
