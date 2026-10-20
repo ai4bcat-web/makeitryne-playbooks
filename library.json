@@ -1,5 +1,14 @@
 [
  {
+  "slug": "calls-dm-script",
+  "title": "The DM script that books the call",
+  "blurb": "The exact DM sequence and follow-up timing that turns a comment into a booked call.",
+  "keyword": "CALLS",
+  "magnet": "DM script + follow-up timing",
+  "url": "/playbooks/calls-dm-script.html",
+  "createdAt": "2026-10-20T13:27:51.125144+00:00"
+ },
+ {
   "slug": "build-me-a-test-claude-vs",
   "title": "Same Prompt, Two AI Tools: Run the Test Yourself",
   "blurb": "Build me a test Claude vs Microsoft Copilot",
