@@ -1,5 +1,14 @@
 [
  {
+  "slug": "tracker-cost-per-booked-call",
+  "title": "The cost-per-booked-call tracker",
+  "blurb": "Three numbers a week that tell you what your ads really cost.",
+  "keyword": "TRACKER",
+  "magnet": "cost-per-booked-call tracker sheet",
+  "url": "/playbooks/tracker-cost-per-booked-call.html",
+  "createdAt": "2026-10-20T13:27:53.513237+00:00"
+ },
+ {
   "slug": "calls-dm-script",
   "title": "The DM script that books the call",
   "blurb": "The exact DM sequence and follow-up timing that turns a comment into a booked call.",
